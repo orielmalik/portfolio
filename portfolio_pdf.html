@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Oriel Malik">
+    <meta name="description"
+        content="Professional Technical Portfolio / Resume of Oriel Malik - R&D Development & QA Automation">
+    <title>Oriel Malik | Professional Portfolio</title>
+    <style>
+        /* Base Settings & Variables */
+        :root {
+            --bg-deep-navy: #0f172a;
+            --bg-card-navy: #1e293b;
+            --text-slate: #94a3b8;
+            --text-white: #f8fafc;
+            --accent-electric-blue: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --border-slate: #334155;
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-deep-navy);
+            color: var(--text-slate);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            width: 100%;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Landscape PDF Optimization */
+        @media print {
+            @page {
+                size: landscape;
+                margin: 0;
+            }
+
+            body {
+                background-color: var(--bg-deep-navy) !important;
+                -webkit-print-color-adjust: exact;
+                margin: 0;
+                padding: 0;
+            }
+
+            .page-container {
+                width: 100vw;
+                height: 100vh;
+                page-break-after: always;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+            }
+
+            #print-instructions {
+                display: none !important;
+            }
+        }
+
+        /* Instructions Overlay (Screen Only) */
+        #print-instructions {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .instruction-card {
+            background: var(--bg-card-navy);
+            border: 2px solid var(--accent-electric-blue);
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .instruction-card h3 {
+            color: var(--text-white);
+            margin-bottom: 1rem;
+        }
+
+        .instruction-card ol {
+            text-align: left;
+            margin: 1.5rem 0;
+            color: var(--text-slate);
+            padding-left: 1.5rem;
+        }
+
+        .instruction-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .instruction-card button {
+            background: var(--accent-electric-blue);
+            color: var(--bg-deep-navy);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-weight: bold;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        /* Layout Structure */
+        .page-container {
+            padding: 2rem 3rem;
+            background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 60%);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Header Section */
+        header {
+            border-bottom: 2px solid var(--border-slate);
+            padding-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .brand-name {
+            font-size: 2.5rem;
+            color: var(--text-white);
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .brand-subtitle {
+            font-size: 1.1rem;
+            color: var(--accent-electric-blue);
+            font-weight: 500;
+        }
+
+        .contact-info {
+            text-align: right;
+            font-size: 0.9rem;
+            color: var(--text-slate);
+            line-height: 1.4;
+        }
+
+        /* Main Content Grid */
+        .main-content {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 2rem;
+            flex: 1;
+            overflow: hidden;
+            /* Prevent spillover */
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .sidebar-card {
+            background-color: var(--bg-card-navy);
+            border: 1px solid var(--border-slate);
+            border-radius: 8px;
+            padding: 1.25rem;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            color: var(--text-white);
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-electric-blue);
+            padding-left: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Skills Styles */
+        .skill-group {
+            margin-bottom: 1rem;
+        }
+
+        .skill-category {
+            font-size: 0.8rem;
+            color: var(--accent-electric-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .tag {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--text-white);
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            white-space: nowrap;
+        }
+
+        /* Education Styles */
+        .education-item {
+            font-size: 0.9rem;
+        }
+
+        .edu-degree {
+            color: var(--text-white);
+            font-weight: 600;
+        }
+
+        .edu-school {
+            color: var(--accent-electric-blue);
+            margin-bottom: 0.2rem;
+        }
+
+        .edu-date {
+            font-size: 0.8rem;
+            color: var(--text-slate);
+            margin-bottom: 0.4rem;
+            font-style: italic;
+        }
+
+        .edu-detail {
+            font-size: 0.85rem;
+            color: var(--text-slate);
+        }
+
+        /* Main Column Styles */
+        .content-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .section-title-main {
+            font-size: 1.25rem;
+            color: var(--text-white);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-slate);
+            font-weight: 600;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .project-card {
+            background-color: var(--bg-card-navy);
+            border: 1px solid var(--border-slate);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-electric-blue), transparent);
+        }
+
+        .card-header {
+            padding: 1.25rem 1.25rem 0.75rem 1.25rem;
+            flex-grow: 1;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            color: var(--text-white);
+            margin-bottom: 0.4rem;
+            font-weight: 700;
+        }
+
+        .project-category {
+            font-size: 0.7rem;
+            color: var(--accent-electric-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+        }
+
+        .project-desc {
+            font-size: 0.85rem;
+            color: var(--text-slate);
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-features {
+            list-style: none;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-features li {
+            position: relative;
+            padding-left: 1rem;
+            margin-bottom: 0.25rem;
+            font-size: 0.8rem;
+            color: #cbd5e1;
+        }
+
+        .project-features li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-electric-blue);
+        }
+
+        .card-footer {
+            padding: 0.75rem 1.25rem;
+            background-color: rgba(15, 23, 42, 0.5);
+            border-top: 1px solid var(--border-slate);
+            font-size: 0.75rem;
+            color: #64748b;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .highlight-bold {
+            color: var(--text-white);
+            font-weight: 600;
+        }
+
+        /* Experience Section (ATS Critical) */
+        .experience-card {
+            background-color: var(--bg-card-navy);
+            border: 1px solid var(--border-slate);
+            border-radius: 8px;
+            padding: 1.25rem;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .exp-role {
+            font-size: 1.1rem;
+            color: var(--text-white);
+            font-weight: 600;
+        }
+
+        .exp-company {
+            color: var(--accent-electric-blue);
+            font-size: 0.95rem;
+        }
+
+        .exp-date {
+            font-size: 0.9rem;
+            color: var(--text-slate);
+            background: rgba(148, 163, 184, 0.1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        .exp-list {
+            list-style: none;
+            padding-left: 0;
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        .exp-list li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .exp-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-electric-blue);
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Instructions for the User -->
+    <div id="print-instructions">
+        <div class="instruction-card">
+            <h3>⚠️ UNIVERSAL COMPATIBILITY GUIDE</h3>
+            <p>To ensure this file is accepted by <strong>all hiring systems</strong>:</p>
+            <ol>
+                <li>Press <strong>Ctrl + P</strong> (Print)</li>
+                <li>Printer: <strong>Save as PDF</strong></li>
+                <li>Layout: <strong>Landscape</strong></li>
+                <li>More Settings > Background Graphics: <strong>✅ CHECKED</strong></li>
+                <li>Paper Size: <strong>A4</strong> or <strong>Letter</strong></li>
+            </ol>
+            <p style="font-size: 0.8rem; margin-top: 1rem; color: #64748b;">
+                * This document includes proper "Education" and "Experience" sections to pass ATS parsers that require
+                full CV history.
+            </p>
+            <button onclick="document.getElementById('print-instructions').style.display='none'">I Understand, View
+                Document</button>
+        </div>
+    </div>
+
+    <div class="page-container">
+        <!-- Header -->
+        <header>
+            <div class="brand">
+                <div class="brand-name">ORIEL MALIK <span style="font-weight: 300; color: var(--border-slate);">|</span>
+                    PORTFOLIO</div>
+                <div class="brand-subtitle">BackEnd Development & QA Automation Engineer</div>
+            </div>
+            <div class="contact-info">
+                <div>oriel.malik@gmail.com</div>
+                <div>+972 58 730 6070</div>
+                <div>Tel Aviv, Israel</div>
+                <div>github.com/orielmalik</div>
+            </div>
+        </header>
+
+        <div class="main-content">
+
+            <!-- Sidebar: Skills, Education -->
+            <aside class="sidebar">
+
+                <!-- Education (ATS Critical) -->
+                <div class="sidebar-card">
+                    <h2 class="section-title">Education</h2>
+                    <div class="education-item">
+                        <div class="edu-degree">B.Sc. Software Engineering</div>
+                        <div class="edu-school">Afeka College of Engineering</div>
+                        <div class="edu-date">2020 - 2024</div>
+                        <div class="edu-detail">Specialization in Cybersecurity. Advanced OOP & Backend concepts.</div>
+                    </div>
+                </div>
+
+                <!-- Skills Matrix -->
+                <div class="sidebar-card">
+                    <h2 class="section-title">Technical Skills</h2>
+
+                    <div class="skill-group">
+                        <div class="skill-category">Core & Mobile</div>
+                        <div class="skill-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Android</span>
+                            <span class="tag">SQL</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-category">Backend & Frameworks</div>
+                        <div class="skill-tags">
+                            <span class="tag">Spring Boot</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">Microservices</span>
+                            <span class="tag">REST API</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-category">Automation & Testing</div>
+                        <div class="skill-tags">
+                            <span class="tag">Selenium</span>
+                            <span class="tag">Playwright</span>
+                            <span class="tag">Gherkin / BDD</span>
+                            <span class="tag">Pytest</span>
+                            <span class="tag">TestNG</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-category">Infrastructure</div>
+                        <div class="skill-tags">
+                            <span class="tag">Docker</span>
+                            <span class="tag">Gradle</span>
+                            <span class="tag">Maven</span>
+                            <span class="tag">CI/CD</span>
+                            <span class="tag">Linux</span>
+                            <span class="tag">Git</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main: Projects & Experience -->
+            <main class="content-column">
+
+                <!-- Projects Section -->
+                <section>
+                    <h2 class="section-title-main">Featured Projects</h2>
+                    <div class="projects-grid">
+                        <!-- Project 1: Automation-Methods -->
+                        <article class="project-card">
+                            <div class="card-header">
+                                <span class="project-category">QA Flagship</span>
+                                <h3 class="project-title">Automation-Methods</h3>
+                                <p class="project-desc">
+                                    Enterprise-grade framework providing an <span class="highlight-bold">abstraction
+                                        layer</span> over Selenium/Playwright.
+                                </p>
+                                <ul class="project-features">
+                                    <li>Hybrid Driver Support</li>
+                                    <li>Gherkin BDD Integration</li>
+                                    <li>Flakiness Reducer</li>
+                                </ul>
+                            </div>
+                            <div class="card-footer">
+                                <div class="tech-stack">Python • Selenium • Playwright</div>
+                            </div>
+                        </article>
+
+                        <!-- Project 2: MISTA -->
+                        <article class="project-card">
+                            <div class="card-header">
+                                <span class="project-category">Backend Flagship</span>
+                                <h3 class="project-title">MISTA</h3>
+                                <p class="project-desc">
+                                    B2C expert matching platform with intelligent algorithms and <span
+                                        class="highlight-bold">guided user workflows</span>.
+                                </p>
+                                <ul class="project-features">
+                                    <li>Complex Matching Logic</li>
+                                    <li>Dockerized Microservices</li>
+                                    <li>Secure Data Handling</li>
+                                </ul>
+                            </div>
+                            <div class="card-footer">
+                                <div class="tech-stack">Java • Gradle • Docker</div>
+                            </div>
+                        </article>
+
+                        <!-- Project 3: FlaskOrm -->
+                        <article class="project-card">
+                            <div class="card-header">
+                                <span class="project-category">Security R&D</span>
+                                <h3 class="project-title">FlaskOrm</h3>
+                                <p class="project-desc">
+                                    Comparative analysis of <span class="highlight-bold">ORM vs Raw SQL</span> focusing
+                                    on security boundaries & SQLi prevention.
+                                </p>
+                                <ul class="project-features">
+                                    <li>SQL Injection Analysis</li>
+                                    <li>Performance Benchmarking</li>
+                                    <li>XSS Mitigation</li>
+                                </ul>
+                            </div>
+                            <div class="card-footer">
+                                <div class="tech-stack">Python • Flask • SQLAlchemy</div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Experience Section (ATS Critical) -->
+                <section class="experience-block">
+                    <h2 class="section-title-main">Professional Experience</h2>
+                    <div class="experience-card">
+                        <div class="exp-header">
+                            <div>
+                                <h3 class="exp-role">Computer Science Teacher & Curriculum Developer</h3>
+                                <div class="exp-company">Science and Technology Israel Office</div>
+                            </div>
+                            <div class="exp-date">2021 - 2024</div>
+                        </div>
+                        <ul class="exp-list">
+                            <li>Designed and executed advanced CS curriculum covering <strong>Algorithms, OOP, and
+                                    Full-Stack Development</strong>.</li>
+                            <li>Mentored 11th-12th grade students on final engineering capstone projects, ensuring
+                                <strong>90+ success rate</strong>.</li>
+                            <li>Developed and implemented software engineering best practices within the student
+                                development lifecycle.</li>
+                        </ul>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>

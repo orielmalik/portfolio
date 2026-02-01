@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Oriel Malik - Backend Developer & QA Automation Engineer. Specializing in microservices, test automation frameworks, and secure software development.">
+    <meta name="keywords"
+        content="Backend Developer, QA Automation, Software Engineer, Python, Java, Selenium, Playwright, Tel Aviv">
+    <meta name="author" content="Oriel Malik">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Oriel Malik - Backend Developer & QA Automation Engineer">
+    <meta property="og:description"
+        content="Professional portfolio showcasing backend development and QA automation expertise">
+
+    <title>Oriel Malik - Backend Developer & QA Automation Engineer</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Luxury White-Gold CSS -->
+    <link rel="stylesheet" href="styles-luxury.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Oriel<span class="accent">Malik</span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-border"></div>
+                    <img src="profff.jpg" alt="Oriel Malik" class="hero-image">
+                </div>
+
+                <h1 class="hero-title">Oriel Malik</h1>
+                <p class="hero-subtitle">Software Engineer</p>
+                <p class="hero-tagline">Architecting reliable distributed systems at scale · Precision engineering in
+                    code and quality assurance</p>
+
+                <!-- Role Toggle -->
+                <div class="role-toggle-container">
+                    <div class="role-toggle">
+                        <button class="role-btn active" data-role="backend">
+                            <i class="fas fa-server"></i>
+                            Backend Developer
+                        </button>
+                        <button class="role-btn" data-role="qa">
+                            <i class="fas fa-vial"></i>
+                            QA Automation Engineer
+                        </button>
+                        <div class="toggle-slider"></div>
+                    </div>
+                </div>
+
+                <p class="hero-description backend-desc active">
+                    Backend Developer with hands-on experience building <strong>microservices</strong> and server-side
+                    applications.
+                    Focused on writing clean, maintainable code and implementing reliable backend systems with
+                    <strong>security-first</strong> principles.
+                </p>
+
+                <p class="hero-description qa-desc">
+                    QA Engineer with expertise in building <strong>enterprise-grade test automation frameworks</strong>.
+                    Specializing in reducing test flakiness, accelerating test development, and ensuring software
+                    reliability through modern testing practices.
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">Flagship Projects</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Technologies</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Featured Projects</span>
+                    </div>
+                </div>
+
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        Get In Touch
+                    </a>
+                    <a href="#projects" class="btn btn-secondary">
+                        <i class="fas fa-code"></i>
+                        View Projects
+                    </a>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://github.com/orielmalik" target="_blank" rel="noopener noreferrer"
+                        class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/oriel-malik-465984219/" target="_blank"
+                        rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@malikCode-w1s" target="_blank" rel="noopener noreferrer"
+                        class="social-link" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="mailto:oriel.malik@gmail.com" class="social-link" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">01.</span>
+                About Me
+            </h2>
+
+            <div class="about-grid">
+                <div class="about-card backend-card active">
+                    <div class="card-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Backend Development</h3>
+                    <p>
+                        Experienced in building <strong>microservices architectures</strong> and server-side
+                        applications
+                        using modern frameworks like <strong>Spring Boot</strong>, <strong>Flask</strong>, and
+                        <strong>FastAPI</strong>.
+                    </p>
+                    <ul class="about-highlights">
+                        <li><i class="fas fa-check"></i> End-to-end application development from design to deployment
+                        </li>
+                        <li><i class="fas fa-check"></i> RESTful API design and implementation</li>
+                        <li><i class="fas fa-check"></i> Docker containerization and CI/CD integration</li>
+                        <li><i class="fas fa-check"></i> Security-aware development with cybersecurity principles</li>
+                    </ul>
+                </div>
+
+                <div class="about-card qa-card">
+                    <div class="card-icon">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <h3>QA Automation</h3>
+                    <p>
+                        Specialized in creating <strong>robust test automation frameworks</strong> that enhance code
+                        maintainability,
+                        reduce test flakiness, and accelerate development cycles.
+                    </p>
+                    <ul class="about-highlights">
+                        <li><i class="fas fa-check"></i> Custom abstraction layers over Selenium & Playwright</li>
+                        <li><i class="fas fa-check"></i> BDD with Gherkin for readable, maintainable tests</li>
+                        <li><i class="fas fa-check"></i> Unit, integration, and E2E testing strategies</li>
+                        <li><i class="fas fa-check"></i> Test-driven development (TDD) practices</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="about-bio">
+                <p>
+                    I graduated from <strong>Afeka College of Engineering</strong> with a B.Sc. in Software Engineering,
+                    specializing in <strong>Cybersecurity</strong> (2020-2024). During my studies, I worked as a
+                    <strong>Computer Science Teacher</strong> at the Science and Technology Israel Office, where I
+                    designed
+                    advanced curricula and mentored students on final projects—many achieving 90+ grades.
+                </p>
+                <p>
+                    I'm a <strong>quick learner</strong> who thrives on adapting to new technologies and frameworks.
+                    Whether it's building scalable backend systems or crafting enterprise-grade test automation,
+                    I bring a <strong>quality-focused mindset</strong> and a passion for clean, maintainable code.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container-wide">
+            <h2 class="section-title">
+                <span class="title-number">02.</span>
+                Featured Projects
+            </h2>
+
+            <div class="projects-container">
+                <!-- Hero Project: Automation-Methods -->
+                <div class="project-card hero-project" data-category="qa">
+                    <div class="project-badge">
+                        <i class="fas fa-trophy"></i>
+                        Flagship Project
+                    </div>
+
+                    <div class="project-image">
+                        <img src="automation-methods-preview.jpg" alt="Automation-Methods Framework"
+                            id="automation-img">
+                        <div class="project-overlay">
+                            <button class="btn-expand" data-project="automation">
+                                <i class="fas fa-expand"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="project-content">
+                        <h3 class="project-title">Automation-Methods</h3>
+                        <p class="project-subtitle">Enterprise-Grade Test Automation Framework</p>
+
+                        <p class="project-description">
+                            A robust test automation framework providing an <strong>abstraction layer</strong> over
+                            Selenium and Playwright,
+                            designed to enhance code maintainability, reduce test flakiness, and accelerate test
+                            development.
+                            Features <strong>Gherkin BDD integration</strong> for readable tests and <strong>JSON-driven
+                                test data management</strong>.
+                        </p>
+
+                        <div class="project-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-layer-group"></i>
+                                <span>Custom Abstraction Layer</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-file-code"></i>
+                                <span>Gherkin BDD Support</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-database"></i>
+                                <span>JSON Test Data</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>Reduced Flakiness</span>
+                            </div>
+                        </div>
+
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Selenium</span>
+                            <span class="tech-tag">Playwright</span>
+                            <span class="tech-tag">Gherkin</span>
+                            <span class="tech-tag">JSON</span>
+                            <span class="tech-tag">Pytest</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/orielmalik/Automation-Methods" target="_blank"
+                                rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i>
+                                View on GitHub
+                            </a>
+                            <a href="https://github.com/orielmalik/Automation-Methods#readme" target="_blank"
+                                rel="noopener noreferrer" class="project-link">
+                                <i class="fas fa-book"></i>
+                                Documentation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: People Microservice Suite -->
+                <div class="project-card" data-category="backend">
+                    <div class="project-image">
+                        <img src="people-microservice-preview.jpg" alt="People Microservice Suite" id="people-img">
+                        <div class="project-overlay">
+                            <button class="btn-expand" data-project="people">
+                                <i class="fas fa-expand"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="project-content">
+                        <h3 class="project-title">People & Business Unit Microservice Suite</h3>
+                        <p class="project-subtitle">Advanced Backend Architecture - REST/OpenAPI vs GraphQL</p>
+
+                        <p class="project-description">
+                            Comprehensive exploration of microservices design for managing <strong>hierarchical
+                                organizational data</strong>.
+                            Features dual implementations (REST + GraphQL), multi-branch architecture with
+                            <strong>JPA/Hibernate</strong>,
+                            <strong>Spring WebFlux + MongoDB</strong>, and <strong>Kotlin</strong> enhancements.
+                        </p>
+
+                        <div class="project-tech">
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">GraphQL</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Kotlin</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/orielmalik/PeopleMicroService" target="_blank"
+                                rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i>
+                                Main Repo
+                            </a>
+                            <a href="https://github.com/orielmalik/graphqljava/tree/Master" target="_blank"
+                                rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i>
+                                GraphQL
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: MISTA - Backend Flagship -->
+                <div class="project-card hero-project" data-category="backend">
+                    <div class="project-badge">
+                        <i class="fas fa-trophy"></i>
+                        Backend Flagship
+                    </div>
+
+                    <div class="project-image">
+                        <img src="mista-preview.jpg" alt="MISTA B2C Platform" id="mista-img">
+                        <div class="project-overlay">
+                            <button class="btn-expand" data-project="mista">
+                                <i class="fas fa-expand"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="project-content">
+                        <h3 class="project-title">MISTA</h3>
+                        <p class="project-subtitle">Mission Statement - B2C Expert Matching Platform</p>
+
+                        <p class="project-description">
+                            A backend-driven <strong>B2C platform</strong> that connects users with professional
+                            operators across all industries.
+                            The system <strong>intelligently matches</strong> users with the right expert and guides
+                            them step-by-step through
+                            <strong>personalized task flows</strong> to help achieve their goals faster and with
+                            confidence.
+                        </p>
+
+                        <div class="project-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-users"></i>
+                                <span>Expert Matching</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-route"></i>
+                                <span>Guided Workflows</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Secure Platform</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-expand-arrows-alt"></i>
+                                <span>Scalable Architecture</span>
+                            </div>
+                        </div>
+
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Gradle</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Backend Architecture</span>
+                            <span class="tech-tag">B2C Platform</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/orielmalik/MISTA" target="_blank" rel="noopener noreferrer"
+                                class="project-link">
+                                <i class="fab fa-github"></i>
+                                View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: ZTA -->
+                <div class="project-card" data-category="backend">
+                    <div class="project-image">
+                        <img src="zta-preview.jpg" alt="Zero Trust Architecture" id="zta-img">
+                        <div class="project-overlay">
+                            <button class="btn-expand" data-project="zta">
+                                <i class="fas fa-expand"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="project-content">
+                        <h3 class="project-title">ZTA</h3>
+                        <p class="project-subtitle">Zero Trust Architecture Implementation</p>
+
+                        <p class="project-description">
+                            A research and implementation project exploring <strong>Zero Trust Architecture</strong>
+                            principles including
+                            <strong>security automation</strong>, authentication & authorization, encryption, and
+                            <strong>microsegmentation</strong>
+                            across multiple languages and secure environments.
+                        </p>
+
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Security Automation</span>
+                            <span class="tech-tag">Zero Trust</span>
+                            <span class="tech-tag">Authentication</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/orielmalik/ZTA" target="_blank" rel="noopener noreferrer"
+                                class="project-link">
+                                <i class="fab fa-github"></i>
+                                View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: FlaskOrm -->
+                <div class="project-card" data-category="backend">
+                    <div class="project-image">
+                        <img src="flaskorm-preview.jpg" alt="FlaskOrm Security Study" id="flaskorm-img">
+                        <div class="project-overlay">
+                            <button class="btn-expand" data-project="flaskorm">
+                                <i class="fas fa-expand"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="project-content">
+                        <h3 class="project-title">FlaskOrm</h3>
+                        <p class="project-subtitle">ORM vs SQL Security Study</p>
+
+                        <p class="project-description">
+                            A comparative project analyzing <strong>ORM vs. direct SQL</strong> command usage within a
+                            Flask app.
+                            Focuses on performance benchmarking, usability, and <strong>security</strong> (preventing
+                            SQL injection/XSS).
+                        </p>
+
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">SQLAlchemy</span>
+                            <span class="tech-tag">PyMySQL</span>
+                            <span class="tech-tag">Security</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/orielmalik/FlaskOrm" target="_blank" rel="noopener noreferrer"
+                                class="project-link">
+                                <i class="fab fa-github"></i>
+                                View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Android Mission Statement -->
+                <div class="project-card" data-category="backend">
+                    <div class="project-image">
+                        <img src="android-mission-statement-preview.jpg" alt="Android Mission Statement App"
+                            id="android-img">
+                        <div class="project-overlay">
+                            <button class="btn-expand" data-project="android">
+                                <i class="fas fa-expand"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="project-content">
+                        <h3 class="project-title">Mission Statement</h3>
+                        <p class="project-subtitle">Native Android App with Firebase & NLP</p>
+
+                        <p class="project-description">
+                            A native <strong>Android application</strong> built with Java featuring <strong>Firebase
+                                integration</strong>,
+                            advanced natural language processing with <strong>HANLP</strong>, and robust security with
+                            <strong>AES encryption</strong>.
+                            Demonstrates modern Android UI patterns and real-time data synchronization.
+                        </p>
+
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">HANLP</span>
+                            <span class="tech-tag">AES Encryption</span>
+                            <span class="tech-tag">RecyclerView</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/orielmalik/Mission_Statement" target="_blank"
+                                rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i>
+                                View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">03.</span>
+                Technical Skills
+            </h2>
+
+            <div class="skills-grid">
+                <!-- Backend Skills -->
+                <div class="skills-category">
+                    <div class="category-header">
+                        <i class="fas fa-server"></i>
+                        <h3>Backend Development</h3>
+                    </div>
+
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Java</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Spring Boot</span>
+                                <span class="skill-level">Intermediate</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Flask / FastAPI</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">REST API Design</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Docker</span>
+                                <span class="skill-level">Intermediate</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QA & Testing Skills -->
+                <div class="skills-category">
+                    <div class="category-header">
+                        <i class="fas fa-vial"></i>
+                        <h3>QA & Testing</h3>
+                    </div>
+
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Selenium</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Playwright</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Pytest / JUnit</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Gherkin / BDD</span>
+                                <span class="skill-level">Intermediate</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Test Automation Frameworks</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">CI/CD Integration</span>
+                                <span class="skill-level">Intermediate</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Technologies -->
+            <div class="tech-cloud">
+                <h3 class="tech-cloud-title">Additional Technologies</h3>
+                <div class="tech-tags">
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">Node.js</span>
+                    <span class="tech-badge">SQL</span>
+                    <span class="tech-badge">MongoDB</span>
+                    <span class="tech-badge">MySQL</span>
+                    <span class="tech-badge">PostgreSQL</span>
+                    <span class="tech-badge">Firebase</span>
+                    <span class="tech-badge">NEO4J</span>
+                    <span class="tech-badge">Git</span>
+                    <span class="tech-badge">Maven</span>
+                    <span class="tech-badge">Gradle</span>
+                    <span class="tech-badge">Postman</span>
+                    <span class="tech-badge">GraphQL</span>
+                    <span class="tech-badge">WebFlux</span>
+                    <span class="tech-badge">RSocket</span>
+                    <span class="tech-badge">Linux</span>
+                    <span class="tech-badge">Windows</span>
+                    <span class="tech-badge">Bash</span>
+                    <span class="tech-badge">PowerShell</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">04.</span>
+                Experience & Education
+            </h2>
+
+            <div class="timeline">
+                <!-- Education -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2020 - 2024</span>
+                        <h3>B.Sc. in Software Engineering</h3>
+                        <h4>Afeka College of Engineering</h4>
+                        <p>Specialization in <strong>Cybersecurity</strong></p>
+                        <ul>
+                            <li>Focused on secure software development practices</li>
+                            <li>Completed projects in backend development, test automation, and security analysis</li>
+                            <li>Applied cybersecurity principles to real-world applications</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Teaching Experience -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2021 - 2024</span>
+                        <h3>Computer Science Teacher</h3>
+                        <h4>Science and Technology Israel Office, Tel-Aviv</h4>
+                        <ul>
+                            <li>Designed and delivered advanced CS curriculum including algorithms, OOP, and full-stack
+                                projects</li>
+                            <li>Mentored 11th-12th graders on final projects with many achieving 90+ grades</li>
+                            <li>Developed teaching materials and practical exercises for complex programming concepts
+                            </li>
+                            <li>Fostered problem-solving skills and software engineering best practices</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">05.</span>
+                Get In Touch
+            </h2>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Work Together</h3>
+                    <p>
+                        I'm currently open to new opportunities in <strong>Backend Development</strong> and
+                        <strong>QA Automation Engineering</strong>. Whether you're looking for someone to build
+                        scalable microservices or create robust test automation frameworks, I'd love to hear from you!
+                    </p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="contact-label">Email</span>
+                                <a href="mailto:oriel.malik@gmail.com">oriel.malik@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="contact-label">Phone</span>
+                                <a href="tel:+972587306070">058-730-6070</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="contact-label">Location</span>
+                                <span>Tel Aviv, Israel</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-social">
+                        <a href="https://github.com/orielmalik" target="_blank" rel="noopener noreferrer"
+                            class="social-btn">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/oriel-malik-465984219" target="_blank"
+                            rel="noopener noreferrer" class="social-btn">
+                            <i class="fab fa-linkedin"></i>
+                            LinkedIn
+                        </a>
+                        <a href="https://www.youtube.com/@malikCode-w1s" target="_blank" rel="noopener noreferrer"
+                            class="social-btn">
+                            <i class="fab fa-youtube"></i>
+                            YouTube
+                        </a>
+                    </div>
+
+                    <div class="download-cv">
+                        <a href="Oriel Malik cv.pdf" download class="btn btn-primary">
+                            <i class="fas fa-download"></i>
+                            Download Backend CV
+                        </a>
+                        <a href="‏‏Oriel Malik cv  qa.pdf" download class="btn btn-secondary">
+                            <i class="fas fa-download"></i>
+                            Download QA CV
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Oriel Malik. Built with passion and clean code.</p>
+            <p class="footer-tech">HTML • CSS • JavaScript</p>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
