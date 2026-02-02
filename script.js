@@ -5,7 +5,6 @@
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function () {
     initNavigation();
-    initRoleToggle();
     initProjectModals();
     initContactForm();
     initScrollAnimations();
@@ -43,7 +42,7 @@ function initNavigation() {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
 
-            if (pageYOffset >= sectionTop - 100) {
+            if (window.pageYOffset >= sectionTop - 100) {
                 current = section.getAttribute('id');
             }
         });
@@ -58,57 +57,6 @@ function initNavigation() {
 }
 
 // ===================================
-// Role Toggle (Backend ⟷ QA)
-// ===================================
-function initRoleToggle() {
-    const roleButtons = document.querySelectorAll('.role-btn');
-    const roleToggle = document.querySelector('.role-toggle');
-    const backendDesc = document.querySelector('.backend-desc');
-    const qaDesc = document.querySelector('.qa-desc');
-    const backendCard = document.querySelector('.backend-card');
-    const qaCard = document.querySelector('.qa-card');
-    const projectCards = document.querySelectorAll('.project-card');
-
-    roleButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            const role = this.getAttribute('data-role');
-
-            // Update active button
-            roleButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-
-            // Update toggle slider
-            roleToggle.setAttribute('data-active', role);
-
-            // Update descriptions
-            if (role === 'backend') {
-                backendDesc.classList.add('active');
-                qaDesc.classList.remove('active');
-                backendCard.classList.add('active');
-                qaCard.classList.remove('active');
-            } else {
-                qaDesc.classList.add('active');
-                backendDesc.classList.remove('active');
-                qaCard.classList.add('active');
-                backendCard.classList.remove('active');
-            }
-
-            // Highlight relevant projects
-            projectCards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                if (category === role || card.classList.contains('hero-project')) {
-                    card.style.opacity = '1';
-                    card.style.transform = 'scale(1)';
-                } else {
-                    card.style.opacity = '0.6';
-                    card.style.transform = 'scale(0.95)';
-                }
-            });
-        });
-    });
-}
-
-// ===================================
 // Project Modals
 // ===================================
 function initProjectModals() {
@@ -118,6 +66,33 @@ function initProjectModals() {
     const modalClose = document.querySelector('.modal-close');
 
     const projectDetails = {
+        countries: {
+            title: 'Countries Explorer',
+            subtitle: 'Node.js & TypeScript API Infrastructure',
+            description: `
+                <p>Countries Explorer is a sophisticated backend infrastructure designed to manage and serve global geographical and population data. 
+                Built with a focus on type-safety and performance, it demonstrates the effective use of Node.js and TypeScript for building reliable APIs.</p>
+                
+                <h4>Key Features</h4>
+                <ul>
+                    <li><strong>TypeScript Type-Safety:</strong> Comprehensive use of interfaces and types to ensure code reliability and catch errors at compile-time</li>
+                    <li><strong>RESTful API Design:</strong> Clean, intuitive endpoint structure for accessing country-specific data, populations, and borders</li>
+                    <li><strong>Data Integration:</strong> Seamless handling and serving of complex geographical datasets</li>
+                    <li><strong>Node.js Backend:</strong> Scalable and efficient server-side architecture using Express</li>
+                </ul>
+                
+                <h4>Technical Mastery</h4>
+                <ul>
+                    <li>Object-oriented approach with TypeScript</li>
+                    <li>Async/Await for efficient data fetching and processing</li>
+                    <li>Structured error handling and response formatting</li>
+                    <li>Scalable file structure for modern web applications</li>
+                </ul>
+            `,
+            tech: ['Node.js', 'TypeScript', 'Express', 'REST API', 'JSON'],
+            github: 'https://github.com/orielmalik/countries',
+            demo: null
+        },
         automation: {
             title: 'Automation-Methods',
             subtitle: 'Enterprise-Grade Test Automation Framework',
