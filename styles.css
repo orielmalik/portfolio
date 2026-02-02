@@ -57,17 +57,30 @@
     box-sizing: border-box;
 }
 
-html {
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #0b0e14 !important;
+    color: #e6edf3 !important;
     scroll-behavior: smooth;
-    font-size: 16px;
 }
 
 body {
     font-family: var(--font-primary);
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+/* Ensure all primary sections inherit the dark base */
+section,
+header,
+footer,
+nav,
+aside,
+main {
+    background-color: transparent !important;
 }
 
 a {

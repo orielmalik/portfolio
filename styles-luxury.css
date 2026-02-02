@@ -11,17 +11,17 @@
     --silver-platinum: #8E949E;
     --silver-light: #D9D9D9;
 
-    /* Sophisticated Dark Backgrounds (Deep Charcoal & Gray) */
-    --bg-deep: #121212;
-    --bg-card: #1C1C1C;
-    --bg-glass: rgba(28, 28, 28, 0.8);
-    --bg-accent: #252525;
+    /* Sophisticated Dark Backgrounds (GitHub Dark Inspired) */
+    --bg-deep: #0b0e14;
+    --bg-card: #161b22;
+    --bg-glass: rgba(11, 14, 20, 0.85);
+    --bg-accent: #21262d;
 
-    /* Soft White & Silver Text for Dark Mode */
-    --text-primary: #F5F5F5;
-    --text-heading: #FFFFFF;
-    --text-secondary: #B0B7C1;
-    --text-muted: #8E949E;
+    /* High-Readability Light Gray/White Text */
+    --text-primary: #e6edf3;
+    --text-heading: #f0f6fc;
+    --text-secondary: #8b949e;
+    --text-muted: #7d8590;
     --text-gold: #C9A96E;
 
     /* Clean Gradients for Dark Theme */
@@ -63,20 +63,35 @@
     box-sizing: border-box;
 }
 
-html {
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #0b0e14 !important;
+    /* GitHub Dark - Deepest Layer */
+    color: #e6edf3 !important;
+    /* Default Text Color */
     scroll-behavior: smooth;
-    font-size: 16px;
 }
 
 body {
     font-family: var(--font-body);
-    background-color: var(--bg-deep);
-    color: var(--text-primary);
     line-height: 1.7;
     overflow-x: hidden;
     letter-spacing: 0.015em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure all primary sections inherit the dark base */
+section,
+header,
+footer,
+nav,
+aside,
+main {
+    background-color: transparent !important;
 }
 
 a {
@@ -175,14 +190,8 @@ h4,
 
 .btn-primary {
     background: var(--gradient-gold);
-    color: var(--white-ivory);
+    color: var(--bg-deep);
     box-shadow: var(--shadow-gold-md);
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-gold-glow);
-    background: var(--gradient-gold-subtle);
 }
 
 .btn-secondary {
