@@ -293,6 +293,18 @@ h4,
     transition: var(--transition-normal);
 }
 
+.nav-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 /* ===================================
    Hero Section - Executive Presence
    =================================== */
@@ -376,8 +388,8 @@ h4,
 
 .hero-image-wrapper {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: clamp(150px, 40vw, 200px);
+    height: clamp(150px, 40vw, 200px);
     margin: 0 auto var(--spacing-lg);
 }
 
@@ -497,7 +509,8 @@ h4,
 .hero-stats {
     display: flex;
     justify-content: center;
-    gap: var(--spacing-xl);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
     padding: var(--spacing-md) 0;
 }
@@ -509,7 +522,9 @@ h4,
     background: var(--bg-card);
     box-shadow: var(--shadow-card);
     border: var(--border-glass);
-    min-width: 160px;
+    min-width: 140px;
+    flex: 1 1 140px;
+    max-width: 200px;
 }
 
 .stat-number {
@@ -704,7 +719,7 @@ h4,
 
 .projects-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(clamp(280px, 100%, 400px), 1fr));
     gap: var(--spacing-lg);
 }
 
@@ -750,13 +765,20 @@ h4,
 
 .project-image {
     position: relative;
-    height: 280px;
+    aspect-ratio: 16/9;
+    width: 100%;
     overflow: hidden;
     background: linear-gradient(135deg, var(--white-cream) 0%, var(--white-warm) 100%);
 }
 
 .hero-project .project-image {
-    height: 380px;
+    aspect-ratio: 21/9;
+}
+
+@media (max-width: 768px) {
+    .hero-project .project-image {
+        aspect-ratio: 16/9;
+    }
 }
 
 .project-image img {
@@ -1478,55 +1500,113 @@ h4,
 @media (max-width: 1024px) {
     .projects-container {
         grid-template-columns: 1fr;
+        gap: var(--spacing-md);
     }
 
     .skills-grid {
         grid-template-columns: 1fr;
+        gap: var(--spacing-md);
     }
 
     .contact-content {
         grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
     }
 
     .about-grid {
         grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .container,
+    .container-wide {
+        padding: 0 var(--spacing-sm);
     }
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        padding: 1rem 0;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: var(--bg-card);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-lg);
+        transition: var(--transition-normal);
+        z-index: 999;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-toggle {
+        display: flex;
+        z-index: 1001;
+    }
+
     .hero-title {
-        font-size: 3rem;
+        font-size: clamp(2.5rem, 10vw, 4rem);
     }
 
     .section-title {
         font-size: 2.25rem;
     }
 
-    .nav-menu {
-        display: none;
-    }
-
-    .nav-toggle {
-        display: flex;
+    .hero {
+        padding: var(--spacing-lg) 0;
+        min-height: auto;
     }
 
     .hero-stats {
-        flex-direction: column;
-        gap: var(--spacing-md);
+        gap: var(--spacing-sm);
+        margin-top: var(--spacing-md);
     }
 
     .hero-cta {
         flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
     }
 
     .modal-content {
         padding: var(--spacing-md);
+        width: 95%;
+    }
+
+    .nav-link {
+        font-size: 1.5rem;
+        padding: 1rem;
+        display: block;
+        width: 100%;
+        text-align: center;
     }
 }
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 2.5rem;
+        font-size: clamp(2rem, 12vw, 2.5rem);
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
     }
 
     .project-highlights {
@@ -1534,11 +1614,37 @@ h4,
     }
 
     .section-title {
-        font-size: 2rem;
+        font-size: 1.75rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .section-title::after {
+        margin-left: 0;
+        max-width: 100px;
     }
 
     .stat {
-        min-width: 120px;
+        min-width: 100%;
+        max-width: none;
+    }
+
+    .contact-social {
+        flex-direction: column;
+    }
+
+    .social-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .download-cv {
+        flex-direction: column;
+    }
+
+    .download-cv .btn {
+        width: 100%;
     }
 }
 
