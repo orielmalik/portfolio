@@ -151,7 +151,7 @@ Edit `styles.css` (lines 6-20):
 ### Add New Projects
 1. Add project card HTML in `index.html` (around line 200)
 2. Add project details in `script.js` `projectDetails` object (around line 80)
-3. Add project image to folder
+3. Add project image to  folder
 
 ## 📱 Browser Compatibility
 
