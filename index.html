@@ -4,887 +4,711 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Oriel Malik - Software Engineer. Specializing in building scalable backend systems with a quality-first mindset. Expert in Java, Python, and Automation.">
-    <meta name="keywords"
-        content="Software Engineer, Backend Developer, QA Automation, Python, Java, Tel Aviv, Microservices">
     <meta name="author" content="Oriel Malik">
+    <meta name="description"
+        content="Oriel Malik Portfolio - Emerging Software Engineer | Afeka Skills Edition Luxury Dashboard">
+    <title>Oriel Malik | EMERGING SOFTWARE ENGINEER</title>
 
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Oriel Malik - Software Engineer">
-    <meta property="og:description"
-        content="Professional portfolio of a Software Engineer specializing in scalable backend systems and quality-first engineering.">
-
-    <title>Oriel Malik | Software Engineer</title>
-
-    <!-- Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap"
         rel="stylesheet">
 
-    <!-- Font Awesome -->
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Luxury White-Gold CSS -->
-    <link rel="stylesheet" href="styles-luxury.css">
+    <style>
+        :root {
+            /* Luxury Palette */
+            --bg-deep: #0f172a;
+            --bg-nav: rgba(15, 23, 42, 0.95);
+            --bg-card: #1e293b;
+            --gold: #c5a028;
+            --gold-glow: rgba(197, 160, 40, 0.2);
+            --marble: #f8fafc;
+            --slate: #94a3b8;
+            --border: rgba(148, 163, 184, 0.1);
+
+            /* Typography */
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+
+            --transition: cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        /* Basic Setup */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--slate);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Texture Overlay */
+        .luxury-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 10000;
+        }
+
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+            background: var(--bg-nav);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--marble);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* HERO - Emerging Software Engineer */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 1rem;
+            position: relative;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+        }
+
+        .hero-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid var(--gold);
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 50px var(--gold-glow);
+            transition: 0.5s var(--transition);
+        }
+
+        .hero-img:hover {
+            transform: scale(1.05);
+        }
+
+        .hero-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            color: var(--marble);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--gold);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-cv-btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 2px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.75rem;
+            background: var(--gold);
+            color: var(--bg-deep);
+            border: 1px solid var(--gold);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--gold);
+        }
+
+        .btn:hover {
+            background: var(--marble);
+            color: var(--bg-deep);
+            border-color: var(--marble);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--marble);
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+            margin: 15px auto;
+        }
+
+        /* OPERATIONAL LIFEMAP - Afeka Skills Grid */
+        .lifemap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            position: relative;
+        }
+
+        /* Central Icon Hub */
+        .lifemap-hub {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .hub-icon {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid var(--gold);
+            box-shadow: 0 0 40px var(--gold-glow);
+            z-index: 10;
+        }
+
+        .hub-icon img {
+            width: 80%;
+            object-fit: contain;
+        }
+
+        .lifemap-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            transition: 0.4s var(--transition);
+            position: relative;
+            text-align: center;
+        }
+
+        .lifemap-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-year {
+            color: var(--gold);
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .card-skill {
+            color: var(--marble);
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .card-desc {
+            font-size: 0.85rem;
+            color: var(--slate);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            color: var(--gold);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* TECHNICAL REGISTRY */
+        .registry-table-container {
+            width: 100%;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: var(--bg-card);
+        }
+
+        .registry-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .registry-table th {
+            text-align: left;
+            padding: 1.2rem;
+            color: var(--gold);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid var(--gold);
+            background: var(--bg-deep);
+        }
+
+        .registry-table td {
+            padding: 1.2rem;
+            border-bottom: 1px solid var(--border);
+            vertical-align: middle;
+        }
+
+        .reg-img {
+            width: 100px;
+            height: 60px;
+            background: #000;
+            cursor: zoom-in;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .reg-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            transition: 0.4s;
+        }
+
+        .reg-img:hover img {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .reg-title {
+            color: var(--marble);
+            font-weight: 600;
+        }
+
+        .btn-link {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        /* METRICS */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 2rem;
+        }
+
+        .metric-item {
+            margin-bottom: 2rem;
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            color: var(--marble);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-bar {
+            height: 6px;
+            background: var(--bg-deep);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: var(--gold);
+            width: 0;
+            transition: 2.5s var(--transition);
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 80px 5%;
+            background: var(--bg-deep);
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-icons a {
+            font-size: 1.8rem;
+            color: var(--gold);
+            transition: 0.3s;
+        }
+
+        .footer-icons a:hover {
+            color: var(--marble);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            font-size: 0.6rem;
+            color: var(--slate);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* LIGHTBOX */
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(7, 11, 20, 0.98);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 20000;
+            cursor: zoom-out;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .lifemap-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.6rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text">Oriel<span class="accent">Malik</span></span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+    <div class="luxury-overlay"></div>
+
+    <nav>
+        <div class="nav-links">
+            <a href="#home">Genesis</a>
+            <a href="#lifemap">Lifemap</a>
+            <a href="#registry">Inventory</a>
+            <a href="#metrics">Matrix</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-background">
-            <div class="gradient-orb orb-1"></div>
-            <div class="gradient-orb orb-2"></div>
-            <div class="gradient-orb orb-3"></div>
+    <!-- HERO Section -->
+    <header class="hero" id="home">
+        <div class="hero-img">
+            <img src="profff.jpg" alt="Oriel Malik">
         </div>
+        <h1>Oriel Malik</h1>
+        <p class="hero-subtitle">EMERGING SOFTWARE ENGINEER</p>
+        <div class="hero-cv-btns">
+            <a href="Oriel Malik cv.pdf" target="_blank" class="btn">SW CV</a>
+            <a href="Oriel-Malik-QA-CV.pdf" target="_blank" class="btn btn-ghost">QA CV</a>
+        </div>
+    </header>
 
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-image-wrapper">
-                    <div class="hero-image-border"></div>
-                    <img src="profff.jpg" alt="Oriel Malik" class="hero-image">
-                </div>
-
-                <h1 class="hero-title">Oriel Malik</h1>
-                <p class="hero-subtitle">Emerging Software Engineer</p>
-                <p class="hero-tagline">Architecting Resilient Systems with a Quality-First Engineering Mindset.</p>
-
-                <p class="hero-description active">
-                    High-Potential Engineer with a <strong>production-ready mindset</strong>. I specialize in
-                    building scalable backend systems that are secure and testable by design, leveraging my
-                    <strong>B.Sc. in Software Engineering</strong> and specialized knowledge in
-                    <strong>Cybersecurity</strong>.
-                </p>
-
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">2</span>
-                        <span class="stat-label">Flagship Projects</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">10+</span>
-                        <span class="stat-label">Technologies</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">6</span>
-                        <span class="stat-label">Featured Projects</span>
+    <main>
+        <!-- OPERATIONAL LIFEMAP - Afeka Skills Edition -->
+        <section id="lifemap">
+            <h2 class="section-title">Operational Lifemap</h2>
+            <div class="lifemap-grid">
+                <!-- Center Hub: Afeka -->
+                <div class="lifemap-hub">
+                    <div class="hub-icon">
+                        <img src="AfekaCollge.png" alt="Afeka Training Center">
                     </div>
                 </div>
 
-                <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-envelope"></i>
-                        Get In Touch
-                    </a>
-                    <a href="#projects" class="btn btn-secondary">
-                        <i class="fas fa-code"></i>
-                        View Projects
-                    </a>
+                <!-- 2020: InfoSec Principles -->
+                <div class="lifemap-card">
+                    <span class="card-year">2020</span>
+                    <h3 class="card-skill">InfoSec Principles</h3>
+                    <p class="card-desc">Establishing the core mental model for security-first engineering and systemic
+                        risk mitigation.</p>
+                    <span class="card-badge">Security</span>
                 </div>
 
-                <div class="social-links">
-                    <a href="https://github.com/orielmalik" target="_blank" rel="noopener noreferrer"
-                        class="social-link" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/oriel-malik-465984219/" target="_blank"
-                        rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://www.youtube.com/@malikCode-w1s" target="_blank" rel="noopener noreferrer"
-                        class="social-link" aria-label="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="mailto:oriel.malik@gmail.com" class="social-link" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+                <!-- 2021: Design Patterns -->
+                <div class="lifemap-card">
+                    <span class="card-year">2021</span>
+                    <h3 class="card-skill">Design Patterns</h3>
+                    <p class="card-desc">Architecting scalable solutions using Creational, Structural, and Behavioral
+                        patterns (GoF).</p>
+                    <span class="card-badge">R&D</span>
+                </div>
+
+                <!-- 2022: Debugging Systematics -->
+                <div class="lifemap-card">
+                    <span class="card-year">2022</span>
+                    <h3 class="card-skill">Systemic Debugging</h3>
+                    <p class="card-desc">Mastering root-cause analysis and performance profiling for distributed
+                        environments.</p>
+                    <span class="card-badge">Quality / QA</span>
+                </div>
+
+                <!-- 2023: Cryptography -->
+                <div class="lifemap-card">
+                    <span class="card-year">2023</span>
+                    <h3 class="card-skill">Cryptography Algorithms</h3>
+                    <p class="card-desc">Implementing symmetric/asymmetric encryption and secure communication
+                        protocols.</p>
+                    <span class="card-badge">Security R&D</span>
+                </div>
+
+                <!-- 2024: GraphQL -->
+                <div class="lifemap-card">
+                    <span class="card-year">2024</span>
+                    <h3 class="card-skill">GraphQL Engineering</h3>
+                    <p class="card-desc">Building decoupled APIs with flexible query schemas and optimized data
+                        fetching.</p>
+                    <span class="card-badge">R&D / API</span>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="scroll-indicator">
-            <span>Scroll Down</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-number">01.</span>
-                About Me
-            </h2>
-
-            <div class="about-grid">
-                <div class="about-card active">
-                    <div class="card-icon">
-                        <i class="fas fa-shield-halved"></i>
-                    </div>
-                    <h3>Domain Mastery & Adaptability</h3>
-                    <p>
-                        I am currently seeking a <strong>professional launchpad</strong> to contribute to large-scale
-                        systems
-                        and solve complex engineering challenges within a high-impact role or intensive internship.
-                    </p>
-                    <ul class="about-highlights">
-                        <li><i class="fas fa-check"></i> Production-Ready Mindset: Building to enterprise standards by
-                            default</li>
-                        <li><i class="fas fa-check"></i> Industry-Ready: Rigorous software engineering background with
-                            Cybersecurity focus</li>
-                        <li><i class="fas fa-check"></i> Rapid Adaptability: Proven ability to master new stacks and
-                            complex logic</li>
-                        <li><i class="fas fa-check"></i> Quality Architect: Merging backend performance with test
-                            automation precision</li>
-                    </ul>
-                </div>
+        <!-- TECHNICAL REGISTRY / Projects -->
+        <section id="registry">
+            <h2 class="section-title">Technical Inventory</h2>
+            <div class="registry-table-container">
+                <table class="registry-table">
+                    <thead>
+                        <tr>
+                            <th>Identifier</th>
+                            <th>Critical Function</th>
+                            <th>Vision (Click)</th>
+                            <th>Stack Environment</th>
+                            <th>Code</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="reg-title">Automation-Methods</td>
+                            <td>Abstraction layer unifying Selenium & Playwright operations.</td>
+                            <td>
+                                <div class="reg-img"><img src="automation-methods-preview.jpg" alt="Automation"></div>
+                            </td>
+                            <td>Python, BDD, Pytest</td>
+                            <td><a href="https://github.com/orielmalik/Automation-Methods" target="_blank"
+                                    class="btn-link">BROWSE</a></td>
+                        </tr>
+                        <tr>
+                            <td class="reg-title">MISTA Platform</td>
+                            <td>B2C platform with intelligent expert matching algorithms.</td>
+                            <td>
+                                <div class="reg-img"><img src="mista-preview.jpg" alt="MISTA"></div>
+                            </td>
+                            <td>Java, Gradle, Spring</td>
+                            <td><a href="https://github.com/orielmalik/MISTA" target="_blank"
+                                    class="btn-link">BROWSE</a></td>
+                        </tr>
+                        <tr>
+                            <td class="reg-title">Mission Statement</td>
+                            <td>Secure Android suite with Firebase & NLP processing.</td>
+                            <td>
+                                <div class="reg-img"><img src="android-mission-statement-preview.jpg" alt="Android">
+                                </div>
+                            </td>
+                            <td>Java, Android, Firebase</td>
+                            <td><a href="https://github.com/orielmalik/Mission_Statement" target="_blank"
+                                    class="btn-link">BROWSE</a></td>
+                        </tr>
+                        <tr>
+                            <td class="reg-title">People Microservice</td>
+                            <td>Hierarchical management using GraphQL and MongoDB.</td>
+                            <td>
+                                <div class="reg-img"><img src="people-microservice-preview.jpg" alt="GraphQL Service">
+                                </div>
+                            </td>
+                            <td>Nodejs, GraphQL, MongoDB</td>
+                            <td><a href="https://github.com/orielmalik/PeopleMicroService" target="_blank"
+                                    class="btn-link">BROWSE</a></td>
+                        </tr>
+                        <tr>
+                            <td class="reg-title">ZTA Proof-of-Concept</td>
+                            <td>Zero Trust Architecture implementation analysis.</td>
+                            <td>
+                                <div class="reg-img"><img src="zta-preview.jpg" alt="Security"></div>
+                            </td>
+                            <td>Python, Docker, Auth Layer</td>
+                            <td><a href="https://github.com/orielmalik/ZTA" target="_blank" class="btn-link">BROWSE</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </section>
 
-            <div class="about-bio">
-                <p>
-                    I graduated from <strong>Afeka College of Engineering</strong> with a B.Sc. in Software Engineering,
-                    specializing in <strong>Cybersecurity</strong> (2020-2024). My journey is defined by a deep-seated
-                    commitment to technical excellence and a "quality-first" approach to every line of code.
-                </p>
-                <p>
-                    From designing advanced curricula as a <strong>Technical Educator</strong> to architecting
-                    distributed microservices, I bring a unique blend of <strong>architectural vision</strong> and
-                    <strong>hands-on precision</strong>. I build software using enterprise standards—Docker, CI/CD,
-                    and TDD—ensuring that my contributions are scalable, maintainable, and industry-ready from day one.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container-wide">
-            <h2 class="section-title">
-                <span class="title-number">02.</span>
-                Featured Projects
-            </h2>
-
-            <div class="projects-container">
-                <!-- Project: Countries Explorer (Node.js/TS) -->
-                <div class="project-card" data-category="backend">
-                    <div class="project-image">
-                        <div class="project-placeholder-icon">
-                            <i class="fas fa-globe-americas"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <button class="btn-expand" data-project="countries">
-                                <i class="fas fa-expand"></i>
-                                View Details
-                            </button>
+        <!-- METRICS Section -->
+        <section id="metrics">
+            <h2 class="section-title">Operational Matrix</h2>
+            <div class="metrics-grid">
+                <div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span>R&D / Backend (Java, C#)</span><span>75%</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 75%"></div>
                         </div>
                     </div>
-
-                    <div class="project-content">
-                        <h3 class="project-title">Countries Explorer</h3>
-                        <p class="project-subtitle">Node.js & TypeScript API Infrastructure</p>
-
-                        <p class="project-description">
-                            A type-safe backend infrastructure for exploring global data. Features a
-                            <strong>RESTful API design</strong> using Node.js and TypeScript, with
-                            efficient data handling and seamless integration of geographical datasets.
-                        </p>
-
-                        <div class="project-tech">
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">Express</span>
-                            <span class="tech-tag">REST API</span>
-                            <span class="tech-tag">Type Safety</span>
+                    <div class="metric-item">
+                        <div class="metric-header"><span>QA / Automation</span><span>80%</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 80%"></div>
                         </div>
-
-                        <div class="project-links">
-                            <a href="https://github.com/orielmalik/countries" target="_blank" rel="noopener noreferrer"
-                                class="project-link">
-                                <i class="fab fa-github"></i>
-                                View on GitHub
-                            </a>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-header"><span>Cybersecurity Logic</span><span>70%</span></div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 70%"></div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Project 1: Automation-Methods -->
-                <div class="project-card" data-category="qa">
-                    <div class="project-badge">
-                        <i class="fas fa-trophy"></i>
-                        Flagship Project
-                    </div>
-
-                    <div class="project-image">
-                        <img src="automation-methods-preview.jpg" alt="Automation-Methods Framework"
-                            id="automation-img">
-                        <div class="project-overlay">
-                            <button class="btn-expand" data-project="automation">
-                                <i class="fas fa-expand"></i>
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="project-content">
-                        <h3 class="project-title">Automation-Methods</h3>
-                        <p class="project-subtitle">Enterprise-Grade Test Automation Framework</p>
-
-                        <p class="project-description">
-                            A robust test automation framework providing an <strong>abstraction layer</strong> over
-                            Selenium and Playwright,
-                            designed to enhance code maintainability, reduce test flakiness, and accelerate test
-                            development.
-                            Features <strong>Gherkin BDD integration</strong> for readable tests and <strong>JSON-driven
-                                test data management</strong>.
-                        </p>
-
-                        <div class="project-highlights">
-                            <div class="highlight-item">
-                                <i class="fas fa-layer-group"></i>
-                                <span>Custom Abstraction Layer</span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-file-code"></i>
-                                <span>Gherkin BDD Support</span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-database"></i>
-                                <span>JSON Test Data</span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-bolt"></i>
-                                <span>Reduced Flakiness</span>
-                            </div>
-                        </div>
-
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Selenium</span>
-                            <span class="tech-tag">Playwright</span>
-                            <span class="tech-tag">Gherkin</span>
-                            <span class="tech-tag">JSON</span>
-                            <span class="tech-tag">Pytest</span>
-                        </div>
-
-                        <div class="project-links">
-                            <a href="https://github.com/orielmalik/Automation-Methods" target="_blank"
-                                rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i>
-                                View on GitHub
-                            </a>
-                            <a href="https://github.com/orielmalik/Automation-Methods#readme" target="_blank"
-                                rel="noopener noreferrer" class="project-link">
-                                <i class="fas fa-book"></i>
-                                Documentation
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2: People Microservice Suite -->
-                <div class="project-card" data-category="backend">
-                    <div class="project-image">
-                        <img src="people-microservice-preview.jpg" alt="People Microservice Suite" id="people-img">
-                        <div class="project-overlay">
-                            <button class="btn-expand" data-project="people">
-                                <i class="fas fa-expand"></i>
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="project-content">
-                        <h3 class="project-title">People & Business Unit Microservice Suite</h3>
-                        <p class="project-subtitle">Advanced Backend Architecture - REST/OpenAPI vs GraphQL</p>
-
-                        <p class="project-description">
-                            Comprehensive exploration of microservices design for managing <strong>hierarchical
-                                organizational data</strong>.
-                            Features dual implementations (REST + GraphQL), multi-branch architecture with
-                            <strong>JPA/Hibernate</strong>,
-                            <strong>Spring WebFlux + MongoDB</strong>, and <strong>Kotlin</strong> enhancements.
-                        </p>
-
-                        <div class="project-tech">
-                            <span class="tech-tag">Spring Boot</span>
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">GraphQL</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Kotlin</span>
-                            <span class="tech-tag">Docker</span>
-                        </div>
-
-                        <div class="project-links">
-                            <a href="https://github.com/orielmalik/PeopleMicroService" target="_blank"
-                                rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i>
-                                Main Repo
-                            </a>
-                            <a href="https://github.com/orielmalik/graphqljava/tree/Master" target="_blank"
-                                rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i>
-                                GraphQL
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3: MISTA - Backend Flagship -->
-                <div class="project-card hero-project" data-category="backend">
-                    <div class="project-badge">
-                        <i class="fas fa-trophy"></i>
-                        Backend Flagship
-                    </div>
-
-                    <div class="project-image">
-                        <img src="mista-preview.jpg" alt="MISTA B2C Platform" id="mista-img">
-                        <div class="project-overlay">
-                            <button class="btn-expand" data-project="mista">
-                                <i class="fas fa-expand"></i>
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="project-content">
-                        <h3 class="project-title">MISTA</h3>
-                        <p class="project-subtitle">Mission Statement - B2C Expert Matching Platform</p>
-
-                        <p class="project-description">
-                            A backend-driven <strong>B2C platform</strong> that connects users with professional
-                            operators across all industries.
-                            The system <strong>intelligently matches</strong> users with the right expert and guides
-                            them step-by-step through
-                            <strong>personalized task flows</strong> to help achieve their goals faster and with
-                            confidence.
-                        </p>
-
-                        <div class="project-highlights">
-                            <div class="highlight-item">
-                                <i class="fas fa-users"></i>
-                                <span>Expert Matching</span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-route"></i>
-                                <span>Guided Workflows</span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>Secure Platform</span>
-                            </div>
-                            <div class="highlight-item">
-                                <i class="fas fa-expand-arrows-alt"></i>
-                                <span>Scalable Architecture</span>
-                            </div>
-                        </div>
-
-                        <div class="project-tech">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Gradle</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Backend Architecture</span>
-                            <span class="tech-tag">B2C Platform</span>
-                        </div>
-
-                        <div class="project-links">
-                            <a href="https://github.com/orielmalik/MISTA" target="_blank" rel="noopener noreferrer"
-                                class="project-link">
-                                <i class="fab fa-github"></i>
-                                View on GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3: ZTA -->
-                <div class="project-card" data-category="backend">
-                    <div class="project-image">
-                        <img src="zta-preview.jpg" alt="Zero Trust Architecture" id="zta-img">
-                        <div class="project-overlay">
-                            <button class="btn-expand" data-project="zta">
-                                <i class="fas fa-expand"></i>
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="project-content">
-                        <h3 class="project-title">ZTA</h3>
-                        <p class="project-subtitle">Zero Trust Architecture Implementation</p>
-
-                        <p class="project-description">
-                            A research and implementation project exploring <strong>Zero Trust Architecture</strong>
-                            principles including
-                            <strong>security automation</strong>, authentication & authorization, encryption, and
-                            <strong>microsegmentation</strong>
-                            across multiple languages and secure environments.
-                        </p>
-
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Security Automation</span>
-                            <span class="tech-tag">Zero Trust</span>
-                            <span class="tech-tag">Authentication</span>
-                        </div>
-
-                        <div class="project-links">
-                            <a href="https://github.com/orielmalik/ZTA" target="_blank" rel="noopener noreferrer"
-                                class="project-link">
-                                <i class="fab fa-github"></i>
-                                View on GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4: FlaskOrm -->
-                <div class="project-card" data-category="backend">
-                    <div class="project-image">
-                        <img src="flaskorm-preview.jpg" alt="FlaskOrm Security Study" id="flaskorm-img">
-                        <div class="project-overlay">
-                            <button class="btn-expand" data-project="flaskorm">
-                                <i class="fas fa-expand"></i>
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="project-content">
-                        <h3 class="project-title">FlaskOrm</h3>
-                        <p class="project-subtitle">ORM vs SQL Security Study</p>
-
-                        <p class="project-description">
-                            A comparative project analyzing <strong>ORM vs. direct SQL</strong> command usage within a
-                            Flask app.
-                            Focuses on performance benchmarking, usability, and <strong>security</strong> (preventing
-                            SQL injection/XSS).
-                        </p>
-
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Flask</span>
-                            <span class="tech-tag">SQLAlchemy</span>
-                            <span class="tech-tag">PyMySQL</span>
-                            <span class="tech-tag">Security</span>
-                        </div>
-
-                        <div class="project-links">
-                            <a href="https://github.com/orielmalik/FlaskOrm" target="_blank" rel="noopener noreferrer"
-                                class="project-link">
-                                <i class="fab fa-github"></i>
-                                View on GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5: Android Mission Statement -->
-                <div class="project-card" data-category="backend">
-                    <div class="project-image">
-                        <img src="android-mission-statement-preview.jpg" alt="Android Mission Statement App"
-                            id="android-img">
-                        <div class="project-overlay">
-                            <button class="btn-expand" data-project="android">
-                                <i class="fas fa-expand"></i>
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="project-content">
-                        <h3 class="project-title">Mission Statement</h3>
-                        <p class="project-subtitle">Native Android App with Firebase & NLP</p>
-
-                        <p class="project-description">
-                            A native <strong>Android application</strong> built with Java featuring <strong>Firebase
-                                integration</strong>,
-                            advanced natural language processing with <strong>HANLP</strong>, and robust security with
-                            <strong>AES encryption</strong>.
-                            Demonstrates modern Android UI patterns and real-time data synchronization.
-                        </p>
-
-                        <div class="project-tech">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Android</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">HANLP</span>
-                            <span class="tech-tag">AES Encryption</span>
-                            <span class="tech-tag">RecyclerView</span>
-                        </div>
-
-                        <div class="project-links">
-                            <a href="https://github.com/orielmalik/Mission_Statement" target="_blank"
-                                rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i>
-                                View on GitHub
-                            </a>
-                        </div>
+                <div>
+                    <p style="color:var(--marble); font-weight:600; margin-bottom:1rem;">Afeka Specializations:</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+                        <span class="card-badge">Design Patterns</span>
+                        <span class="card-badge">Crypto-Algos</span>
+                        <span class="card-badge">Debugging Systematics</span>
+                        <span class="card-badge">GraphQL Architecture</span>
+                        <span class="card-badge">InfoSec Principles</span>
+                        <span class="card-badge">SQL / NoSQL Eng</span>
                     </div>
                 </div>
             </div>
+        </section>
+    </main>
+
+    <!-- FOOTER Section -->
+    <footer id="contact">
+        <div class="footer-icons">
+            <a href="mailto:oriel.malik@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/oriel-malik-465984219/" target="_blank" title="LinkedIn"><i
+                    class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/orielmalik" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://wa.me/972587306070" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-number">03.</span>
-                Technical Skills
-            </h2>
-
-            <div class="skills-grid">
-                <!-- Languages -->
-                <div class="skills-category">
-                    <div class="category-header">
-                        <i class="fas fa-code"></i>
-                        <h3>Languages</h3>
-                    </div>
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <div class="skill-info"><span class="skill-name">TypeScript / Node.js</span><span
-                                    class="skill-level">Advanced</span></div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info"><span class="skill-name">Java</span><span
-                                    class="skill-level">Advanced</span></div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info"><span class="skill-name">Python</span><span
-                                    class="skill-level">Advanced</span></div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Frameworks -->
-                <div class="skills-category">
-                    <div class="category-header">
-                        <i class="fas fa-layer-group"></i>
-                        <h3>Frameworks</h3>
-                    </div>
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <div class="skill-info"><span class="skill-name">Spring Boot</span><span
-                                    class="skill-level">Advanced</span></div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info"><span class="skill-name">Flask / FastAPI</span><span
-                                    class="skill-level">Advanced</span></div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info"><span class="skill-name">Playwright / Selenium</span><span
-                                    class="skill-level">Expert</span></div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 95%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Databases & Data -->
-                <div class="skills-category">
-                    <div class="category-header">
-                        <i class="fas fa-database"></i>
-                        <h3>Data & Databases</h3>
-                    </div>
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <div class="skill-info"><span class="skill-name">SQL (MySQL, PostgreSQL)</span><span
-                                    class="skill-level">Advanced</span></div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info"><span class="skill-name">NoSQL (MongoDB, NEO4J)</span><span
-                                    class="skill-level">Professional</span></div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info"><span class="skill-name">Firebase</span><span
-                                    class="skill-level">Advanced</span></div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quality & DevOps -->
-                <div class="skills-category">
-                    <div class="category-header">
-                        <i class="fas fa-vial-circle-check"></i>
-                        <h3>DevOps & Quality</h3>
-                    </div>
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <div class="skill-info"><span class="skill-name">Docker</span><span
-                                    class="skill-level">Advanced</span></div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info"><span class="skill-name">CI/CD & Git</span><span
-                                    class="skill-level">Advanced</span></div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info"><span class="skill-name">BDD / TDD Practices</span><span
-                                    class="skill-level">Expert</span></div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Additional Technologies -->
-            <div class="tech-cloud">
-                <h3 class="tech-cloud-title">Additional Technologies</h3>
-                <div class="tech-tags">
-                    <span class="tech-badge">JavaScript</span>
-                    <span class="tech-badge">Node.js</span>
-                    <span class="tech-badge">SQL</span>
-                    <span class="tech-badge">MongoDB</span>
-                    <span class="tech-badge">MySQL</span>
-                    <span class="tech-badge">PostgreSQL</span>
-                    <span class="tech-badge">Firebase</span>
-                    <span class="tech-badge">NEO4J</span>
-                    <span class="tech-badge">Git</span>
-                    <span class="tech-badge">Maven</span>
-                    <span class="tech-badge">Gradle</span>
-                    <span class="tech-badge">Postman</span>
-                    <span class="tech-badge">GraphQL</span>
-                    <span class="tech-badge">WebFlux</span>
-                    <span class="tech-badge">RSocket</span>
-                    <span class="tech-badge">Linux</span>
-                    <span class="tech-badge">Windows</span>
-                    <span class="tech-badge">Bash</span>
-                    <span class="tech-badge">PowerShell</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-number">04.</span>
-                Experience & Education
-            </h2>
-
-            <div class="timeline">
-                <!-- Education -->
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2020 - 2024</span>
-                        <h3>B.Sc. in Software Engineering</h3>
-                        <h4>Afeka College of Engineering</h4>
-                        <p>Specialization in <strong>Cybersecurity</strong></p>
-                        <ul>
-                            <li>Focused on secure software development practices</li>
-                            <li>Completed projects in backend development, test automation, and security analysis</li>
-                            <li>Applied cybersecurity principles to real-world applications</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Teaching Experience -->
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2021 - 2024</span>
-                        <h3>Computer Science Teacher</h3>
-                        <h4>Science and Technology Israel Office, Tel-Aviv</h4>
-                        <ul>
-                            <li>Designed and delivered advanced CS curriculum including algorithms, OOP, and full-stack
-                                projects</li>
-                            <li>Mentored 11th-12th graders on final projects with many achieving 90+ grades</li>
-                            <li>Developed teaching materials and practical exercises for complex programming concepts
-                            </li>
-                            <li>Fostered problem-solving skills and software engineering best practices</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-number">05.</span>
-                Get In Touch
-            </h2>
-
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's Work Together</h3>
-                    <p>
-                        I'm currently open to new opportunities in <strong>Backend Development</strong> and
-                        <strong>QA Automation Engineering</strong>. Whether you're looking for someone to build
-                        scalable microservices or create robust test automation frameworks, I'd love to hear from you!
-                    </p>
-
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <span class="contact-label">Email</span>
-                                <a href="mailto:oriel.malik@gmail.com">oriel.malik@gmail.com</a>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <span class="contact-label">Phone</span>
-                                <a href="tel:+972587306070">058-730-6070</a>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <span class="contact-label">Location</span>
-                                <span>Tel Aviv, Israel</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-social">
-                        <a href="https://github.com/orielmalik" target="_blank" rel="noopener noreferrer"
-                            class="social-btn">
-                            <i class="fab fa-github"></i>
-                            GitHub
-                        </a>
-                        <a href="https://www.linkedin.com/in/oriel-malik-465984219" target="_blank"
-                            rel="noopener noreferrer" class="social-btn">
-                            <i class="fab fa-linkedin"></i>
-                            LinkedIn
-                        </a>
-                        <a href="https://www.youtube.com/@malikCode-w1s" target="_blank" rel="noopener noreferrer"
-                            class="social-btn">
-                            <i class="fab fa-youtube"></i>
-                            YouTube
-                        </a>
-                    </div>
-
-                    <div class="download-cv">
-                        <a href="Oriel Malik cv.pdf" download class="btn btn-primary">
-                            <i class="fas fa-download"></i>
-                            Download Backend CV
-                        </a>
-                       <a href="Oriel-Malik-QA-CV.pdf" download class="btn btn-secondary">
-                              <i class="fas fa-download"></i>
-                                Download QA CV
-                        </a>
-
-                    </div>
-                </div>
-
-                <div class="contact-form-wrapper">
-                    <form id="contact-form" class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i>
-                            Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Oriel Malik. Built with passion and clean code.</p>
-            <p class="footer-tech">HTML • CSS • JavaScript</p>
-        </div>
+        <p class="copyright">© 2026 ORIEL MALIK // ANALYTICAL & ORGANIZED // TEL AVIV</p>
     </footer>
 
-    <!-- Project Modal -->
-    <div id="project-modal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close">
-                <i class="fas fa-times"></i>
-            </button>
-            <div id="modal-body"></div>
-        </div>
-    </div>
+    <!-- LIGHTBOX Modal -->
+    <div id="lightbox"><img src="" alt="Full Scale Asset"></div>
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lightbox functionality
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = lightbox.querySelector('img');
+            document.querySelectorAll('.reg-img').forEach(el => {
+                el.addEventListener('click', () => {
+                    lightboxImg.src = el.querySelector('img').src;
+                    lightbox.style.display = 'flex';
+                });
+            });
+            lightbox.addEventListener('click', () => { lightbox.style.display = 'none'; });
+
+            // Animate Skill Bars
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const fill = entry.target.querySelector('.metric-fill');
+                        if (fill) fill.style.width = entry.target.querySelector('span:last-child').innerText;
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            document.querySelectorAll('.metric-item').forEach(item => observer.observe(item));
+        });
+    </script>
 </body>
 
 </html>
