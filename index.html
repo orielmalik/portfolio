@@ -308,63 +308,335 @@
             z-index: 1;
         }
 
-        /* TECHNICAL REGISTRY */
-        .registry-container {
-            width: 100%;
+        /* TECHNICAL BENTO GRID */
+        /* LUXURY COMPACT SNIPPET CARDS */
+        .slider-container {
+            display: flex;
             overflow-x: auto;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            background: var(--bg-card);
+            scroll-snap-type: x mandatory;
+            gap: 1.5rem;
+            padding: 2rem 5%;
+            scrollbar-width: none;
         }
 
-        .registry-table {
-            width: 100%;
-            border-collapse: collapse;
+        .slider-container::-webkit-scrollbar {
+            display: none;
+            /* Hide scrollbar Chrome/Safari */
         }
 
-        .registry-table th {
-            text-align: left;
-            padding: 1.2rem;
-            color: var(--gold);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-bottom: 2px solid var(--gold);
-            background: var(--bg-deep);
-        }
-
-        .registry-table td {
-            padding: 1.2rem;
-            border-bottom: 1px solid var(--border);
-            vertical-align: middle;
-        }
-
-        .reg-img {
-            width: 90px;
-            height: 55px;
-            background: #000;
-            cursor: zoom-in;
-            border: 1px solid var(--border);
+        .bento-item {
+            flex: 0 0 320px;
+            background: #050505;
+            border: 1px solid rgba(197, 160, 40, 0.2);
+            border-radius: 8px;
+            padding: 1.25rem;
+            position: relative;
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
             overflow: hidden;
         }
 
-        .reg-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.7;
-            transition: 0.4s;
+        .bento-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 15px 40px rgba(197, 160, 40, 0.15);
         }
 
-        .reg-img:hover img {
-            opacity: 1;
+        .bento-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .bento-icon {
+            font-size: 1.2rem;
+            color: var(--gold);
+            opacity: 0.8;
+        }
+
+        .bento-title {
+            color: var(--marble);
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin: 0;
+            font-family: var(--font-sans);
+        }
+
+        /* Side-by-Side Flow */
+        .bento-flow {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 0.75rem;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .flow-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .flow-label {
+            font-size: 0.55rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 800;
+        }
+
+        .flow-value {
+            font-size: 0.75rem;
+            color: var(--marble);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: 500;
+        }
+
+        .flow-arrow {
+            color: rgba(197, 160, 40, 0.4);
+            font-size: 0.8rem;
+        }
+
+        /* Tech Pills */
+        .bento-tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.5rem;
+        }
+
+        .tech-pill {
+            background: #000;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: 0.3s;
+        }
+
+        .bento-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 0.75rem;
+        }
+
+        .btn-vision {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--marble);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .btn-vision:hover {
+            background: var(--gold);
+            color: #000;
+            border-color: var(--gold);
+        }
+
+        .bento-link {
+            color: var(--slate);
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .bento-link:hover {
+            color: var(--gold);
+        }
+
+        /* Navigation Arrows */
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--marble);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .nav-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
             transform: scale(1.1);
         }
 
-        .reg-title {
+        @media (max-width: 992px) {
+            .bento-item {
+                flex: 0 0 320px;
+                padding: 1.5rem;
+            }
+        }
+
+        /* MODAL */
+        #project-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.98);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        #project-modal.active {
+            display: flex;
+        }
+
+        .modal-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            width: 100%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            color: var(--slate);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .modal-close:hover {
+            color: var(--gold);
+        }
+
+        #modal-body h2 {
+            font-family: var(--font-serif);
             color: var(--marble);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-subtitle {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .modal-description {
+            color: var(--slate);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .modal-description h4 {
+            color: var(--marble);
+            margin: 1.5rem 0 0.5rem 0;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .modal-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .modal-description li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-description li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tech-tag {
+            padding: 4px 12px;
+            background: rgba(197, 160, 40, 0.1);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            border-radius: 4px;
+            font-size: 0.7rem;
             font-weight: 600;
-            font-size: 0.9rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--marble);
+            background: var(--bg-deep);
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+
+        .project-link:hover {
+            border-color: var(--gold);
+            color: var(--gold);
         }
 
         /* MATRIX */
@@ -458,6 +730,15 @@
                 font-size: 3rem;
             }
 
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bento-item.featured {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
             .org-branch {
                 flex-direction: column;
                 gap: 2rem;
@@ -480,6 +761,16 @@
             .operation-card {
                 width: 100%;
                 max-width: 300px;
+            }
+
+            .topologic-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .bento-item {
+                flex: 0 0 320px;
+                padding: 1.5rem;
             }
         }
     </style>
@@ -586,63 +877,203 @@
         <!-- Technical Inventory Section -->
         <section id="registry">
             <h2 class="section-title">Technical Inventory</h2>
-            <div class="registry-container">
-                <table class="registry-table">
-                    <thead>
-                        <tr>
-                            <th>Identifier</th>
-                            <th>Critical Function</th>
-                            <th>Vision (Click)</th>
-                            <th>Stack Environment</th>
-                            <th>Repository</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="reg-title">Automation-Methods</td>
-                            <td>Unified abstraction for Selenium & Playwright operations.</td>
-                            <td>
-                                <div class="reg-img"><img src="automation-methods-preview.jpg" alt="Automation"></div>
-                            </td>
-                            <td>Python, BDD, Pytest</td>
-                            <td><a href="https://github.com/orielmalik/Automation-Methods" target="_blank"
-                                    class="btn-link">CODE</a></td>
-                        </tr>
-                        <tr>
-                            <td class="reg-title">MISTA Platform</td>
-                            <td>B2C platform with expert algorithms and flow logic.</td>
-                            <td>
-                                <div class="reg-img"><img src="mista-preview.jpg" alt="MISTA"></div>
-                            </td>
-                            <td>Java, Gradle, Spring</td>
-                            <td><a href="https://github.com/orielmalik/MISTA" target="_blank" class="btn-link">CODE</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="reg-title">Mission Statement</td>
-                            <td>Secure Android suite with Firebase & NLP processing.</td>
-                            <td>
-                                <div class="reg-img"><img src="android-mission-statement-preview.jpg" alt="Android">
-                                </div>
-                            </td>
-                            <td>Java, Android Studio</td>
-                            <td><a href="https://github.com/orielmalik/Mission_Statement" target="_blank"
-                                    class="btn-link">CODE</a></td>
-                        </tr>
-                        <tr>
-                            <td class="reg-title">People Microservice</td>
-                            <td>Entity management using GraphQL and MongoDB.</td>
-                            <td>
-                                <div class="reg-img"><img src="people-microservice-preview.jpg" alt="GraphQL Service">
-                                </div>
-                            </td>
-                            <td>Nodejs, GraphQL, MongoDB</td>
-                            <td><a href="https://github.com/orielmalik/PeopleMicroService" target="_blank"
-                                    class="btn-link">CODE</a></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="registry-wrapper">
+                <div class="slider-container" id="inventory-slider">
+
+                    <!-- Automation Methods -->
+                    <div class="bento-item" data-project="automation">
+                        <div class="bento-header">
+                            <h3 class="bento-title">QA Framework</h3>
+                            <i class="fas fa-robot bento-icon"></i>
+                        </div>
+                        <div class="bento-flow">
+                            <div class="flow-col">
+                                <span class="flow-label">Problem</span>
+                                <span class="flow-value">Fragmentation</span>
+                            </div>
+                            <i class="fas fa-link flow-arrow"></i>
+                            <div class="flow-col">
+                                <span class="flow-label">Solution</span>
+                                <span class="flow-value">Abstraction</span>
+                            </div>
+                        </div>
+                        <div class="bento-tech-stack">
+                            <span class="tech-pill">Selenium</span>
+                            <span class="tech-pill">Playwright</span>
+                            <span class="tech-pill">Pytest</span>
+                        </div>
+                        <div class="bento-footer">
+                            <button class="btn-vision" data-image="automation-methods-preview.jpg"
+                                title="Vision Image"><i class="fas fa-eye"></i></button>
+                            <a href="https://github.com/orielmalik/Automation-Methods" target="_blank"
+                                class="bento-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- MISTA -->
+                    <div class="bento-item" data-project="mista">
+                        <div class="bento-header">
+                            <h3 class="bento-title">MISTA Platform</h3>
+                            <i class="fas fa-project-diagram bento-icon"></i>
+                        </div>
+                        <div class="bento-flow">
+                            <div class="flow-col">
+                                <span class="flow-label">Problem</span>
+                                <span class="flow-value">Expert Access</span>
+                            </div>
+                            <i class="fas fa-link flow-arrow"></i>
+                            <div class="flow-col">
+                                <span class="flow-label">Solution</span>
+                                <span class="flow-value">Matching Alg</span>
+                            </div>
+                        </div>
+                        <div class="bento-tech-stack">
+                            <span class="tech-pill">Java</span>
+                            <span class="tech-pill">Spring Boot</span>
+                            <span class="tech-pill">Docker</span>
+                        </div>
+                        <div class="bento-footer">
+                            <button class="btn-vision" data-image="mista-preview.jpg" title="Vision Image"><i
+                                    class="fas fa-eye"></i></button>
+                            <a href="https://github.com/orielmalik/MISTA" target="_blank" class="bento-link"><i
+                                    class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Countries API -->
+                    <div class="bento-item" data-project="countries">
+                        <div class="bento-header">
+                            <h3 class="bento-title">Countries API</h3>
+                            <i class="fas fa-globe-americas bento-icon"></i>
+                        </div>
+                        <div class="bento-flow">
+                            <div class="flow-col">
+                                <span class="flow-label">Problem</span>
+                                <span class="flow-value">Data Reliability</span>
+                            </div>
+                            <i class="fas fa-link flow-arrow"></i>
+                            <div class="flow-col">
+                                <span class="flow-label">Solution</span>
+                                <span class="flow-value">Type-Safe API</span>
+                            </div>
+                        </div>
+                        <div class="bento-tech-stack">
+                            <span class="tech-pill">Node.js</span>
+                            <span class="tech-pill">TypeScript</span>
+                            <span class="tech-pill">Express</span>
+                        </div>
+                        <div class="bento-footer">
+                            <button class="btn-vision" data-image="scienceOffice.png" title="Vision Image"><i
+                                    class="fas fa-eye"></i></button>
+                            <a href="https://github.com/orielmalik/countries" target="_blank" class="bento-link"><i
+                                    class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Mission Statement -->
+                    <div class="bento-item" data-project="android">
+                        <div class="bento-header">
+                            <h3 class="bento-title">Android Mission</h3>
+                            <i class="fab fa-android bento-icon"></i>
+                        </div>
+                        <div class="bento-flow">
+                            <div class="flow-col">
+                                <span class="flow-label">Problem</span>
+                                <span class="flow-value">Mobile Privacy</span>
+                            </div>
+                            <i class="fas fa-link flow-arrow"></i>
+                            <div class="flow-col">
+                                <span class="flow-label">Solution</span>
+                                <span class="flow-value">AES Security</span>
+                            </div>
+                        </div>
+                        <div class="bento-tech-stack">
+                            <span class="tech-pill">Android Studio</span>
+                            <span class="tech-pill">Java</span>
+                            <span class="tech-pill">Firebase</span>
+                        </div>
+                        <div class="bento-footer">
+                            <button class="btn-vision" data-image="android-mission-statement-preview.jpg"
+                                title="Vision Image"><i class="fas fa-eye"></i></button>
+                            <a href="https://github.com/orielmalik/Mission_Statement" target="_blank"
+                                class="bento-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- People Microservice -->
+                    <div class="bento-item" data-project="people">
+                        <div class="bento-header">
+                            <h3 class="bento-title">People Service</h3>
+                            <i class="fas fa-users-cog bento-icon"></i>
+                        </div>
+                        <div class="bento-flow">
+                            <div class="flow-col">
+                                <span class="flow-label">Problem</span>
+                                <span class="flow-value">Hierarchies</span>
+                            </div>
+                            <i class="fas fa-link flow-arrow"></i>
+                            <div class="flow-col">
+                                <span class="flow-label">Solution</span>
+                                <span class="flow-value">Graph Logic</span>
+                            </div>
+                        </div>
+                        <div class="bento-tech-stack">
+                            <span class="tech-pill">GraphQL</span>
+                            <span class="tech-pill">Docker</span>
+                            <span class="tech-pill">Spring Boot</span>
+                        </div>
+                        <div class="bento-footer">
+                            <button class="btn-vision" data-image="people-microservice-preview.jpg"
+                                title="Vision Image"><i class="fas fa-eye"></i></button>
+                            <a href="https://github.com/orielmalik/PeopleMicroService" target="_blank"
+                                class="bento-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- ZTA -->
+                    <div class="bento-item" data-project="zta">
+                        <div class="bento-header">
+                            <h3 class="bento-title">Zero Trust Arch</h3>
+                            <i class="fas fa-user-shield bento-icon"></i>
+                        </div>
+                        <div class="bento-flow">
+                            <div class="flow-col">
+                                <span class="flow-label">Problem</span>
+                                <span class="flow-value">Implicit Trust</span>
+                            </div>
+                            <i class="fas fa-link flow-arrow"></i>
+                            <div class="flow-col">
+                                <span class="flow-label">Solution</span>
+                                <span class="flow-value">ZTA Automation</span>
+                            </div>
+                        </div>
+                        <div class="bento-tech-stack">
+                            <span class="tech-pill">Docker</span>
+                            <span class="tech-pill">Security</span>
+                            <span class="tech-pill">Automation</span>
+                        </div>
+                        <div class="bento-footer">
+                            <button class="btn-vision" data-image="zta-preview.jpg" title="Vision Image"><i
+                                    class="fas fa-eye"></i></button>
+                            <a href="https://github.com/orielmalik/ZTA" target="_blank" class="bento-link"><i
+                                    class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="slider-nav">
+                    <button class="nav-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="nav-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+                </div>
             </div>
+        </section>
+
+        <div class="slider-nav">
+            <button class="nav-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+            <button class="nav-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        </div>
         </section>
 
         <!-- MATRIX Section -->
@@ -689,6 +1120,12 @@
                             style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">Neo4j</span>
                         <span
                             style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">Render</span>
+                        <span
+                            style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">Postman</span>
+                        <span
+                            style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">AntiGravity</span>
+                        <span
+                            style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">V0</span>
                     </div>
                 </div>
             </div>
@@ -706,20 +1143,82 @@
         <p class="copy">© 2026 ORIEL MALIK // ANALYTICAL & ORGANIZED // TEL AVIV</p>
     </footer>
 
+    <div id="project-modal">
+        <div class="modal-container">
+            <span class="modal-close"><i class="fas fa-times"></i></span>
+            <div id="modal-body">
+                <!-- Content loaded via JS -->
+            </div>
+        </div>
+    </div>
+
     <div id="lightbox"><img src="" alt="Expansion"></div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = lightbox.querySelector('img');
-            document.querySelectorAll('.reg-img').forEach(el => {
-                el.addEventListener('click', () => {
-                    lightboxImg.src = el.querySelector('img').src;
+
+            // Vision Image logic
+            document.querySelectorAll('.btn-vision').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    lightboxImg.src = btn.getAttribute('data-image');
                     lightbox.style.display = 'flex';
                 });
             });
+
             lightbox.addEventListener('click', () => { lightbox.style.display = 'none'; });
 
+            // Slider Logic
+            const slider = document.getElementById('inventory-slider');
+            const nextBtn = document.getElementById('nextBtn');
+            const prevBtn = document.getElementById('prevBtn');
+
+            nextBtn.addEventListener('click', () => {
+                slider.scrollBy({ left: 450, behavior: 'smooth' });
+            });
+            prevBtn.addEventListener('click', () => {
+                slider.scrollBy({ left: -450, behavior: 'smooth' });
+            });
+
+            // Project Details logic
+            const modal = document.getElementById('project-modal');
+            const modalBody = document.getElementById('modal-body');
+            const modalClose = document.querySelector('.modal-close');
+
+            document.querySelectorAll('.bento-item').forEach(card => {
+                card.addEventListener('click', () => {
+                    const projectKey = card.getAttribute('data-project');
+                    if (window.projectDetails && window.projectDetails[projectKey]) {
+                        const project = window.projectDetails[projectKey];
+                        modalBody.innerHTML = `
+                            <div class="modal-problem-banner" style="color: #c5a028; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; font-weight: 700;">
+                                Problem Solved: ${project.problem}
+                            </div>
+                            <h2>${project.title}</h2>
+                            <p class="project-subtitle">${project.subtitle}</p>
+                            <div class="modal-description">${project.description}</div>
+                            <div class="project-tech">
+                                ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                            </div>
+                            <div class="project-links" style="margin-top: 2rem;">
+                                <a href="${project.github}" target="_blank" class="project-link" onclick="event.stopPropagation()"><i class="fab fa-github"></i> GitHub Repository</a>
+                            </div>
+                        `;
+                        modal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+
+            modalClose.addEventListener('click', () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+            modal.addEventListener('click', (e) => { if (e.target === modal) modalClose.click(); });
+
+            // Matrix Animation
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {

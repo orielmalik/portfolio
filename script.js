@@ -69,6 +69,7 @@ function initProjectModals() {
         countries: {
             title: 'Countries Explorer',
             subtitle: 'Node.js & TypeScript API Infrastructure',
+            problem: 'Unreliable Geo-Data Serving',
             description: `
                 <p>Countries Explorer is a sophisticated backend infrastructure designed to manage and serve global geographical and population data. 
                 Built with a focus on type-safety and performance, it demonstrates the effective use of Node.js and TypeScript for building reliable APIs.</p>
@@ -96,6 +97,7 @@ function initProjectModals() {
         automation: {
             title: 'Automation-Methods',
             subtitle: 'Enterprise-Grade Test Automation Framework',
+            problem: 'QA Tool Fragmentation & Maintenance',
             description: `
                 <p>Automation-Methods is a comprehensive test automation framework that provides a powerful abstraction layer over Selenium and Playwright. 
                 This project was designed to solve common pain points in test automation: flaky tests, difficult maintenance, and slow development cycles.</p>
@@ -133,6 +135,7 @@ function initProjectModals() {
         mista: {
             title: 'MISTA',
             subtitle: 'Mission Statement - B2C Expert Matching Platform',
+            problem: 'Fragmented Access to Industry Experts',
             description: `
                 <p>MISTA (Mission Statement) is a backend-driven B2C platform designed to bridge the gap between 
                 end users and professional service providers across all industries. The platform intelligently 
@@ -169,6 +172,7 @@ function initProjectModals() {
         zta: {
             title: 'ZTA',
             subtitle: 'Zero Trust Architecture Implementation',
+            problem: 'Implicit Trust Vulnerabilities',
             description: `
                 <p>A comprehensive research and implementation project exploring Zero Trust Architecture (ZTA) 
                 principles. This project demonstrates modern security practices including security automation, 
@@ -205,6 +209,7 @@ function initProjectModals() {
         people: {
             title: 'People & Business Unit Microservice Suite',
             subtitle: 'Advanced Backend Architecture for Hierarchical Organizational Data Management',
+            problem: 'Complexity in Scaling Hierarchical Data',
             description: `
                 <p>This project suite represents a comprehensive exploration of microservices design for managing people and business units 
                 in a real-world enterprise context. The core domain revolves around structured organizational hierarchies: business units, 
@@ -271,6 +276,7 @@ function initProjectModals() {
         android: {
             title: 'Mission Statement',
             subtitle: 'Native Android App with Firebase & Natural Language Processing',
+            problem: 'Secure Mobile NLP and Data Privacy',
             description: `
                 <p>Mission Statement is a native Android application developed using Java in Android Studio. The application 
                 demonstrates modern Android development practices including Firebase cloud integration, advanced natural language 
@@ -322,6 +328,7 @@ function initProjectModals() {
         flaskorm: {
             title: 'FlaskOrm',
             subtitle: 'ORM vs SQL Security Study',
+            problem: 'Persistence Layer Security Vulnerabilities',
             description: `
                 <p>FlaskOrm is a comparative research project analyzing the differences between ORM (SQLAlchemy) and direct SQL 
                 command usage within a Flask application. The project focuses on three key areas: performance, usability, and security.</p>
@@ -363,6 +370,9 @@ function initProjectModals() {
 
             if (project) {
                 modalBody.innerHTML = `
+                    <div class="modal-problem-banner" style="color: #c5a028; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; font-weight: 700;">
+                        Problem Solved: ${project.problem}
+                    </div>
                     <h2>${project.title}</h2>
                     <p class="project-subtitle">${project.subtitle}</p>
                     <div class="modal-description">
