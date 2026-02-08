@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Oriel Malik">
-    <meta name="description" content="Oriel Malik Portfolio - Emerging Software Engineer | Luxury Analytical Dashboard">
-    <title>Oriel Malik | EMERGING SOFTWARE ENGINEER</title>
+    <meta name="description"
+        content="Oriel Malik - QA Automation Engineer | Backend Developer | Playwright, Selenium, Java, Python, TypeScript Specialist">
+    <title>Oriel Malik | QA Automation Engineer | Backend Developer</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -99,13 +100,13 @@
 
         /* HERO */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 80px 1.5rem;
+            padding: 100px 2rem 80px;
             position: relative;
             background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
         }
@@ -140,12 +141,22 @@
             letter-spacing: 6px;
             text-transform: uppercase;
             font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-bio {
+            max-width: 700px;
+            font-size: 1rem;
+            color: var(--slate);
+            line-height: 1.8;
             margin-bottom: 2.5rem;
+            font-weight: 300;
         }
 
         .cv-btns {
             display: flex;
             gap: 1rem;
+            margin-bottom: 2rem;
         }
 
         .btn {
@@ -175,6 +186,23 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
         }
 
+        .social-links-hero {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-links-hero a {
+            color: var(--slate);
+            font-size: 1.3rem;
+            transition: 0.3s;
+        }
+
+        .social-links-hero a:hover {
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+
         /* SECTIONS */
         section {
             padding: 120px 5%;
@@ -187,8 +215,16 @@
             font-size: 2.8rem;
             color: var(--marble);
             text-align: center;
-            margin-bottom: 5rem;
+            margin-bottom: 1rem;
             position: relative;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--slate);
+            font-size: 1rem;
+            font-style: italic;
+            margin-bottom: 4rem;
         }
 
         .section-title::after {
@@ -200,30 +236,175 @@
             margin: 20px auto;
         }
 
-        /* OPERATIONAL LIFEMAP - Linear Connections */
-        .lifemap-container {
-            display: flex;
-            flex-direction: column;
-            gap: 6rem;
+        /* PROJECTS GRID */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: 0.4s var(--transition);
+            cursor: pointer;
             position: relative;
         }
 
-        .org-branch {
+        .project-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(197, 160, 40, 0.15);
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--marble);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-category {
+            color: var(--gold);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .project-card p {
+            color: var(--slate);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-pills {
             display: flex;
-            align-items: flex-start;
-            gap: 4rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-pill {
+            background: rgba(197, 160, 40, 0.1);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-cta {
+            color: var(--gold);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* SKILLS MATRIX */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .skill-category h3 {
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .skill-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .skill-name {
+            color: var(--marble);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 500;
+        }
+
+        .skill-bar {
+            height: 6px;
+            background: var(--bg-deep);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold), #d4af37);
+            transition: width 2s var(--transition);
+            width: 0;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .skill-tag {
+            background: rgba(197, 160, 40, 0.1);
+            color: var(--gold);
+            border: 1px solid var(--border);
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* EXPERIENCE TIMELINE */
+        .timeline-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
             position: relative;
         }
 
-        .org-icon-hub {
+        .timeline-icon {
             flex-shrink: 0;
-            position: relative;
-            z-index: 5;
-        }
-
-        .hub-circle {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             background: white;
             border-radius: 50%;
             display: flex;
@@ -231,277 +412,48 @@
             justify-content: center;
             border: 3px solid var(--gold);
             box-shadow: 0 0 30px var(--gold-glow);
-            transition: 0.4s var(--transition);
         }
 
-        .hub-circle img {
-            width: 80%;
+        .timeline-icon img {
+            width: 70%;
             object-fit: contain;
         }
 
-        .hub-label {
-            text-align: center;
-            margin-top: 1rem;
-            color: var(--white);
-            font-weight: 700;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .operations-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            flex-grow: 1;
-            position: relative;
-        }
-
-        /* SVG Line connection would be complex in pure CSS across wraps, using linear visual lines instead */
-        .operation-card {
+        .timeline-content {
+            flex: 1;
             background: var(--bg-card);
-            border: 1px solid var(--border);
             padding: 1.5rem;
-            border-radius: 4px;
-            width: 230px;
-            transition: 0.4s var(--transition);
-            position: relative;
+            border-radius: 8px;
+            border: 1px solid var(--border);
         }
 
-        .operation-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-5px);
-        }
-
-        .op-year {
+        .timeline-year {
             color: var(--gold);
             font-family: var(--font-serif);
             font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            display: block;
         }
 
-        .op-title {
+        .timeline-title {
             color: var(--marble);
+            font-size: 1.2rem;
             font-weight: 600;
-            font-size: 0.85rem;
-            margin-bottom: 0.4rem;
-            text-transform: uppercase;
-        }
-
-        .op-desc {
-            font-size: 0.75rem;
-            color: var(--slate);
-            line-height: 1.4;
-        }
-
-        /* Linear Connector Lines */
-        .org-branch::before {
-            content: '';
-            position: absolute;
-            left: 100px;
-            top: 50px;
-            height: 2px;
-            width: 4rem;
-            background: linear-gradient(to right, var(--gold), transparent);
-            z-index: 1;
-        }
-
-        /* TECHNICAL BENTO GRID */
-        /* LUXURY COMPACT SNIPPET CARDS */
-        .slider-container {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 1.5rem;
-            padding: 2rem 5%;
-            scrollbar-width: none;
-        }
-
-        .slider-container::-webkit-scrollbar {
-            display: none;
-            /* Hide scrollbar Chrome/Safari */
-        }
-
-        .bento-item {
-            flex: 0 0 320px;
-            background: #050505;
-            border: 1px solid rgba(197, 160, 40, 0.2);
-            border-radius: 8px;
-            padding: 1.25rem;
-            position: relative;
-            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            cursor: pointer;
-            overflow: hidden;
-        }
-
-        .bento-item:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
-            box-shadow: 0 15px 40px rgba(197, 160, 40, 0.15);
-        }
-
-        .bento-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             margin-bottom: 0.5rem;
         }
 
-        .bento-icon {
-            font-size: 1.2rem;
-            color: var(--gold);
-            opacity: 0.8;
-        }
-
-        .bento-title {
-            color: var(--marble);
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin: 0;
-            font-family: var(--font-sans);
-        }
-
-        /* Side-by-Side Flow */
-        .bento-flow {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.02);
-            padding: 0.75rem;
-            border-radius: 4px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .flow-col {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .flow-label {
-            font-size: 0.55rem;
-            color: var(--gold);
+        .timeline-org {
+            color: var(--slate);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-weight: 800;
         }
 
-        .flow-value {
-            font-size: 0.75rem;
-            color: var(--marble);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            font-weight: 500;
-        }
-
-        .flow-arrow {
-            color: rgba(197, 160, 40, 0.4);
-            font-size: 0.8rem;
-        }
-
-        /* Tech Pills */
-        .bento-tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-top: 0.5rem;
-        }
-
-        .tech-pill {
-            background: #000;
-            color: var(--gold);
-            border: 1px solid var(--gold);
-            padding: 2px 10px;
-            border-radius: 20px;
-            font-size: 0.6rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: 0.3s;
-        }
-
-        .bento-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: auto;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 0.75rem;
-        }
-
-        .btn-vision {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--marble);
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            transition: 0.3s;
-        }
-
-        .btn-vision:hover {
-            background: var(--gold);
-            color: #000;
-            border-color: var(--gold);
-        }
-
-        .bento-link {
+        .timeline-desc {
             color: var(--slate);
-            font-size: 1rem;
-            transition: 0.3s;
-        }
-
-        .bento-link:hover {
-            color: var(--gold);
-        }
-
-        /* Navigation Arrows */
-        .slider-nav {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .nav-btn {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--marble);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-
-        .nav-btn:hover {
-            border-color: var(--gold);
-            color: var(--gold);
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 992px) {
-            .bento-item {
-                flex: 0 0 320px;
-                padding: 1.5rem;
-            }
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
 
         /* MODAL */
@@ -518,6 +470,7 @@
             z-index: 2000;
             padding: 2rem;
             backdrop-filter: blur(10px);
+            overflow-y: auto;
         }
 
         #project-modal.active {
@@ -528,7 +481,7 @@
             background: var(--bg-card);
             border: 1px solid var(--border);
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
             max-height: 90vh;
             overflow-y: auto;
             position: relative;
@@ -545,6 +498,7 @@
             font-size: 1.5rem;
             cursor: pointer;
             transition: 0.3s;
+            z-index: 10;
         }
 
         .modal-close:hover {
@@ -617,6 +571,32 @@
             font-weight: 600;
         }
 
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--gold);
+            border-radius: 8px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
         .project-link {
             display: inline-flex;
             align-items: center;
@@ -637,39 +617,6 @@
         .project-link:hover {
             border-color: var(--gold);
             color: var(--gold);
-        }
-
-        /* MATRIX */
-        .matrix-grid {
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            display: grid;
-            gap: 3rem;
-        }
-
-        .m-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .m-head {
-            display: flex;
-            justify-content: space-between;
-            color: var(--marble);
-            font-size: 0.8rem;
-            margin-bottom: 0.4rem;
-        }
-
-        .m-track {
-            height: 4px;
-            background: var(--bg-deep);
-            border-radius: 2px;
-            overflow: hidden;
-        }
-
-        .m-fill {
-            height: 100%;
-            background: var(--gold);
-            width: 0;
-            transition: 2s var(--transition);
         }
 
         /* FOOTER */
@@ -705,72 +652,57 @@
             text-transform: uppercase;
         }
 
-        #lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(7, 11, 20, 0.98);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 20000;
-            cursor: zoom-out;
-        }
-
-        #lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            border: 2px solid var(--gold);
-        }
-
+        /* RESPONSIVE */
         @media (max-width: 992px) {
             .hero h1 {
                 font-size: 3rem;
             }
 
-            .bento-grid {
+            .projects-grid {
                 grid-template-columns: 1fr;
             }
 
-            .bento-item.featured {
-                grid-column: span 1;
-                grid-row: span 1;
+            .skills-container {
+                grid-template-columns: 1fr;
             }
 
-            .org-branch {
+            .timeline-item {
                 flex-direction: column;
-                gap: 2rem;
                 align-items: center;
+                text-align: center;
             }
 
-            .org-branch::before {
-                display: none;
+            .modal-container {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2.5rem;
             }
 
-            .hub-circle {
-                width: 80px;
-                height: 80px;
+            .hero-subtitle {
+                font-size: 0.9rem;
+                letter-spacing: 3px;
             }
 
-            .operations-list {
-                justify-content: center;
-            }
-
-            .operation-card {
+            .cv-btns {
+                flex-direction: column;
                 width: 100%;
                 max-width: 300px;
             }
 
-            .topologic-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            .section-title {
+                font-size: 2rem;
             }
 
-            .bento-item {
-                flex: 0 0 320px;
-                padding: 1.5rem;
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .nav-links a {
+                font-size: 0.6rem;
             }
         }
     </style>
@@ -781,10 +713,10 @@
 
     <nav>
         <div class="nav-links">
-            <a href="#home">Genesis</a>
-            <a href="#lifemap">Lifemap</a>
-            <a href="#registry">Inventory</a>
-            <a href="#metrics">Matrix</a>
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
@@ -792,333 +724,371 @@
     <header class="hero" id="home">
         <div class="hero-img"><img src="profff.jpg" alt="Oriel Malik"></div>
         <h1>Oriel Malik</h1>
-        <p class="hero-subtitle">EMERGING SOFTWARE ENGINEER</p>
+        <p class="hero-subtitle">QA Automation Engineer | Backend Developer</p>
+        <p class="hero-bio">
+            Building test frameworks that scale and backend systems that deliver. Self-taught TypeScript, enterprise
+            Java/Kotlin microservices, and Python automation specialist. Specializing in Selenium-to-Playwright
+            migration and reactive architecture patterns.
+        </p>
         <div class="cv-btns">
-            <a href="Oriel Malik cv.pdf" target="_blank" class="btn">SW CV</a>
-            <a href="Oriel-Malik-QA-CV.pdf" target="_blank" class="btn btn-ghost">QA CV</a>
+            <a href="Oriel Malik cv.pdf" target="_blank" class="btn">Backend CV</a>
+            <a href="Oriel-Malik-QA-CV.pdf" target="_blank" class="btn btn-ghost">QA Automation CV</a>
+        </div>
+        <div class="social-links-hero">
+            <a href="https://github.com/orielmalik" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/oriel-malik-465984219/" target="_blank" title="LinkedIn"><i
+                    class="fab fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/@malikCode-w1s" target="_blank" title="YouTube"><i
+                    class="fab fa-youtube"></i></a>
+            <a href="mailto:oriel.malik@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
         </div>
     </header>
 
     <main>
-        <!-- Operational Lifemap Section -->
-        <section id="lifemap">
-            <h2 class="section-title">Operational Lifemap</h2>
+        <!-- PROJECTS SECTION -->
+        <section id="projects">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Solving real-world challenges with production-ready architecture</p>
 
-            <div class="lifemap-container">
-
-                <!-- Afeka Branch -->
-                <div class="org-branch">
-                    <div class="org-icon-hub">
-                        <div class="hub-circle"><img src="AfekaCollge.png" alt="Afeka"></div>
-                        <div class="hub-label">Afeka College</div>
+            <div class="projects-grid">
+                <!-- Automation Methods -->
+                <div class="project-card" data-project="automation">
+                    <i class="fas fa-robot project-icon"></i>
+                    <span class="project-category">QA Automation Framework</span>
+                    <h3>Automation Methods</h3>
+                    <p>
+                        Engineered a modular test automation framework enabling seamless Selenium-to-Playwright
+                        migration for 100+ E2E tests. Implemented abstraction layer with Gherkin BDD, JSON
+                        parameterization, and reusable components that reduced test flakiness by 40% and accelerated
+                        parallel test execution for enterprise-scale testing.
+                    </p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">Python</span>
+                        <span class="tech-pill">Selenium</span>
+                        <span class="tech-pill">Playwright</span>
+                        <span class="tech-pill">Pytest</span>
+                        <span class="tech-pill">Gherkin BDD</span>
                     </div>
-                    <div class="operations-list">
-                        <div class="operation-card">
-                            <span class="op-year">2020-2024</span>
-                            <h3 class="op-title">Debugging Systematics</h3>
-                            <p class="op-desc">Mastering root-cause analysis and systemic profiling.</p>
-                        </div>
-                        <div class="operation-card">
-                            <span class="op-year">2021-2024</span>
-                            <h3 class="op-title">Design Patterns</h3>
-                            <p class="op-desc">Implementation of GoF creational and structural patterns.</p>
-                        </div>
-                        <div class="operation-card">
-                            <span class="op-year">2023-2024</span>
-                            <h3 class="op-title">InfoSec & Crypto</h3>
-                            <p class="op-desc">Security model hardening and cryptography algorithms.</p>
-                        </div>
-                        <div class="operation-card">
-                            <span class="op-year">2024</span>
-                            <h3 class="op-title">Layers Architectures</h3>
-                            <p class="op-desc">Linux, HTTP, REST, GraphQL, RS-Socket protocols.</p>
-                        </div>
+                    <div class="project-cta">
+                        Learn More <i class="fas fa-arrow-right"></i>
                     </div>
                 </div>
 
-                <!-- Sci-Tech Office Branch -->
-                <div class="org-branch">
-                    <div class="org-icon-hub">
-                        <div class="hub-circle"><img src="scienceOffice.png" alt="Science Office"></div>
-                        <div class="hub-label">Sci-Tech Office</div>
+                <!-- People Microservice -->
+                <div class="project-card" data-project="people">
+                    <i class="fas fa-project-diagram project-icon"></i>
+                    <span class="project-category">Advanced Microservices Architecture</span>
+                    <h3>People & Business Unit Service Suite</h3>
+                    <p>
+                        Developed comprehensive microservices suite for managing complex organizational hierarchies
+                        (business units → departments → employees). Multi-branch architecture comparing JPA/Hibernate vs
+                        Reactive MongoDB, Java vs Kotlin, REST/OpenAPI vs GraphQL on identical domain—demonstrating
+                        production-grade paradigm trade-offs with full Docker Compose orchestration.
+                    </p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">Spring Boot</span>
+                        <span class="tech-pill">Java</span>
+                        <span class="tech-pill">Kotlin</span>
+                        <span class="tech-pill">GraphQL</span>
+                        <span class="tech-pill">WebFlux</span>
+                        <span class="tech-pill">MongoDB</span>
+                        <span class="tech-pill">Docker</span>
                     </div>
-                    <div class="operations-list">
-                        <div class="operation-card">
-                            <span class="op-year">2021-2024</span>
-                            <h3 class="op-title">Tech CS Educator</h3>
-                            <p class="op-desc">Teaching C# .NET, Java, Math, and English Logic.</p>
-                        </div>
-                        <div class="operation-card">
-                            <span class="op-year">2021-2024</span>
-                            <h3 class="op-title">Curriculum R&D</h3>
-                            <p class="op-desc">Architecting advanced pathways for high-potential cohorts.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bnei Akiva Branch -->
-                <div class="org-branch">
-                    <div class="org-icon-hub">
-                        <div class="hub-circle"><img src="BneiAkiva.jpg" alt="Bnei Akiva"></div>
-                        <div class="hub-label">Bnei Akiva</div>
-                    </div>
-                    <div class="operations-list">
-                        <div class="operation-card">
-                            <span class="op-year">2016-2018</span>
-                            <h3 class="op-title">Youth Guide</h3>
-                            <p class="op-desc">Leadership and social mentorship for community initiatives.</p>
-                        </div>
+                    <div class="project-cta">
+                        View Demos <i class="fas fa-video"></i>
                     </div>
                 </div>
 
-            </div>
-        </section>
-
-        <!-- Technical Inventory Section -->
-        <section id="registry">
-            <h2 class="section-title">Technical Inventory</h2>
-            <div class="registry-wrapper">
-                <div class="slider-container" id="inventory-slider">
-
-                    <!-- Automation Methods -->
-                    <div class="bento-item" data-project="automation">
-                        <div class="bento-header">
-                            <h3 class="bento-title">QA Framework</h3>
-                            <i class="fas fa-robot bento-icon"></i>
-                        </div>
-                        <div class="bento-flow">
-                            <div class="flow-col">
-                                <span class="flow-label">Problem</span>
-                                <span class="flow-value">Fragmentation</span>
-                            </div>
-                            <i class="fas fa-link flow-arrow"></i>
-                            <div class="flow-col">
-                                <span class="flow-label">Solution</span>
-                                <span class="flow-value">Abstraction</span>
-                            </div>
-                        </div>
-                        <div class="bento-tech-stack">
-                            <span class="tech-pill">Selenium</span>
-                            <span class="tech-pill">Playwright</span>
-                            <span class="tech-pill">Pytest</span>
-                        </div>
-                        <div class="bento-footer">
-                            <button class="btn-vision" data-image="automation-methods-preview.jpg"
-                                title="Vision Image"><i class="fas fa-eye"></i></button>
-                            <a href="https://github.com/orielmalik/Automation-Methods" target="_blank"
-                                class="bento-link"><i class="fab fa-github"></i></a>
-                        </div>
+                <!-- Zero Trust Architecture -->
+                <div class="project-card" data-project="zta">
+                    <i class="fas fa-shield-alt project-icon"></i>
+                    <span class="project-category">Security Research & Implementation</span>
+                    <h3>Zero Trust Architecture</h3>
+                    <p>
+                        Researched and implemented Zero Trust security principles in a simulated 0-cost environment.
+                        Developed security automation scripts with JWT authentication, Docker-based microsegmentation,
+                        and secured Kafka TCP communication channels—applying "never trust, always verify" methodology
+                        to demonstrate enterprise-grade security patterns.
+                    </p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">Python</span>
+                        <span class="tech-pill">Docker</span>
+                        <span class="tech-pill">Kafka</span>
+                        <span class="tech-pill">JWT</span>
+                        <span class="tech-pill">Security</span>
                     </div>
-
-                    <!-- MISTA -->
-                    <div class="bento-item" data-project="mista">
-                        <div class="bento-header">
-                            <h3 class="bento-title">MISTA Platform</h3>
-                            <i class="fas fa-project-diagram bento-icon"></i>
-                        </div>
-                        <div class="bento-flow">
-                            <div class="flow-col">
-                                <span class="flow-label">Problem</span>
-                                <span class="flow-value">Expert Access</span>
-                            </div>
-                            <i class="fas fa-link flow-arrow"></i>
-                            <div class="flow-col">
-                                <span class="flow-label">Solution</span>
-                                <span class="flow-value">Matching Alg</span>
-                            </div>
-                        </div>
-                        <div class="bento-tech-stack">
-                            <span class="tech-pill">Java</span>
-                            <span class="tech-pill">Spring Boot</span>
-                            <span class="tech-pill">Docker</span>
-                        </div>
-                        <div class="bento-footer">
-                            <button class="btn-vision" data-image="mista-preview.jpg" title="Vision Image"><i
-                                    class="fas fa-eye"></i></button>
-                            <a href="https://github.com/orielmalik/MISTA" target="_blank" class="bento-link"><i
-                                    class="fab fa-github"></i></a>
-                        </div>
+                    <div class="project-cta">
+                        Explore Security <i class="fas fa-arrow-right"></i>
                     </div>
-
-                    <!-- Countries API -->
-                    <div class="bento-item" data-project="countries">
-                        <div class="bento-header">
-                            <h3 class="bento-title">Countries API</h3>
-                            <i class="fas fa-globe-americas bento-icon"></i>
-                        </div>
-                        <div class="bento-flow">
-                            <div class="flow-col">
-                                <span class="flow-label">Problem</span>
-                                <span class="flow-value">Data Reliability</span>
-                            </div>
-                            <i class="fas fa-link flow-arrow"></i>
-                            <div class="flow-col">
-                                <span class="flow-label">Solution</span>
-                                <span class="flow-value">Type-Safe API</span>
-                            </div>
-                        </div>
-                        <div class="bento-tech-stack">
-                            <span class="tech-pill">Node.js</span>
-                            <span class="tech-pill">TypeScript</span>
-                            <span class="tech-pill">Express</span>
-                        </div>
-                        <div class="bento-footer">
-                            <button class="btn-vision" data-image="scienceOffice.png" title="Vision Image"><i
-                                    class="fas fa-eye"></i></button>
-                            <a href="https://github.com/orielmalik/countries" target="_blank" class="bento-link"><i
-                                    class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Mission Statement -->
-                    <div class="bento-item" data-project="android">
-                        <div class="bento-header">
-                            <h3 class="bento-title">Android Mission</h3>
-                            <i class="fab fa-android bento-icon"></i>
-                        </div>
-                        <div class="bento-flow">
-                            <div class="flow-col">
-                                <span class="flow-label">Problem</span>
-                                <span class="flow-value">Mobile Privacy</span>
-                            </div>
-                            <i class="fas fa-link flow-arrow"></i>
-                            <div class="flow-col">
-                                <span class="flow-label">Solution</span>
-                                <span class="flow-value">AES Security</span>
-                            </div>
-                        </div>
-                        <div class="bento-tech-stack">
-                            <span class="tech-pill">Android Studio</span>
-                            <span class="tech-pill">Java</span>
-                            <span class="tech-pill">Firebase</span>
-                        </div>
-                        <div class="bento-footer">
-                            <button class="btn-vision" data-image="android-mission-statement-preview.jpg"
-                                title="Vision Image"><i class="fas fa-eye"></i></button>
-                            <a href="https://github.com/orielmalik/Mission_Statement" target="_blank"
-                                class="bento-link"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- People Microservice -->
-                    <div class="bento-item" data-project="people">
-                        <div class="bento-header">
-                            <h3 class="bento-title">People Service</h3>
-                            <i class="fas fa-users-cog bento-icon"></i>
-                        </div>
-                        <div class="bento-flow">
-                            <div class="flow-col">
-                                <span class="flow-label">Problem</span>
-                                <span class="flow-value">Hierarchies</span>
-                            </div>
-                            <i class="fas fa-link flow-arrow"></i>
-                            <div class="flow-col">
-                                <span class="flow-label">Solution</span>
-                                <span class="flow-value">Graph Logic</span>
-                            </div>
-                        </div>
-                        <div class="bento-tech-stack">
-                            <span class="tech-pill">GraphQL</span>
-                            <span class="tech-pill">Docker</span>
-                            <span class="tech-pill">Spring Boot</span>
-                        </div>
-                        <div class="bento-footer">
-                            <button class="btn-vision" data-image="people-microservice-preview.jpg"
-                                title="Vision Image"><i class="fas fa-eye"></i></button>
-                            <a href="https://github.com/orielmalik/PeopleMicroService" target="_blank"
-                                class="bento-link"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- ZTA -->
-                    <div class="bento-item" data-project="zta">
-                        <div class="bento-header">
-                            <h3 class="bento-title">Zero Trust Arch</h3>
-                            <i class="fas fa-user-shield bento-icon"></i>
-                        </div>
-                        <div class="bento-flow">
-                            <div class="flow-col">
-                                <span class="flow-label">Problem</span>
-                                <span class="flow-value">Implicit Trust</span>
-                            </div>
-                            <i class="fas fa-link flow-arrow"></i>
-                            <div class="flow-col">
-                                <span class="flow-label">Solution</span>
-                                <span class="flow-value">ZTA Automation</span>
-                            </div>
-                        </div>
-                        <div class="bento-tech-stack">
-                            <span class="tech-pill">Docker</span>
-                            <span class="tech-pill">Security</span>
-                            <span class="tech-pill">Automation</span>
-                        </div>
-                        <div class="bento-footer">
-                            <button class="btn-vision" data-image="zta-preview.jpg" title="Vision Image"><i
-                                    class="fas fa-eye"></i></button>
-                            <a href="https://github.com/orielmalik/ZTA" target="_blank" class="bento-link"><i
-                                    class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-
                 </div>
 
-                <div class="slider-nav">
-                    <button class="nav-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
-                    <button class="nav-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+                <!-- MISTA Platform -->
+                <div class="project-card" data-project="mista">
+                    <i class="fas fa-users project-icon"></i>
+                    <span class="project-category">B2C Platform Development</span>
+                    <h3>MISTA Platform</h3>
+                    <p>
+                        Built B2C career matching platform connecting users with professional experts across multiple
+                        industries. Developed backend infrastructure using Java/Spring Boot with intelligent matching
+                        algorithms and guided workflow systems—demonstrating scalable API design and business logic
+                        implementation for real-world use cases.
+                    </p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">Java</span>
+                        <span class="tech-pill">Spring Boot</span>
+                        <span class="tech-pill">Gradle</span>
+                        <span class="tech-pill">Docker</span>
+                    </div>
+                    <div class="project-cta">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Countries API -->
+                <div class="project-card" data-project="countries">
+                    <i class="fas fa-globe-americas project-icon"></i>
+                    <span class="project-category">Type-Safe Backend API</span>
+                    <h3>Countries Explorer API</h3>
+                    <p>
+                        Self-taught TypeScript to build type-safe RESTful API serving global geographical data with
+                        Prisma ORM. Implemented comprehensive interfaces, async/await patterns, and structured error
+                        handling—showcasing rapid technology adoption and modern Node.js backend practices for reliable
+                        data serving.
+                    </p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">TypeScript</span>
+                        <span class="tech-pill">Node.js</span>
+                        <span class="tech-pill">Express</span>
+                        <span class="tech-pill">Prisma ORM</span>
+                    </div>
+                    <div class="project-cta">
+                        See Code <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Android Mission -->
+                <div class="project-card" data-project="android">
+                    <i class="fab fa-android project-icon"></i>
+                    <span class="project-category">Native Android Development</span>
+                    <h3>Mission Statement</h3>
+                    <p>
+                        Developed native Android application for education/institution matching with Firebase cloud
+                        integration, AES encryption for data security, and HANLP natural language processing.
+                        Implemented ViewPager, RecyclerView, and Fragment-based UI patterns demonstrating mobile
+                        development proficiency and security best practices.
+                    </p>
+                    <div class="tech-pills">
+                        <span class="tech-pill">Java</span>
+                        <span class="tech-pill">Android</span>
+                        <span class="tech-pill">Firebase</span>
+                        <span class="tech-pill">AES</span>
+                        <span class="tech-pill">HANLP</span>
+                    </div>
+                    <div class="project-cta">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- MATRIX Section -->
-        <section id="metrics">
-            <h2 class="section-title">Operational Matrix</h2>
-            <div class="matrix-grid">
-                <div>
-                    <div class="m-item">
-                        <div class="m-head"><span>R&D Backend (Java, C#, TS, JS)</span><span>75%</span></div>
-                        <div class="m-track">
-                            <div class="m-fill" style="width: 75%"></div>
+        <!-- SKILLS SECTION -->
+        <section id="skills">
+            <h2 class="section-title">Technical Expertise</h2>
+            <p class="section-subtitle">Specialized skill sets for QA Automation and Backend Development</p>
+
+            <div class="skills-container">
+                <!-- QA Automation -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-vial"></i> QA Automation Engineering</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Test Automation Frameworks</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="85%"></div>
                         </div>
                     </div>
-                    <div class="m-item">
-                        <div class="m-head"><span>QA / Test Automation (Python)</span><span>85%</span></div>
-                        <div class="m-track">
-                            <div class="m-fill" style="width: 85%"></div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Selenium → Playwright Migration</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="80%"></div>
                         </div>
                     </div>
-                    <div class="m-item">
-                        <div class="m-head"><span>Security Hardening</span><span>70%</span></div>
-                        <div class="m-track">
-                            <div class="m-fill" style="width: 70%"></div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Python Automation (Pytest)</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-tags" style="margin-top: 1.5rem;">
+                        <span class="skill-tag">Gherkin BDD</span>
+                        <span class="skill-tag">JSON Parameterization</span>
+                        <span class="skill-tag">CI/CD Testing</span>
+                        <span class="skill-tag">E2E Testing</span>
+                    </div>
+                </div>
+
+                <!-- Backend Development -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> Backend Development</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Java/Kotlin Microservices</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Spring Boot & WebFlux</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>GraphQL & REST APIs</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-tags" style="margin-top: 1.5rem;">
+                        <span class="skill-tag">Reactive Programming</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">RSocket</span>
+                    </div>
+                </div>
+
+                <!-- Core Technologies -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Languages & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Kotlin</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">JPA/Hibernate</span>
+                        <span class="skill-tag">Prisma ORM</span>
+                        <span class="skill-tag">Neo4j</span>
+                        <span class="skill-tag">Gradle</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">Git</span>
+                    </div>
+                </div>
+
+                <!-- Security & Architecture -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-lock"></i> Security & Architecture</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Security Hardening & Cryptography</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" data-width="70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-tags" style="margin-top: 1.5rem;">
+                        <span class="skill-tag">Zero Trust</span>
+                        <span class="skill-tag">JWT Auth</span>
+                        <span class="skill-tag">AES Encryption</span>
+                        <span class="skill-tag">Design Patterns</span>
+                        <span class="skill-tag">Kafka</span>
+                        <span class="skill-tag">Microsegmentation</span>
+                    </div>
+                </div>
+
+                <!-- Development Environment -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-rocket"></i> Development Environment</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AntiGravity IDE (Custom)</span>
+                        <span class="skill-tag">Android Studio</span>
+                        <span class="skill-tag">IntelliJ IDEA</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Render Deploy</span>
+                    </div>
+                    <p style="color: var(--slate); font-size: 0.85rem; margin-top: 1rem; font-style: italic;">
+                        <i class="fas fa-info-circle" style="color: var(--gold);"></i>
+                        AntiGravity: My custom-built IDE and development environment optimized for personal workflow
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section id="experience">
+            <h2 class="section-title">Experience & Education</h2>
+            <p class="section-subtitle">Where I built my foundation</p>
+
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="AfekaCollge.png" alt="Afeka College">
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020 - 2024</div>
+                        <div class="timeline-title">Software Engineering Student</div>
+                        <div class="timeline-org">Afeka College of Engineering, Tel Aviv</div>
+                        <div class="timeline-desc">
+                            <strong>Key Learning Areas:</strong>
+                            <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                                <li>Debugging Systematics & root-cause analysis</li>
+                                <li>Design Patterns (GoF creational & structural)</li>
+                                <li>Information Security & Cryptography algorithms</li>
+                                <li>Multi-layer architecture (Linux, HTTP, REST, GraphQL, RSocket protocols)</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <p style="color:var(--marble); font-weight:600; margin-bottom:1rem; font-size: 0.9rem;">Core
-                        Expertise:</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.7rem;">
-                        <span
-                            style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">Design
-                            Patterns</span>
-                        <span
-                            style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">Cryptography</span>
-                        <span
-                            style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">GraphQL</span>
-                        <span
-                            style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">Debugging</span>
-                        <span
-                            style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">SQL
-                            / NoSQL</span>
-                        <span
-                            style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">Neo4j</span>
-                        <span
-                            style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">Render</span>
-                        <span
-                            style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">Postman</span>
-                        <span
-                            style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">AntiGravity</span>
-                        <span
-                            style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">V0</span>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="scienceOffice.png" alt="Science & Technology Office">
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021 - 2024</div>
+                        <div class="timeline-title">CS & Tech Educator + Curriculum R&D</div>
+                        <div class="timeline-org">Science & Technology Office, Israel</div>
+                        <div class="timeline-desc">
+                            Taught advanced computer science topics (C# .NET, Java, Mathematical Logic, English) to
+                            high-potential cohorts. Architected advanced learning pathways and curriculum development
+                            for technical education programs—demonstrating teaching ability and technical communication
+                            skills.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="BneiAkiva.jpg" alt="Bnei Akiva">
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2016 - 2018</div>
+                        <div class="timeline-title">Youth Guide & Community Leader</div>
+                        <div class="timeline-org">Bnei Akiva Youth Movement</div>
+                        <div class="timeline-desc">
+                            Leadership and social mentorship roles facilitating community initiatives and youth
+                            development programs.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1131,11 +1101,14 @@
             <a href="https://www.linkedin.com/in/oriel-malik-465984219/" target="_blank" title="LinkedIn"><i
                     class="fab fa-linkedin"></i></a>
             <a href="https://github.com/orielmalik" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.youtube.com/@malikCode-w1s" target="_blank" title="YouTube"><i
+                    class="fab fa-youtube"></i></a>
             <a href="https://wa.me/972587306070" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <p class="copy">© 2026 ORIEL MALIK // ANALYTICAL & ORGANIZED // TEL AVIV</p>
+        <p class="copy">© 2026 ORIEL MALIK // QA AUTOMATION & BACKEND ENGINEER // TEL AVIV</p>
     </footer>
 
+    <!-- PROJECT MODAL -->
     <div id="project-modal">
         <div class="modal-container">
             <span class="modal-close"><i class="fas fa-times"></i></span>
@@ -1145,83 +1118,22 @@
         </div>
     </div>
 
-    <div id="lightbox"><img src="" alt="Expansion"></div>
-
+    <script src="script.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = lightbox.querySelector('img');
-
-            // Vision Image logic
-            document.querySelectorAll('.btn-vision').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    lightboxImg.src = btn.getAttribute('data-image');
-                    lightbox.style.display = 'flex';
-                });
+        // Initialize skill bar animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const fills = entry.target.querySelectorAll('.skill-fill');
+                    fills.forEach(fill => {
+                        const width = fill.getAttribute('data-width');
+                        fill.style.width = width;
+                    });
+                }
             });
+        }, { threshold: 0.2 });
 
-            lightbox.addEventListener('click', () => { lightbox.style.display = 'none'; });
-
-            // Slider Logic
-            const slider = document.getElementById('inventory-slider');
-            const nextBtn = document.getElementById('nextBtn');
-            const prevBtn = document.getElementById('prevBtn');
-
-            nextBtn.addEventListener('click', () => {
-                slider.scrollBy({ left: 450, behavior: 'smooth' });
-            });
-            prevBtn.addEventListener('click', () => {
-                slider.scrollBy({ left: -450, behavior: 'smooth' });
-            });
-
-            // Project Details logic
-            const modal = document.getElementById('project-modal');
-            const modalBody = document.getElementById('modal-body');
-            const modalClose = document.querySelector('.modal-close');
-
-            document.querySelectorAll('.bento-item').forEach(card => {
-                card.addEventListener('click', () => {
-                    const projectKey = card.getAttribute('data-project');
-                    if (window.projectDetails && window.projectDetails[projectKey]) {
-                        const project = window.projectDetails[projectKey];
-                        modalBody.innerHTML = `
-                            <div class="modal-problem-banner" style="color: #c5a028; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; font-weight: 700;">
-                                Problem Solved: ${project.problem}
-                            </div>
-                            <h2>${project.title}</h2>
-                            <p class="project-subtitle">${project.subtitle}</p>
-                            <div class="modal-description">${project.description}</div>
-                            <div class="project-tech">
-                                ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-                            </div>
-                            <div class="project-links" style="margin-top: 2rem;">
-                                <a href="${project.github}" target="_blank" class="project-link" onclick="event.stopPropagation()"><i class="fab fa-github"></i> GitHub Repository</a>
-                            </div>
-                        `;
-                        modal.classList.add('active');
-                        document.body.style.overflow = 'hidden';
-                    }
-                });
-            });
-
-            modalClose.addEventListener('click', () => {
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            });
-            modal.addEventListener('click', (e) => { if (e.target === modal) modalClose.click(); });
-
-            // Matrix Animation
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const fill = entry.target.querySelector('.m-fill');
-                        if (fill) fill.style.width = entry.target.querySelector('span:last-child').innerText;
-                    }
-                });
-            }, { threshold: 0.2 });
-            document.querySelectorAll('.m-item').forEach(item => observer.observe(item));
-        });
+        document.querySelectorAll('.skill-category').forEach(cat => observer.observe(cat));
     </script>
 </body>
 

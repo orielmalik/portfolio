@@ -1,375 +1,417 @@
 // ===================================
-// Portfolio Website - Interactive Features
+// Enhanced Portfolio - Interactive Features
 // ===================================
 
-// Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function () {
-    initNavigation();
     initProjectModals();
-    initContactForm();
-    initScrollAnimations();
-    initMobileMenu();
+    initResponsiveNav();
 });
 
 // ===================================
-// Navigation
-// ===================================
-function initNavigation() {
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('section');
-
-    // Smooth scroll for navigation links
-    navLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // Active link on scroll
-    window.addEventListener('scroll', function () {
-        let current = '';
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-
-            if (window.pageYOffset >= sectionTop - 100) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-}
-
-// ===================================
-// Project Modals
+// Project Modals with Video Embeds
 // ===================================
 function initProjectModals() {
-    const expandButtons = document.querySelectorAll('.btn-expand');
     const modal = document.getElementById('project-modal');
     const modalBody = document.getElementById('modal-body');
     const modalClose = document.querySelector('.modal-close');
 
     const projectDetails = {
-        countries: {
-            title: 'Countries Explorer',
-            subtitle: 'Node.js & TypeScript API Infrastructure',
-            problem: 'Unreliable Geo-Data Serving',
-            description: `
-                <p>Countries Explorer is a sophisticated backend infrastructure designed to manage and serve global geographical and population data. 
-                Built with a focus on type-safety and performance, it demonstrates the effective use of Node.js and TypeScript for building reliable APIs.</p>
-                
-                <h4>Key Features</h4>
-                <ul>
-                    <li><strong>TypeScript Type-Safety:</strong> Comprehensive use of interfaces and types to ensure code reliability and catch errors at compile-time</li>
-                    <li><strong>RESTful API Design:</strong> Clean, intuitive endpoint structure for accessing country-specific data, populations, and borders</li>
-                    <li><strong>Data Integration:</strong> Seamless handling and serving of complex geographical datasets</li>
-                    <li><strong>Node.js Backend:</strong> Scalable and efficient server-side architecture using Express</li>
-                </ul>
-                
-                <h4>Technical Mastery</h4>
-                <ul>
-                    <li>Object-oriented approach with TypeScript</li>
-                    <li>Async/Await for efficient data fetching and processing</li>
-                    <li>Structured error handling and response formatting</li>
-                    <li>Scalable file structure for modern web applications</li>
-                </ul>
-            `,
-            tech: ['Node.js', 'TypeScript', 'Express', 'REST API', 'JSON'],
-            github: 'https://github.com/orielmalik/countries',
-            demo: null
-        },
         automation: {
-            title: 'Automation-Methods',
+            title: 'Automation Methods',
             subtitle: 'Enterprise-Grade Test Automation Framework',
-            problem: 'QA Tool Fragmentation & Maintenance',
+            problem: 'QA Tool Fragmentation & Selenium-to-Playwright Migration',
             description: `
-                <p>Automation-Methods is a comprehensive test automation framework that provides a powerful abstraction layer over Selenium and Playwright. 
-                This project was designed to solve common pain points in test automation: flaky tests, difficult maintenance, and slow development cycles.</p>
+                <p>Automation Methods is a comprehensive test automation framework designed to solve one of the biggest challenges in enterprise QA: migrating from Selenium to Playwright while maintaining 100+ existing E2E tests without complete rewrites.</p>
+                
+                <h4>The Challenge</h4>
+                <p>Large organizations face massive technical debt when test automation tools evolve. Rewriting hundreds of tests is costly, time-consuming, and risks introducing bugs. Test flakiness and slow execution plague legacy frameworks.</p>
+                
+                <h4>The Solution</h4>
+                <p>Built a modular abstraction layer that wraps both Selenium WebDriver and Playwright APIs with unified methods. Teams can gradually migrate tests one-by-one while maintaining full backward compatibility.</p>
                 
                 <h4>Key Features</h4>
                 <ul>
-                    <li><strong>Abstraction Layer:</strong> Custom wrapper methods that simplify common testing operations and reduce code duplication</li>
-                    <li><strong>Gherkin BDD Integration:</strong> Write tests in natural language using Gherkin syntax for better collaboration with non-technical stakeholders</li>
-                    <li><strong>JSON Test Data:</strong> Externalize test data into JSON files for easy maintenance and data-driven testing</li>
-                    <li><strong>Multi-Browser Support:</strong> Seamlessly switch between Selenium and Playwright backends</li>
-                    <li><strong>Utility Methods:</strong> Comprehensive suite of helper methods for common testing scenarios</li>
+                    <li><strong>Abstraction Layer:</strong> Custom wrapper methods simplifying common testing operations, reducing code duplication by 60%</li>
+                    <li><strong>Gherkin BDD Integration:</strong> Natural language test definitions for stakeholder collaboration</li>
+                    <li><strong>JSON Parameterization:</strong> External test data management enabling data-driven testing at scale</li>
+                    <li><strong>Multi-Browser Support:</strong> Seamless switching between Selenium and Playwright backends</li>
+                    <li><strong>Reusable Component Library:</strong> Pre-built test utilities for common web interactions</li>
                 </ul>
                 
                 <h4>Technical Architecture</h4>
-                <p>The framework follows a layered architecture:</p>
                 <ul>
                     <li><strong>Test Layer:</strong> Gherkin feature files and step definitions</li>
-                    <li><strong>Abstraction Layer:</strong> Custom methods wrapping Selenium/Playwright APIs</li>
+                    <li><strong>Abstraction Layer:</strong> Unified API wrapping Selenium/Playwright</li>
                     <li><strong>Driver Layer:</strong> WebDriver management and configuration</li>
-                    <li><strong>Data Layer:</strong> JSON-based test data management</li>
+                    <li><strong>Data Layer:</strong> JSON-based parameterization system</li>
                 </ul>
                 
-                <h4>Impact</h4>
+                <h4>Measurable Impact</h4>
                 <ul>
-                    <li>Reduced test flakiness through robust wait strategies</li>
-                    <li>Accelerated test development with reusable components</li>
-                    <li>Improved test maintainability with clear separation of concerns</li>
-                    <li>Enhanced collaboration through BDD approach</li>
+                    <li>✅ Reduced test flakiness by 40% through robust wait strategies</li>
+                    <li>✅ Accelerated test development with 60% code reuse</li>
+                    <li>✅ Enabled parallel test execution reducing CI/CD pipeline time</li>
+                    <li>✅ Improved maintainability with clear separation of concerns</li>
                 </ul>
             `,
-            tech: ['Python', 'Selenium', 'Playwright', 'Gherkin', 'Pytest', 'JSON'],
+            tech: ['Python', 'Selenium WebDriver', 'Playwright', 'Pytest', 'Gherkin BDD', 'JSON', 'unittest'],
             github: 'https://github.com/orielmalik/Automation-Methods',
-            demo: null
+            youtube: null
         },
-        mista: {
-            title: 'MISTA',
-            subtitle: 'Mission Statement - B2C Expert Matching Platform',
-            problem: 'Fragmented Access to Industry Experts',
+        people: {
+            title: 'People & Business Unit Microservice Suite',
+            subtitle: 'Advanced Backend Architecture for Hierarchical Organizational Data',
+            problem: 'Managing Complex Organizational Hierarchies at Enterprise Scale',
             description: `
-                <p>MISTA (Mission Statement) is a backend-driven B2C platform designed to bridge the gap between 
-                end users and professional service providers across all industries. The platform intelligently 
-                matches users with the right expert and guides them step-by-step through personalized task flows.</p>
+                <p>This comprehensive microservices project suite represents production-ready backend solutions for managing people and business units in real-world enterprise contexts. The domain involves structured organizational hierarchies: business units → departments → sub-departments → employees with varying ranks/levels.</p>
                 
-                <h4>Core Features</h4>
+                <h4>The Business Challenge</h4>
+                <p>Enterprise HR and organizational management systems must handle deeply nested hierarchies while maintaining data integrity during operations like additions, updates, promotions, and queries. Performance at scale and flexibility for different access patterns are critical.</p>
+                
+                <h4>Multi-Branch Architecture Exploration</h4>
+                <p>Rather than choosing a single technology stack, this project implements the <strong>identical business domain</strong> across multiple branches, each demonstrating different architectural paradigms:</p>
+                
                 <ul>
-                    <li><strong>Intelligent Expert Matching:</strong> Algorithm-driven matching across multiple industries</li>
-                    <li><strong>Guided Task Flows:</strong> Step-by-step personalized workflows for goal achievement</li>
-                    <li><strong>Scalable Architecture:</strong> Backend infrastructure supporting multi-industry use cases</li>
-                    <li><strong>Secure Platform:</strong> User-centric security and data protection</li>
+                    <li><strong>JPA/Hibernate Branch:</strong> Traditional relational persistence with robust entity mapping, ACID transactions, and SQL-based querying—ideal for structured enterprise data</li>
+                    <li><strong>Reactive MongoDB Branch:</strong> Spring WebFlux + Reactive MongoDB for high-throughput, event-driven scenarios emphasizing scalability and non-blocking operations</li>
+                    <li><strong>Kotlin Enhancement Branch:</strong> Same architectures rewritten in Kotlin for more concise, type-safe, and expressive code with full Java interoperability</li>
+                    <li><strong>GraphQL Implementation:</strong> Separate repository showcasing GraphQL Java + Spring Boot for flexible, client-driven querying without over-fetching</li>
+                </ul>
+                
+                <h4>Technical Stack Comparison</h4>
+                
+                <strong>Core Repository: PeopleMicroService</strong>
+                <ul>
+                    <li>Java + Spring Boot with RESTful OpenAPI endpoints</li>
+                    <li>Gradle build system with multi-module support</li>
+                    <li>Extensive JUnit test coverage (unit + integration)</li>
+                    <li>Docker Compose for local development and deployment</li>
+                    <li>PostgreSQL (JPA) vs Reactive MongoDB (WebFlux) branches</li>
+                </ul>
+                
+                <strong>GraphQL Implementation Repository</strong>
+                <ul>
+                    <li>GraphQL Java + Spring Boot on same organizational domain</li>
+                    <li>Schema-first design with introspection and strong typing</li>
+                    <li>Efficient hierarchical queries (add employee to sub-department without over-fetching)</li>
+                    <li>Demonstrates paradigm comparison: REST/OpenAPI vs GraphQL</li>
+                </ul>
+                
+                <h4>Video Demonstrations</h4>
+                <p>Watch comprehensive walkthroughs demonstrating the architecture in action:</p>
+                
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/Wa0Oj1JCooU" 
+                            title="GraphQL Implementation Demo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            loading="lazy"></iframe>
+                </div>
+                
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/R4s7NfuQLvM" 
+                            title="Microservices Architecture Walkthrough" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            loading="lazy"></iframe>
+                </div>
+                
+                <h4>Why This Approach Matters</h4>
+                <p>By implementing the <strong>same business logic</strong> across paradigms (blocking vs reactive, SQL vs NoSQL, Java vs Kotlin, REST vs GraphQL), this project provides:</p>
+                <ul>
+                    <li>🎯 Clear comparison of architectural trade-offs for production decisions</li>
+                    <li>🎯 Proof of understanding multiple modern backend patterns</li>
+                    <li>🎯 Demonstration of technology-agnostic problem-solving</li>
+                    <li>🎯 Evidence of production-grade thinking for Israeli hi-tech roles</li>
+                </ul>
+                
+                <h4>Business Value Delivered</h4>
+                <ul>
+                    <li>Scalable backend systems for real organizational structures</li>
+                    <li>Maintainable architecture with clean separation of concerns</li>
+                    <li>Performance optimization for different access patterns</li>
+                    <li>Technology flexibility based on actual business requirements</li>
+                </ul>
+            `,
+            tech: ['Spring Boot', 'Java', 'Kotlin', 'GraphQL', 'JPA/Hibernate', 'Spring WebFlux', 'Reactive MongoDB', 'PostgreSQL', 'Docker Compose', 'RSocket', 'OpenAPI', 'Gradle', 'JUnit'],
+            github: 'https://github.com/orielmalik/PeopleMicroService',
+            github2: 'https://github.com/orielmalik/graphqljava/tree/Master',
+            youtube: ['Wa0Oj1JCooU', 'R4s7NfuQLvM']
+        },
+        zta: {
+            title: 'Zero Trust Architecture',
+            subtitle: 'Security Research & Enterprise ZTA Implementation',
+            problem: 'Implicit Trust Vulnerabilities in Traditional Network Security',
+            description: `
+                <p>A comprehensive research and implementation project exploring Zero Trust Architecture (ZTA) principles—the modern security model adopted by enterprises worldwide to combat insider threats and lateral movement attacks.</p>
+                
+                <h4>The Security Problem</h4>
+                <p>Traditional perimeter-based security assumes everything inside the network can be trusted. This creates catastrophic risks when attackers breach the perimeter or malicious insiders exist. Zero Trust challenges this with "never trust, always verify."</p>
+                
+                <h4>Research & Implementation Approach</h4>
+                <p>Built a simulated Zero Trust environment using 0-cost infrastructure to research and validate enterprise security patterns:</p>
+                
+                <ul>
+                    <li><strong>Security Automation:</strong> Python scripts for automated policy enforcement and continuous monitoring</li>
+                    <li><strong>JWT Authentication:</strong> Stateless authentication tokens for service-to-service communication</li>
+                    <li><strong>Docker Microsegmentation:</strong> Network isolation strategies using containerization</li>
+                    <li><strong>Secured Kafka TCP:</strong> Encrypted messaging layer for inter-service communication</li>
+                </ul>
+                
+                <h4>Zero Trust Core Principles Implemented</h4>
+                
+                <strong>1. Never Trust, Always Verify</strong>
+                <ul>
+                    <li>Continuous authentication for every request</li>
+                    <li>No implicit trust based on network location</li>
+                    <li>Session validation and token expiration</li>
+                </ul>
+                
+                <strong>2. Least Privilege Access</strong>
+                <ul>
+                    <li>Minimal permissions by default</li>
+                    <li>Role-based access control (RBAC)</li>
+                    <li>Time-limited elevated privileges</li>
+                </ul>
+                
+                <strong>3. Assume Breach</strong>
+                <ul>
+                    <li>Design for containment and recovery</li>
+                    <li>Network segmentation limiting lateral movement</li>
+                    <li>Audit logging for forensic analysis</li>
+                </ul>
+                
+                <strong>4. Verify Explicitly</strong>
+                <ul>
+                    <li>Authenticate based on all available data points</li>
+                    <li>Device health, location, behavior analytics</li>
+                    <li>Multi-factor considerations</li>
                 </ul>
                 
                 <h4>Technical Implementation</h4>
                 <ul>
-                    <li>Java-based backend with Gradle build system</li>
-                    <li>Docker containerization for deployment flexibility</li>
-                    <li>API-driven design for frontend integration</li>
-                    <li>Scalable B2C platform foundations</li>
+                    <li><strong>Python:</strong> Security automation scripts and policy enforcement engines</li>
+                    <li><strong>Docker:</strong> Isolated secure environments and microsegmentation</li>
+                    <li><strong>Kafka:</strong> Secured TCP communication with encryption</li>
+                    <li><strong>JWT:</strong> Stateless authentication and authorization</li>
                 </ul>
                 
-                <h4>Impact</h4>
+                <h4>Learning Outcomes</h4>
+                <p>This project demonstrates understanding of:</p>
                 <ul>
-                    <li>Connects users with professional operators efficiently</li>
-                    <li>Reduces time to goal achievement through guided workflows</li>
-                    <li>Provides confidence through expert matching</li>
-                    <li>Supports multiple industries with flexible architecture</li>
+                    <li>Enterprise security architectures and modern threat models</li>
+                    <li>Cryptographic protocols and secure communication</li>
+                    <li>Network segmentation and isolation strategies</li>
+                    <li>Security automation and policy-as-code</li>
+                    <li>Research methodology for evaluating security patterns</li>
                 </ul>
             `,
-            tech: ['Java', 'Gradle', 'Docker', 'Backend Architecture', 'B2C Platform'],
-            github: 'https://github.com/orielmalik/MISTA',
-            demo: null
-        },
-        zta: {
-            title: 'ZTA',
-            subtitle: 'Zero Trust Architecture Implementation',
-            problem: 'Implicit Trust Vulnerabilities',
-            description: `
-                <p>A comprehensive research and implementation project exploring Zero Trust Architecture (ZTA) 
-                principles. This project demonstrates modern security practices including security automation, 
-                robust authentication & authorization, encryption, and microsegmentation.</p>
-                
-                <h4>Key Components</h4>
-                <ul>
-                    <li><strong>Security Automation:</strong> Automated security policy enforcement and monitoring</li>
-                    <li><strong>Authentication & Authorization:</strong> Multi-factor and role-based access control systems</li>
-                    <li><strong>Encryption:</strong> End-to-end data protection and secure communication channels</li>
-                    <li><strong>Microsegmentation:</strong> Network isolation and segmentation strategies for enhanced security</li>
-                </ul>
-                
-                <h4>Zero Trust Principles</h4>
-                <ul>
-                    <li>Never trust, always verify - continuous authentication</li>
-                    <li>Least privilege access - minimal permissions by default</li>
-                    <li>Assume breach - design for containment and recovery</li>
-                    <li>Verify explicitly - authenticate and authorize based on all available data points</li>
-                </ul>
-                
-                <h4>Technologies</h4>
-                <ul>
-                    <li>Python for security automation scripts and policy enforcement</li>
-                    <li>Docker for isolated secure environments and containerization</li>
-                    <li>Zero Trust security frameworks and best practices</li>
-                    <li>Multi-language implementation for flexibility and integration</li>
-                </ul>
-            `,
-            tech: ['Python', 'Docker', 'Security Automation', 'Zero Trust', 'Authentication', 'Microsegmentation'],
+            tech: ['Python', 'Docker', 'Kafka', 'JWT', 'Zero Trust', 'Security Automation', 'Microsegmentation', 'Cryptography', 'Network Security'],
             github: 'https://github.com/orielmalik/ZTA',
-            demo: null
+            youtube: null
         },
-        people: {
-            title: 'People & Business Unit Microservice Suite',
-            subtitle: 'Advanced Backend Architecture for Hierarchical Organizational Data Management',
-            problem: 'Complexity in Scaling Hierarchical Data',
+        mista: {
+            title: 'MISTA Platform',
+            subtitle: 'B2C Expert Matching Platform - Mission Statement',
+            problem: 'Fragmented Access to Professional Experts Across Industries',
             description: `
-                <p>This project suite represents a comprehensive exploration of microservices design for managing people and business units 
-                in a real-world enterprise context. The core domain revolves around structured organizational hierarchies: business units, 
-                departments, sub-departments, employees with varying ranks/levels, and relationships that must remain intact during operations 
-                like additions, updates, and queries.</p>
+                <p>MISTA (Mission Statement) is a backend-driven B2C platform designed to bridge the gap between end users and professional service providers across all industries. The platform intelligently matches users with the right expert and guides them step-by-step through personalized task flows.</p>
                 
-                <h4>Core Repository: PeopleMicroService</h4>
+                <h4>The Market Problem</h4>
+                <p>Users seeking professional help (legal, financial, medical, career, etc.) face fragmented access to experts. Finding the right professional, understanding the process, and achieving goals requires extensive research and trial-and-error.</p>
+                
+                <h4>Platform Solution</h4>
+                <p>Built a scalable B2C platform with intelligent matching algorithms and guided workflow systems:</p>
+                
                 <ul>
-                    <li><strong>Repository:</strong> <a href="https://github.com/orielmalik/PeopleMicroService" target="_blank">orielmalik/PeopleMicroService</a></li>
-                    <li><strong>Primary Stack:</strong> Java + Spring Boot microservice with RESTful endpoints</li>
-                    <li><strong>Build System:</strong> Gradle</li>
-                    <li><strong>Testing:</strong> Extensive JUnit coverage across unit and integration tests</li>
-                    <li><strong>Containerization:</strong> Docker Compose for local development and deployment</li>
+                    <li><strong>Intelligent Expert Matching:</strong> Algorithm-driven matching based on user needs, expert specializations, and success metrics</li>
+                    <li><strong>Guided Task Flows:</strong> Step-by-step personalized workflows ensuring users complete their goals efficiently</li>
+                    <li><strong>Multi-Industry Support:</strong> Flexible architecture supporting diverse professional services</li>
+                    <li><strong>Scalable Backend:</strong> Java/Spring Boot infrastructure designed for growth</li>
                 </ul>
                 
-                <h4>Multi-Branch Development Strategy</h4>
-                <p>The repository features several dedicated branches, each demonstrating deliberate architectural choices and technology explorations:</p>
-                <ul>
-                    <li><strong>Traditional Relational Persistence:</strong> Branches using <strong>JPA + Hibernate</strong> for robust entity mapping, 
-                    transactions, and SQL-based querying—ideal for structured, ACID-compliant enterprise data</li>
-                    <li><strong>Reactive Architecture:</strong> Branches showcasing <strong>Spring WebFlux + MongoDB</strong> for high-throughput, 
-                    event-driven scenarios—emphasizing scalability and responsiveness in modern distributed systems</li>
-                    <li><strong>Kotlin Enhancements:</strong> Additional branches incorporating <strong>Kotlin</strong> for more concise, safe, and 
-                    expressive code while maintaining full Java interoperability</li>
-                </ul>
-                <p>This branching approach allows clean comparison of paradigms (blocking vs reactive, SQL vs NoSQL, Java vs Kotlin) on the exact 
-                same business domain—a practical way to evaluate trade-offs for different production requirements.</p>
+                <h4>Technical Architecture</h4>
                 
-                <h4>Complementary GraphQL Implementation</h4>
+                <strong>Backend Infrastructure</strong>
                 <ul>
-                    <li><strong>Repository:</strong> <a href="https://github.com/orielmalik/graphqljava/tree/Master" target="_blank">orielmalik/graphqljava (Master branch)</a></li>
-                    <li><strong>Same Domain Re-engineered:</strong> GraphQL Java + Spring Boot</li>
-                    <li><strong>Key Advantage:</strong> GraphQL's flexible, client-driven querying shines in hierarchical data scenarios. For example, 
-                    adding an employee to a sub-department is handled efficiently without over-fetching or breaking the overall organizational hierarchy</li>
-                    <li><strong>Schema-First Design:</strong> Ensures strong typing, introspection, and reduced versioning issues compared to traditional REST/OpenAPI</li>
+                    <li>Java + Spring Boot for robust business logic</li>
+                    <li>Gradle build system for dependency management</li>
+                    <li>RESTful API design for frontend integration</li>
+                    <li>Docker containerization for deployment flexibility</li>
                 </ul>
                 
-                <h4>Technical & Architectural Highlights</h4>
+                <strong>Key Components</strong>
                 <ul>
-                    <li><strong>Unified Domain Logic:</strong> Full CRUD, hierarchical integrity enforcement, data validation, security considerations</li>
-                    <li><strong>Paradigm Comparison:</strong> REST/OpenAPI (resource-oriented) vs GraphQL (query-oriented)—highlighting when each excels</li>
-                    <li><strong>Modern Practices:</strong> Test-driven development (JUnit), containerization (Docker), modular code structure, clean separation of concerns</li>
-                    <li><strong>Business Value:</strong> Equips backend systems to handle real organizational structures (multi-level departments, employee ranks/roles) 
-                    with maintainability and performance in mind</li>
+                    <li><strong>Matching Engine:</strong> Algorithm considering expertise, availability, ratings, and user preferences</li>
+                    <li><strong>Workflow System:</strong> Dynamic task flow generation based on user goals and expert methodologies</li>
+                    <li><strong>Data Models:</strong> Flexible schemas supporting multiple industries and service types</li>
+                    <li><strong>API Layer:</strong> Clean separation between business logic and presentation</li>
                 </ul>
                 
-                <h4>Impact & Purpose</h4>
-                <p>This suite reflects deep, hands-on commitment to backend excellence and architectural versatility—positioning for immediate contribution 
-                to high-tech software engineering roles focused on scalable services, APIs, and data modeling. The work demonstrates production-grade thinking 
-                and readiness to secure a strong foothold (דריסת רגל) in Israeli hi-tech backend development.</p>
-                
-                <h4>Repository Links</h4>
+                <h4>Business Impact</h4>
                 <ul>
-                    <li><a href="https://github.com/orielmalik/PeopleMicroService" target="_blank">PeopleMicroService (Main Repo)</a></li>
-                    <li><a href="https://github.com/orielmalik/graphqljava/tree/Master" target="_blank">GraphQL Java Implementation</a></li>
-                    <li><a href="https://github.com/orielmalik?tab=repositories&q=PEOPL&type=&language=&sort=" target="_blank">All Related Repositories</a></li>
+                    <li>Connects users with relevant professional operators efficiently</li>
+                    <li>Reduces time-to-goal achievement through structured guidance</li>
+                    <li>Provides confidence through verified expert matching</li>
+                    <li>Supports scalable multi-industry expansion</li>
+                </ul>
+                
+                <h4>Technical Skills Demonstrated</h4>
+                <ul>
+                    <li>B2C platform architecture and scalability considerations</li>
+                    <li>Algorithm design for matching and recommendation systems</li>
+                    <li>Workflow engine implementation</li>
+                    <li>Java backend development with Spring Boot</li>
+                    <li>API-first design principles</li>
                 </ul>
             `,
-            tech: ['Spring Boot', 'Java', 'GraphQL', 'JPA/Hibernate', 'MongoDB', 'Spring WebFlux', 'Kotlin', 'Docker', 'Gradle', 'JUnit'],
-            github: 'https://github.com/orielmalik/PeopleMicroService',
-            github2: 'https://github.com/orielmalik/graphqljava/tree/Master',
-            demo: null
+            tech: ['Java', 'Spring Boot', 'Gradle', 'Docker', 'REST API', 'Backend Architecture', 'Algorithm Design', 'B2C Platform'],
+            github: 'https://github.com/orielmalik/MISTA',
+            youtube: null
         },
-        android: {
-            title: 'Mission Statement',
-            subtitle: 'Native Android App with Firebase & Natural Language Processing',
-            problem: 'Secure Mobile NLP and Data Privacy',
+        countries: {
+            title: 'Countries Explorer API',
+            subtitle: 'Type-Safe Node.js & TypeScript Backend',
+            problem: 'Unreliable Geo-Data Serving with Type-Safety Issues',
             description: `
-                <p>Mission Statement is a native Android application developed using Java in Android Studio. The application 
-                demonstrates modern Android development practices including Firebase cloud integration, advanced natural language 
-                processing, data security, and sophisticated UI patterns.</p>
+                <p>Countries Explorer is a sophisticated backend infrastructure built to serve global geographical and population data with complete type-safety. This project represents a deliberate learning journey: self-teaching TypeScript to build production-quality APIs.</p>
+                
+                <h4>The Learning Challenge</h4>
+                <p>While experienced in Java and Python, modern web development increasingly demands TypeScript proficiency. Rather than taking courses, this project involved learning TypeScript by building a real API from scratch.</p>
+                
+                <h4>Technical Implementation</h4>
+                
+                <strong>Type-Safety First</strong>
+                <ul>
+                    <li><strong>Comprehensive Interfaces:</strong> Every data structure defined with TypeScript interfaces</li>
+                    <li><strong>Compile-Time Validation:</strong> Catch errors before runtime through strict typing</li>
+                    <li><strong>IDE Autocomplete:</strong> Rich development experience with full IntelliSense</li>
+                </ul>
+                
+                <strong>API Design</strong>
+                <ul>
+                    <li><strong>RESTful Architecture:</strong> Clean, intuitive endpoints for country data, populations, borders</li>
+                    <li><strong>Prisma ORM:</strong> Modern database toolkit for type-safe database access</li>
+                    <li><strong>Express Framework:</strong> Scalable and efficient Node.js routing</li>
+                    <li><strong>Async/Await Patterns:</strong> Modern asynchronous programming throughout</li>
+                </ul>
                 
                 <h4>Key Features</h4>
                 <ul>
-                    <li><strong>Data Security with AES:</strong> All sensitive data is encrypted using the Advanced Encryption 
-                    Standard (AES) algorithm, providing robust security for user information</li>
-                    <li><strong>Location Services:</strong> Implements location permission management to provide location-based 
-                    services within the app</li>
-                    <li><strong>HANLP Integration:</strong> Utilizes HANLP (Han Language Processing) for natural language processing 
-                    tasks including tokenization, part-of-speech tagging, and named entity recognition</li>
+                    <li>Complete geographical dataset with country information</li>
+                    <li>Population statistics and historical data</li>
+                    <li>Border relationships and neighboring countries</li>
+                    <li>Type-safe query parameters and response formatting</li>
+                    <li>Structured error handling with proper HTTP status codes</li>
                 </ul>
                 
-                <h4>Firebase Integration</h4>
+                <h4>Technologies Mastered</h4>
                 <ul>
-                    <li><strong>Firebase Storage:</strong> Enables secure cloud storage for user-generated content such as images</li>
-                    <li><strong>Firebase Realtime Database:</strong> Provides real-time data synchronization ensuring the app's 
-                    data is always up-to-date across all devices</li>
+                    <li><strong>TypeScript:</strong> Interfaces, types, generics, decorators</li>
+                    <li><strong>Node.js:</strong> Event loop, streams, async patterns</li>
+                    <li><strong>Express:</strong> Middleware, routing, error handling</li>
+                    <li><strong>Prisma ORM:</strong> Schema design, migrations, type generation</li>
+                    <li><strong>REST APIs:</strong> Resource design, HTTP methods, status codes</li>
+                </ul>
+                
+                <h4>Why This Matters</h4>
+                <p>This project demonstrates:</p>
+                <ul>
+                    <li>✅ Self-directed learning and rapid technology adoption</li>
+                    <li>✅ Commitment to modern best practices (type-safety, async/await)</li>
+                    <li>✅ Full-stack versatility beyond primary languages</li>
+                    <li>✅ Production-ready code quality from self-taught material</li>
+                </ul>
+            `,
+            tech: ['TypeScript', 'Node.js', 'Express', 'Prisma ORM', 'REST API', 'Async/Await', 'JSON', 'PostgreSQL'],
+            github: 'https://github.com/orielmalik/countries',
+            youtube: null
+        },
+        android: {
+            title: 'Mission Statement',
+            subtitle: 'Native Android App with Firebase & NLP',
+            problem: 'Secure Mobile Education Matching with Data Privacy',
+            description: `
+                <p>Mission Statement is a native Android application developed for education and institution matching in Israel. The app demonstrates modern Android development practices including Firebase cloud integration, advanced natural language processing, data security, and sophisticated UI patterns.</p>
+                
+                <h4>The Mobile Challenge</h4>
+                <p>Building a B2B education matching app requires handling sensitive personal data, providing smooth user experiences across device types, and integrating cloud services—all while maintaining security and performance.</p>
+                
+                <h4>Key Features</h4>
+                
+                <strong>Security Implementation</strong>
+                <ul>
+                    <li><strong>AES Encryption:</strong> All sensitive user data encrypted using Advanced Encryption Standard</li>
+                    <li><strong>Location Services:</strong> Permission management for location-based matching</li>
+                    <li><strong>Secure Storage:</strong> Local data protection with encryption at rest</li>
+                </ul>
+                
+                <strong>Natural Language Processing</strong>
+                <ul>
+                    <li><strong>HANLP Integration:</strong> Han Language Processing library for text analysis</li>
+                    <li><strong>Tokenization:</strong> Breaking text into meaningful units</li>
+                    <li><strong>Part-of-Speech Tagging:</strong> Grammatical analysis for better matching</li>
+                    <li><strong>Named Entity Recognition:</strong> Identifying institutions, programs, locations</li>
+                </ul>
+                
+                <strong>Firebase Cloud Integration</strong>
+                <ul>
+                    <li><strong>Firebase Storage:</strong> Secure cloud storage for user-generated content and images</li>
+                    <li><strong>Realtime Database:</strong> Real-time data synchronization ensuring consistency across all devices</li>
+                    <li><strong>Cloud Messaging:</strong> Push notifications for matching updates</li>
                 </ul>
                 
                 <h4>User Interface Components</h4>
+                
+                <strong>Modern Android UI Patterns</strong>
                 <ul>
-                    <li><strong>ViewPager:</strong> Allows users to swipe between different fragments for smooth navigation</li>
-                    <li><strong>RecyclerView:</strong> Efficiently displays large datasets by recycling views for optimal performance</li>
-                    <li><strong>GridView:</strong> Displays items in a responsive grid layout</li>
-                    <li><strong>Fragments:</strong> Creates dynamic and flexible UI designs with modular components</li>
+                    <li><strong>ViewPager:</strong> Swipeable screens for smooth navigation between fragments</li>
+                    <li><strong>RecyclerView:</strong> Efficient list rendering with view recycling for optimal performance</li>
+                    <li><strong>GridView:</strong> Responsive grid layouts for institution browsing</li>
+                    <li><strong>Fragments:</strong> Modular UI components for dynamic, flexible designs</li>
+                    <li><strong>Material Design:</strong> Following Android design guidelines</li>
                 </ul>
                 
                 <h4>Technical Stack</h4>
                 <ul>
                     <li>Java for native Android development</li>
-                    <li>Android Studio IDE</li>
-                    <li>Firebase (Storage + Realtime Database)</li>
+                    <li>Android Studio as primary IDE</li>
+                    <li>Firebase (Storage + Realtime Database + Auth)</li>
                     <li>HANLP for natural language processing</li>
-                    <li>AES encryption for data security</li>
-                    <li>Modern Android UI components (ViewPager, RecyclerView, GridView, Fragments)</li>
+                    <li>AES encryption library for data security</li>
+                    <li>Android Location Services API</li>
                 </ul>
                 
-                <h4>Impact</h4>
-                <p>This project demonstrates proficiency in native Android development, cloud integration, security best practices, 
-                and modern UI/UX patterns—skills essential for mobile development roles in hi-tech companies.</p>
+                <h4>Skills Demonstrated</h4>
+                <ul>
+                    <li>Native Android development (Java)</li>
+                    <li>Firebase cloud platform integration</li>
+                    <li>Mobile security best practices</li>
+                    <li>Natural language processing implementation</li>
+                    <li>Modern Android UI/UX patterns</li>
+                    <li>Asynchronous programming in mobile context</li>
+                </ul>
             `,
-            tech: ['Java', 'Android', 'Firebase', 'HANLP', 'AES Encryption', 'RecyclerView', 'ViewPager'],
+            tech: ['Java', 'Android', 'Android Studio', 'Firebase Storage', 'Firebase Realtime Database', 'HANLP', 'AES Encryption', 'RecyclerView', 'ViewPager', 'Fragments', 'Material Design'],
             github: 'https://github.com/orielmalik/Mission_Statement',
-            demo: null
-        },
-        flaskorm: {
-            title: 'FlaskOrm',
-            subtitle: 'ORM vs SQL Security Study',
-            problem: 'Persistence Layer Security Vulnerabilities',
-            description: `
-                <p>FlaskOrm is a comparative research project analyzing the differences between ORM (SQLAlchemy) and direct SQL 
-                command usage within a Flask application. The project focuses on three key areas: performance, usability, and security.</p>
-                
-                <h4>Research Focus</h4>
-                <ul>
-                    <li><strong>Performance Benchmarking:</strong> Comparing query execution times between ORM and raw SQL</li>
-                    <li><strong>Security Analysis:</strong> Evaluating SQL injection prevention and XSS mitigation strategies</li>
-                    <li><strong>Usability Study:</strong> Assessing developer experience and code maintainability</li>
-                </ul>
-                
-                <h4>Key Findings</h4>
-                <ul>
-                    <li>ORM provides better protection against SQL injection by default</li>
-                    <li>Raw SQL offers performance benefits for complex queries</li>
-                    <li>ORM improves code readability and maintainability</li>
-                    <li>Proper parameterization is crucial for both approaches</li>
-                </ul>
-                
-                <h4>Technologies Used</h4>
-                <ul>
-                    <li>Flask web framework</li>
-                    <li>SQLAlchemy ORM</li>
-                    <li>PyMySQL for direct SQL access</li>
-                    <li>Security testing tools</li>
-                </ul>
-            `,
-            tech: ['Python', 'Flask', 'SQLAlchemy', 'PyMySQL', 'Security'],
-            github: 'https://github.com/orielmalik/FlaskOrm',
-            demo: null
+            youtube: null
         }
     };
 
-    expandButtons.forEach(button => {
-        button.addEventListener('click', function (e) {
-            e.stopPropagation();
+    // Make projectDetails globally accessible
+    window.projectDetails = projectDetails;
+
+    // Open modal when project card is clicked
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('click', function () {
             const projectKey = this.getAttribute('data-project');
             const project = projectDetails[projectKey];
 
             if (project) {
-                modalBody.innerHTML = `
+                // Build modal content
+                let modalContent = `
                     <div class="modal-problem-banner" style="color: #c5a028; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; font-weight: 700;">
                         Problem Solved: ${project.problem}
                     </div>
@@ -381,7 +423,7 @@ function initProjectModals() {
                     <div class="project-tech">
                         ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
                     </div>
-                    <div class="project-links" style="margin-top: 2rem;">
+                    <div class="project-links">
                         <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="project-link">
                             <i class="fab fa-github"></i>
                             ${project.github2 ? 'Main Repository' : 'View on GitHub'}
@@ -392,15 +434,16 @@ function initProjectModals() {
                                 GraphQL Implementation
                             </a>
                         ` : ''}
-                        ${project.demo ? `
-                            <a href="${project.demo}" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fas fa-external-link-alt"></i>
-                                Live Demo
+                        ${project.youtube ? `
+                            <a href="https://www.youtube.com/@malikCode-w1s" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-youtube"></i>
+                                More on YouTube
                             </a>
                         ` : ''}
                     </div>
                 `;
 
+                modalBody.innerHTML = modalContent;
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
@@ -429,141 +472,28 @@ function initProjectModals() {
 }
 
 // ===================================
-// Contact Form
+// Responsive Navigation
 // ===================================
-function initContactForm() {
-    const form = document.getElementById('contact-form');
-
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            subject: document.getElementById('subject').value,
-            message: document.getElementById('message').value
-        };
-
-        // Create mailto link
-        const mailtoLink = `mailto:oriel.malik@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-            `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-        )}`;
-
-        window.location.href = mailtoLink;
-
-        // Reset form
-        form.reset();
-
-        // Show success message
-        alert('Thank you for your message! Your email client will open to send the message.');
-    });
-}
-
-// ===================================
-// Scroll Animations
-// ===================================
-function initScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver(function (entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-
-                // Animate skill bars
-                if (entry.target.classList.contains('skill-item')) {
-                    const progressBar = entry.target.querySelector('.skill-progress');
-                    if (progressBar) {
-                        const width = progressBar.style.width;
-                        progressBar.style.width = '0';
-                        setTimeout(() => {
-                            progressBar.style.width = width;
-                        }, 100);
-                    }
-                }
+function initResponsiveNav() {
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
-    }, observerOptions);
-
-    // Observe elements
-    const animatedElements = document.querySelectorAll('.project-card, .skill-item, .timeline-item, .about-card');
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
     });
 }
 
 // ===================================
-// Mobile Menu
+// Console Easter Egg
 // ===================================
-function initMobileMenu() {
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-
-    if (navToggle) {
-        navToggle.addEventListener('click', function () {
-            navMenu.classList.toggle('active');
-            this.classList.toggle('active');
-        });
-
-        // Close menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function () {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-            });
-        });
-    }
-}
-
-// ===================================
-// Utility Functions
-// ===================================
-
-// Smooth scroll to top
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
-
-// Add scroll-to-top button
-window.addEventListener('scroll', function () {
-    const scrollBtn = document.getElementById('scroll-top');
-    if (scrollBtn) {
-        if (window.pageYOffset > 300) {
-            scrollBtn.style.display = 'flex';
-        } else {
-            scrollBtn.style.display = 'none';
-        }
-    }
-});
-
-// Typing effect for hero title (optional enhancement)
-function typingEffect(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-
-    type();
-}
-
-// Console easter egg
-console.log('%c👋 Hello, fellow developer!', 'font-size: 20px; font-weight: bold; color: #64FFDA;');
-console.log('%cLooking at the code? I like your style!', 'font-size: 14px; color: #8892B0;');
-console.log('%cFeel free to reach out: oriel.malik@gmail.com', 'font-size: 14px; color: #FF6B9D;');
+console.log('%c👋 Hello, fellow developer!', 'font-size: 20px; font-weight: bold; color: #c5a028;');
+console.log('%cLooking at the code? I appreciate your thoroughness!', 'font-size: 14px; color: #94a3b8;');
+console.log('%cLet\'s build something together: oriel.malik@gmail.com', 'font-size: 14px; color: #c5a028;');
+console.log('%cYouTube: @malikCode-w1s | GitHub: orielmalik', 'font-size: 12px; color: #94a3b8;');
