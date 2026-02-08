@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Oriel Malik">
-    <meta name="description"
-        content="Oriel Malik Portfolio - Emerging Software Engineer | Afeka Skills Edition Luxury Dashboard">
+    <meta name="description" content="Oriel Malik Portfolio - Emerging Software Engineer | Luxury Analytical Dashboard">
     <title>Oriel Malik | EMERGING SOFTWARE ENGINEER</title>
 
     <!-- Google Fonts -->
@@ -21,24 +20,19 @@
 
     <style>
         :root {
-            /* Luxury Palette */
             --bg-deep: #0f172a;
             --bg-nav: rgba(15, 23, 42, 0.95);
             --bg-card: #1e293b;
             --gold: #c5a028;
-            --gold-glow: rgba(197, 160, 40, 0.2);
+            --gold-glow: rgba(197, 160, 40, 0.15);
             --marble: #f8fafc;
             --slate: #94a3b8;
             --border: rgba(148, 163, 184, 0.1);
-
-            /* Typography */
             --font-serif: 'Playfair Display', serif;
             --font-sans: 'Inter', sans-serif;
-
             --transition: cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        /* Basic Setup */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -57,7 +51,7 @@
             overflow-x: hidden;
         }
 
-        /* Texture Overlay */
+        /* Luxury Noise Texture */
         .luxury-overlay {
             position: fixed;
             top: 0;
@@ -70,12 +64,11 @@
             z-index: 10000;
         }
 
-        /* Nav */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            height: 70px;
+            height: 75px;
             background: var(--bg-nav);
             border-bottom: 1px solid var(--border);
             display: flex;
@@ -104,7 +97,7 @@
             color: var(--gold);
         }
 
-        /* HERO - Emerging Software Engineer */
+        /* HERO */
         .hero {
             height: 100vh;
             display: flex;
@@ -112,24 +105,20 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 80px 1rem;
+            padding: 80px 1.5rem;
             position: relative;
             background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
         }
 
         .hero-img {
-            width: 160px;
-            height: 160px;
+            width: 170px;
+            height: 170px;
             border-radius: 50%;
-            border: 4px solid var(--gold);
+            border: 3px solid var(--gold);
             overflow: hidden;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             box-shadow: 0 0 50px var(--gold-glow);
             transition: 0.5s var(--transition);
-        }
-
-        .hero-img:hover {
-            transform: scale(1.05);
         }
 
         .hero-img img {
@@ -140,13 +129,13 @@
 
         .hero h1 {
             font-family: var(--font-serif);
-            font-size: 4rem;
+            font-size: 4.5rem;
             color: var(--marble);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
         }
 
         .hero-subtitle {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--gold);
             letter-spacing: 6px;
             text-transform: uppercase;
@@ -154,13 +143,13 @@
             margin-bottom: 2.5rem;
         }
 
-        .hero-cv-btns {
+        .cv-btns {
             display: flex;
             gap: 1rem;
         }
 
         .btn {
-            padding: 0.8rem 2rem;
+            padding: 0.85rem 2.2rem;
             border-radius: 2px;
             font-weight: 600;
             text-transform: uppercase;
@@ -183,119 +172,144 @@
             background: var(--marble);
             color: var(--bg-deep);
             border-color: var(--marble);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
         }
 
         /* SECTIONS */
         section {
-            padding: 100px 5%;
-            max-width: 1200px;
+            padding: 120px 5%;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
         .section-title {
             font-family: var(--font-serif);
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--marble);
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
             position: relative;
         }
 
         .section-title::after {
             content: '';
             display: block;
-            width: 50px;
+            width: 40px;
             height: 2px;
             background: var(--gold);
-            margin: 15px auto;
+            margin: 20px auto;
         }
 
-        /* OPERATIONAL LIFEMAP - Afeka Skills Grid */
-        .lifemap-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+        /* OPERATIONAL LIFEMAP - Linear Connections */
+        .lifemap-container {
+            display: flex;
+            flex-direction: column;
+            gap: 6rem;
             position: relative;
         }
 
-        /* Central Icon Hub */
-        .lifemap-hub {
-            grid-column: 1 / -1;
+        .org-branch {
             display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
+            align-items: flex-start;
+            gap: 4rem;
+            position: relative;
         }
 
-        .hub-icon {
-            width: 120px;
-            height: 120px;
+        .org-icon-hub {
+            flex-shrink: 0;
+            position: relative;
+            z-index: 5;
+        }
+
+        .hub-circle {
+            width: 100px;
+            height: 100px;
             background: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 4px solid var(--gold);
-            box-shadow: 0 0 40px var(--gold-glow);
-            z-index: 10;
+            border: 3px solid var(--gold);
+            box-shadow: 0 0 30px var(--gold-glow);
+            transition: 0.4s var(--transition);
         }
 
-        .hub-icon img {
+        .hub-circle img {
             width: 80%;
             object-fit: contain;
         }
 
-        .lifemap-card {
+        .hub-label {
+            text-align: center;
+            margin-top: 1rem;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .operations-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            flex-grow: 1;
+            position: relative;
+        }
+
+        /* SVG Line connection would be complex in pure CSS across wraps, using linear visual lines instead */
+        .operation-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            padding: 2.5rem 2rem;
-            border-radius: 8px;
+            padding: 1.5rem;
+            border-radius: 4px;
+            width: 230px;
             transition: 0.4s var(--transition);
             position: relative;
-            text-align: center;
         }
 
-        .lifemap-card:hover {
+        .operation-card:hover {
             border-color: var(--gold);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            transform: translateY(-5px);
         }
 
-        .card-year {
+        .op-year {
             color: var(--gold);
             font-family: var(--font-serif);
-            font-size: 1.4rem;
+            font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
             display: block;
         }
 
-        .card-skill {
+        .op-title {
             color: var(--marble);
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-
-        .card-desc {
-            font-size: 0.85rem;
-            color: var(--slate);
-            margin-bottom: 1.5rem;
-        }
-
-        .card-badge {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 4px;
-            border: 1px solid var(--border);
-            color: var(--gold);
-            font-size: 0.7rem;
             font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 0.4rem;
             text-transform: uppercase;
+        }
+
+        .op-desc {
+            font-size: 0.75rem;
+            color: var(--slate);
+            line-height: 1.4;
+        }
+
+        /* Linear Connector Lines */
+        .org-branch::before {
+            content: '';
+            position: absolute;
+            left: 100px;
+            top: 50px;
+            height: 2px;
+            width: 4rem;
+            background: linear-gradient(to right, var(--gold), transparent);
+            z-index: 1;
         }
 
         /* TECHNICAL REGISTRY */
-        .registry-table-container {
+        .registry-container {
             width: 100%;
             overflow-x: auto;
             border: 1px solid var(--border);
@@ -326,8 +340,8 @@
         }
 
         .reg-img {
-            width: 100px;
-            height: 60px;
+            width: 90px;
+            height: 55px;
             background: #000;
             cursor: zoom-in;
             border: 1px solid var(--border);
@@ -350,83 +364,75 @@
         .reg-title {
             color: var(--marble);
             font-weight: 600;
+            font-size: 0.9rem;
         }
 
-        .btn-link {
-            color: var(--gold);
-            text-decoration: none;
-            font-size: 0.7rem;
-            font-weight: 700;
-        }
-
-        /* METRICS */
-        .metrics-grid {
+        /* MATRIX */
+        .matrix-grid {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-top: 2rem;
+            gap: 3rem;
         }
 
-        .metric-item {
-            margin-bottom: 2rem;
+        .m-item {
+            margin-bottom: 1.5rem;
         }
 
-        .metric-header {
+        .m-head {
             display: flex;
             justify-content: space-between;
             color: var(--marble);
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            margin-bottom: 0.4rem;
         }
 
-        .metric-bar {
-            height: 6px;
+        .m-track {
+            height: 4px;
             background: var(--bg-deep);
-            border-radius: 3px;
+            border-radius: 2px;
             overflow: hidden;
         }
 
-        .metric-fill {
+        .m-fill {
             height: 100%;
             background: var(--gold);
             width: 0;
-            transition: 2.5s var(--transition);
+            transition: 2s var(--transition);
         }
 
         /* FOOTER */
         footer {
-            padding: 80px 5%;
+            padding: 60px 5%;
             background: var(--bg-deep);
             text-align: center;
             border-top: 1px solid var(--border);
         }
 
-        .footer-icons {
+        .social-icons {
             display: flex;
             justify-content: center;
             gap: 3rem;
             margin-bottom: 2rem;
         }
 
-        .footer-icons a {
-            font-size: 1.8rem;
+        .social-icons a {
+            font-size: 2rem;
             color: var(--gold);
             transition: 0.3s;
         }
 
-        .footer-icons a:hover {
+        .social-icons a:hover {
             color: var(--marble);
             transform: translateY(-5px);
         }
 
-        .copyright {
-            font-size: 0.6rem;
+        .copy {
+            font-size: 0.65rem;
             color: var(--slate);
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
-        /* LIGHTBOX */
         #lightbox {
             position: fixed;
             top: 0;
@@ -445,28 +451,35 @@
             max-width: 90%;
             max-height: 90%;
             border: 2px solid var(--gold);
-            box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 3rem;
             }
 
-            .lifemap-grid {
-                grid-template-columns: 1fr;
+            .org-branch {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: center;
             }
 
-            .metrics-grid {
-                grid-template-columns: 1fr;
+            .org-branch::before {
+                display: none;
             }
 
-            .nav-links {
-                gap: 1rem;
+            .hub-circle {
+                width: 80px;
+                height: 80px;
             }
 
-            .nav-links a {
-                font-size: 0.6rem;
+            .operations-list {
+                justify-content: center;
+            }
+
+            .operation-card {
+                width: 100%;
+                max-width: 300px;
             }
         }
     </style>
@@ -485,82 +498,95 @@
         </div>
     </nav>
 
-    <!-- HERO Section -->
     <header class="hero" id="home">
-        <div class="hero-img">
-            <img src="profff.jpg" alt="Oriel Malik">
-        </div>
+        <div class="hero-img"><img src="profff.jpg" alt="Oriel Malik"></div>
         <h1>Oriel Malik</h1>
         <p class="hero-subtitle">EMERGING SOFTWARE ENGINEER</p>
-        <div class="hero-cv-btns">
+        <div class="cv-btns">
             <a href="Oriel Malik cv.pdf" target="_blank" class="btn">SW CV</a>
             <a href="Oriel-Malik-QA-CV.pdf" target="_blank" class="btn btn-ghost">QA CV</a>
         </div>
     </header>
 
     <main>
-        <!-- OPERATIONAL LIFEMAP - Afeka Skills Edition -->
+        <!-- Operational Lifemap Section -->
         <section id="lifemap">
             <h2 class="section-title">Operational Lifemap</h2>
-            <div class="lifemap-grid">
-                <!-- Center Hub: Afeka -->
-                <div class="lifemap-hub">
-                    <div class="hub-icon">
-                        <img src="AfekaCollge.png" alt="Afeka Training Center">
+
+            <div class="lifemap-container">
+
+                <!-- Afeka Branch -->
+                <div class="org-branch">
+                    <div class="org-icon-hub">
+                        <div class="hub-circle"><img src="AfekaCollge.png" alt="Afeka"></div>
+                        <div class="hub-label">Afeka College</div>
+                    </div>
+                    <div class="operations-list">
+                        <div class="operation-card">
+                            <span class="op-year">2020-2024</span>
+                            <h3 class="op-title">Debugging Systematics</h3>
+                            <p class="op-desc">Mastering root-cause analysis and systemic profiling.</p>
+                        </div>
+                        <div class="operation-card">
+                            <span class="op-year">2021-2024</span>
+                            <h3 class="op-title">Design Patterns</h3>
+                            <p class="op-desc">Implementation of GoF creational and structural patterns.</p>
+                        </div>
+                        <div class="operation-card">
+                            <span class="op-year">2023-2024</span>
+                            <h3 class="op-title">InfoSec & Crypto</h3>
+                            <p class="op-desc">Security model hardening and cryptography algorithms.</p>
+                        </div>
+                        <div class="operation-card">
+                            <span class="op-year">2024</span>
+                            <h3 class="op-title">Layers Architectures</h3>
+                            <p class="op-desc">Linux, HTTP, REST, GraphQL, RS-Socket protocols.</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- 2020: InfoSec Principles -->
-                <div class="lifemap-card">
-                    <span class="card-year">2020</span>
-                    <h3 class="card-skill">InfoSec Principles</h3>
-                    <p class="card-desc">Establishing the core mental model for security-first engineering and systemic
-                        risk mitigation.</p>
-                    <span class="card-badge">Security</span>
+                <!-- Sci-Tech Office Branch -->
+                <div class="org-branch">
+                    <div class="org-icon-hub">
+                        <div class="hub-circle"><img src="scienceOffice.png" alt="Science Office"></div>
+                        <div class="hub-label">Sci-Tech Office</div>
+                    </div>
+                    <div class="operations-list">
+                        <div class="operation-card">
+                            <span class="op-year">2021-2024</span>
+                            <h3 class="op-title">Tech CS Educator</h3>
+                            <p class="op-desc">Teaching C# .NET, Java, Math, and English Logic.</p>
+                        </div>
+                        <div class="operation-card">
+                            <span class="op-year">2021-2024</span>
+                            <h3 class="op-title">Curriculum R&D</h3>
+                            <p class="op-desc">Architecting advanced pathways for high-potential cohorts.</p>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- 2021: Design Patterns -->
-                <div class="lifemap-card">
-                    <span class="card-year">2021</span>
-                    <h3 class="card-skill">Design Patterns</h3>
-                    <p class="card-desc">Architecting scalable solutions using Creational, Structural, and Behavioral
-                        patterns (GoF).</p>
-                    <span class="card-badge">R&D</span>
+                <!-- Bnei Akiva Branch -->
+                <div class="org-branch">
+                    <div class="org-icon-hub">
+                        <div class="hub-circle"><img src="BneiAkiva.jpg" alt="Bnei Akiva"></div>
+                        <div class="hub-label">Bnei Akiva</div>
+                    </div>
+                    <div class="operations-list">
+                        <div class="operation-card">
+                            <span class="op-year">2016-2018</span>
+                            <h3 class="op-title">Youth Guide</h3>
+                            <p class="op-desc">Leadership and social mentorship for community initiatives.</p>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- 2022: Debugging Systematics -->
-                <div class="lifemap-card">
-                    <span class="card-year">2022</span>
-                    <h3 class="card-skill">Systemic Debugging</h3>
-                    <p class="card-desc">Mastering root-cause analysis and performance profiling for distributed
-                        environments.</p>
-                    <span class="card-badge">Quality / QA</span>
-                </div>
-
-                <!-- 2023: Cryptography -->
-                <div class="lifemap-card">
-                    <span class="card-year">2023</span>
-                    <h3 class="card-skill">Cryptography Algorithms</h3>
-                    <p class="card-desc">Implementing symmetric/asymmetric encryption and secure communication
-                        protocols.</p>
-                    <span class="card-badge">Security R&D</span>
-                </div>
-
-                <!-- 2024: GraphQL -->
-                <div class="lifemap-card">
-                    <span class="card-year">2024</span>
-                    <h3 class="card-skill">GraphQL Engineering</h3>
-                    <p class="card-desc">Building decoupled APIs with flexible query schemas and optimized data
-                        fetching.</p>
-                    <span class="card-badge">R&D / API</span>
-                </div>
             </div>
         </section>
 
-        <!-- TECHNICAL REGISTRY / Projects -->
+        <!-- Technical Inventory Section -->
         <section id="registry">
             <h2 class="section-title">Technical Inventory</h2>
-            <div class="registry-table-container">
+            <div class="registry-container">
                 <table class="registry-table">
                     <thead>
                         <tr>
@@ -568,29 +594,29 @@
                             <th>Critical Function</th>
                             <th>Vision (Click)</th>
                             <th>Stack Environment</th>
-                            <th>Code</th>
+                            <th>Repository</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="reg-title">Automation-Methods</td>
-                            <td>Abstraction layer unifying Selenium & Playwright operations.</td>
+                            <td>Unified abstraction for Selenium & Playwright operations.</td>
                             <td>
                                 <div class="reg-img"><img src="automation-methods-preview.jpg" alt="Automation"></div>
                             </td>
                             <td>Python, BDD, Pytest</td>
                             <td><a href="https://github.com/orielmalik/Automation-Methods" target="_blank"
-                                    class="btn-link">BROWSE</a></td>
+                                    class="btn-link">CODE</a></td>
                         </tr>
                         <tr>
                             <td class="reg-title">MISTA Platform</td>
-                            <td>B2C platform with intelligent expert matching algorithms.</td>
+                            <td>B2C platform with expert algorithms and flow logic.</td>
                             <td>
                                 <div class="reg-img"><img src="mista-preview.jpg" alt="MISTA"></div>
                             </td>
                             <td>Java, Gradle, Spring</td>
-                            <td><a href="https://github.com/orielmalik/MISTA" target="_blank"
-                                    class="btn-link">BROWSE</a></td>
+                            <td><a href="https://github.com/orielmalik/MISTA" target="_blank" class="btn-link">CODE</a>
+                            </td>
                         </tr>
                         <tr>
                             <td class="reg-title">Mission Statement</td>
@@ -599,93 +625,91 @@
                                 <div class="reg-img"><img src="android-mission-statement-preview.jpg" alt="Android">
                                 </div>
                             </td>
-                            <td>Java, Android, Firebase</td>
+                            <td>Java, Android Studio</td>
                             <td><a href="https://github.com/orielmalik/Mission_Statement" target="_blank"
-                                    class="btn-link">BROWSE</a></td>
+                                    class="btn-link">CODE</a></td>
                         </tr>
                         <tr>
                             <td class="reg-title">People Microservice</td>
-                            <td>Hierarchical management using GraphQL and MongoDB.</td>
+                            <td>Entity management using GraphQL and MongoDB.</td>
                             <td>
                                 <div class="reg-img"><img src="people-microservice-preview.jpg" alt="GraphQL Service">
                                 </div>
                             </td>
                             <td>Nodejs, GraphQL, MongoDB</td>
                             <td><a href="https://github.com/orielmalik/PeopleMicroService" target="_blank"
-                                    class="btn-link">BROWSE</a></td>
-                        </tr>
-                        <tr>
-                            <td class="reg-title">ZTA Proof-of-Concept</td>
-                            <td>Zero Trust Architecture implementation analysis.</td>
-                            <td>
-                                <div class="reg-img"><img src="zta-preview.jpg" alt="Security"></div>
-                            </td>
-                            <td>Python, Docker, Auth Layer</td>
-                            <td><a href="https://github.com/orielmalik/ZTA" target="_blank" class="btn-link">BROWSE</a>
-                            </td>
+                                    class="btn-link">CODE</a></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
-        <!-- METRICS Section -->
+        <!-- MATRIX Section -->
         <section id="metrics">
             <h2 class="section-title">Operational Matrix</h2>
-            <div class="metrics-grid">
+            <div class="matrix-grid">
                 <div>
-                    <div class="metric-item">
-                        <div class="metric-header"><span>R&D / Backend (Java, C#)</span><span>75%</span></div>
-                        <div class="metric-bar">
-                            <div class="metric-fill" style="width: 75%"></div>
+                    <div class="m-item">
+                        <div class="m-head"><span>R&D Backend (Java, C#, TS, JS)</span><span>75%</span></div>
+                        <div class="m-track">
+                            <div class="m-fill" style="width: 75%"></div>
                         </div>
                     </div>
-                    <div class="metric-item">
-                        <div class="metric-header"><span>QA / Automation</span><span>80%</span></div>
-                        <div class="metric-bar">
-                            <div class="metric-fill" style="width: 80%"></div>
+                    <div class="m-item">
+                        <div class="m-head"><span>QA / Test Automation (Python)</span><span>85%</span></div>
+                        <div class="m-track">
+                            <div class="m-fill" style="width: 85%"></div>
                         </div>
                     </div>
-                    <div class="metric-item">
-                        <div class="metric-header"><span>Cybersecurity Logic</span><span>70%</span></div>
-                        <div class="metric-bar">
-                            <div class="metric-fill" style="width: 70%"></div>
+                    <div class="m-item">
+                        <div class="m-head"><span>Security Hardening</span><span>70%</span></div>
+                        <div class="m-track">
+                            <div class="m-fill" style="width: 70%"></div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <p style="color:var(--marble); font-weight:600; margin-bottom:1rem;">Afeka Specializations:</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
-                        <span class="card-badge">Design Patterns</span>
-                        <span class="card-badge">Crypto-Algos</span>
-                        <span class="card-badge">Debugging Systematics</span>
-                        <span class="card-badge">GraphQL Architecture</span>
-                        <span class="card-badge">InfoSec Principles</span>
-                        <span class="card-badge">SQL / NoSQL Eng</span>
+                    <p style="color:var(--marble); font-weight:600; margin-bottom:1rem; font-size: 0.9rem;">Core
+                        Expertise:</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.7rem;">
+                        <span
+                            style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">Design
+                            Patterns</span>
+                        <span
+                            style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">Cryptography</span>
+                        <span
+                            style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">GraphQL</span>
+                        <span
+                            style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">Debugging</span>
+                        <span
+                            style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">SQL
+                            / NoSQL</span>
+                        <span
+                            style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">Neo4j</span>
+                        <span
+                            style="border:1px solid var(--border); padding: 4px 10px; font-size:0.7rem; color:var(--gold); border-radius:4px;">Render</span>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- FOOTER Section -->
     <footer id="contact">
-        <div class="footer-icons">
+        <div class="social-icons">
             <a href="mailto:oriel.malik@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
             <a href="https://www.linkedin.com/in/oriel-malik-465984219/" target="_blank" title="LinkedIn"><i
                     class="fab fa-linkedin"></i></a>
             <a href="https://github.com/orielmalik" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://wa.me/972587306070" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <p class="copyright">© 2026 ORIEL MALIK // ANALYTICAL & ORGANIZED // TEL AVIV</p>
+        <p class="copy">© 2026 ORIEL MALIK // ANALYTICAL & ORGANIZED // TEL AVIV</p>
     </footer>
 
-    <!-- LIGHTBOX Modal -->
-    <div id="lightbox"><img src="" alt="Full Scale Asset"></div>
+    <div id="lightbox"><img src="" alt="Expansion"></div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Lightbox functionality
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = lightbox.querySelector('img');
             document.querySelectorAll('.reg-img').forEach(el => {
@@ -696,17 +720,15 @@
             });
             lightbox.addEventListener('click', () => { lightbox.style.display = 'none'; });
 
-            // Animate Skill Bars
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        const fill = entry.target.querySelector('.metric-fill');
+                        const fill = entry.target.querySelector('.m-fill');
                         if (fill) fill.style.width = entry.target.querySelector('span:last-child').innerText;
                     }
                 });
-            }, { threshold: 0.3 });
-
-            document.querySelectorAll('.metric-item').forEach(item => observer.observe(item));
+            }, { threshold: 0.2 });
+            document.querySelectorAll('.m-item').forEach(item => observer.observe(item));
         });
     </script>
 </body>
