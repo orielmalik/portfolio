@@ -5,6 +5,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     initProjectModals();
     initResponsiveNav();
+    initMagicalParticles();
 });
 
 // ===================================
@@ -397,6 +398,45 @@ function initProjectModals() {
             tech: ['Java', 'Android', 'Android Studio', 'Firebase Storage', 'Firebase Realtime Database', 'HANLP', 'AES Encryption', 'RecyclerView', 'ViewPager', 'Fragments', 'Material Design'],
             github: 'https://github.com/orielmalik/Mission_Statement',
             youtube: null
+        },
+        mcpmatholy: {
+            title: 'McpMathOly',
+            subtitle: 'Model Context Protocol (MCP) Server for AI Agents',
+            problem: 'Messy Domain Logic & Integration Complexity in AI Tooling',
+            description: `
+                <p>McpMathOly is a specialized Model Context Protocol (MCP) server designed to bridge the gap between complex mathematical domain knowledge and Large Language Models. Built with Python and FastAPI, it serves as a production-grade foundation for agentic AI workflows.</p>
+                
+                <h4>The Architecture Challenge</h4>
+                <p>As AI systems become more agentic, they require structured access to tools. Directly implementing tool logic within LLM prompt cycles leads to maintainability issues and logic leakage. This project solves that by defining a clean, protocol-level separation for tools.</p>
+                
+                <h4>Key Features</h4>
+                <ul>
+                    <li><strong>FastAPI Foundation:</strong> High-performance, asynchronous REST API layer for resource handling</li>
+                    <li><strong>FastMCP Integration:</strong> Seamless tool registration using the Model Context Protocol standard</li>
+                    <li><strong>Modular Domain Design:</strong> Separation of Concerns (SoC) ensuring math logic remains testable independently of the transport layer</li>
+                    <li><strong>Scalable Service Structure:</strong> Designed to grow from simple tool sets to complex multi-resource AI ecosystems</li>
+                </ul>
+                
+                <h4>Video Walkthrough</h4>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/fvzAotsEsBw" 
+                            title="McpMathOly Implementation Demo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            loading="lazy"></iframe>
+                </div>
+                
+                <h4>Technical Impact</h4>
+                <ul>
+                    <li>✅ Standardized AI tool access via MCP</li>
+                    <li>✅ Reduced logic duplication across agentic pipelines</li>
+                    <li>✅ Enhanced maintainability through clean modular structure</li>
+                </ul>
+            `,
+            tech: ['Python', 'FastAPI', 'FastMCP', 'MCP', 'Modular Architecture', 'LLM Tooling'],
+            github: 'https://github.com/orielmalik/McpMathHoly',
+            youtube: ['fvzAotsEsBw']
         }
     };
 
@@ -470,6 +510,61 @@ function initProjectModals() {
         document.body.style.overflow = 'auto';
     }
 }
+
+// ===================================
+// Magical Background Particles
+// ===================================
+function initMagicalParticles() {
+    const container = document.querySelector('.hero');
+    if (!container) return;
+
+    const particleCount = 40;
+    for (let i = 0; i < particleCount; i++) {
+        createParticle(container);
+    }
+}
+
+function createParticle(container) {
+    const particle = document.createElement('div');
+    particle.className = 'magic-particle';
+    
+    // Random styling
+    const size = Math.random() * 4 + 2;
+    const posX = Math.random() * 100;
+    const posY = Math.random() * 100;
+    const delay = Math.random() * 5;
+    const duration = Math.random() * 10 + 10;
+    
+    particle.style.cssText = `
+        position: absolute;
+        width: ${size}px;
+        height: ${size}px;
+        background: var(--gold-bright);
+        border-radius: 50%;
+        top: ${posY}%;
+        left: ${posX}%;
+        opacity: 0;
+        filter: blur(1px);
+        box-shadow: 0 0 10px var(--imperial-gold);
+        pointer-events: none;
+        z-index: 0;
+        animation: float-magic ${duration}s linear ${delay}s infinite;
+    `;
+    
+    container.appendChild(particle);
+}
+
+// Add particle animation to stylesheet dynamically
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes float-magic {
+        0% { transform: translate(0, 0); opacity: 0; }
+        10% { opacity: 0.4; }
+        90% { opacity: 0.4; }
+        100% { transform: translate(${Math.random() * 100 - 50}px, -200px); opacity: 0; }
+    }
+`;
+document.head.appendChild(style);
 
 // ===================================
 // Responsive Navigation
