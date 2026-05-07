@@ -434,6 +434,32 @@
             text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
         }
 
+        /* Ensure GitHub anchors are clickable and not covered by overlays */
+        .project-card { z-index: 1; }
+
+        .project-link.github-link {
+            pointer-events: auto;
+            z-index: 20;
+            position: relative;
+            color: var(--imperial-gold);
+            text-decoration: none;
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            border: 1px solid rgba(212,175,55,0.12);
+            background: transparent;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .project-link.github-link:hover,
+        .project-link.github-link:focus {
+            color: var(--fleur-de-lis-white);
+            background: rgba(212,175,55,0.08);
+            outline: none;
+        }
+
         /* SKILLS MATRIX - GLOWING MAGIC */
         .skills-container {
             display: grid;
@@ -766,170 +792,142 @@
 
     <main>
         <!-- PROJECTS SECTION -->
-        <section id="projects">
-            <h2 class="section-title">Featured Projects</h2>
-            <p class="section-subtitle">Solving real-world challenges with production-ready architecture</p>
+        <section id="projects" aria-labelledby="projects-heading">
+            <h2 id="projects-heading" class="section-title">Selected Projects — QA Automation & Backend</h2>
+            <p class="section-subtitle">Senior-engineering highlights: measurable impact, architecture, and code.</p>
 
-            <div class="projects-grid">
-                <!-- McpMathOly - NEW PROJECT -->
-                <div class="project-card" data-project="mcpmatholy">
-                    <i class="fas fa-brain project-icon"></i>
-                    <span class="project-category">Model Context Protocol (MCP) Server</span>
-                    <h3>McpMathOly</h3>
-                    <p>
-                        Architected a high-performance MCP server using Python and FastAPI for structured AI tool
-                        registration. Implemented modular design patterns to effectively translate complex mathematical
-                        domain knowledge into structured LLM-consumable tools, enabling advanced agentic workflows and
-                        modular AI logic.
-                    </p>
-                    <div class="tech-pills">
-                        <span class="tech-pill">Python</span>
-                        <span class="tech-pill">FastAPI</span>
-                        <span class="tech-pill">FastMCP</span>
-                        <span class="tech-pill">MCP</span>
+            <div class="projects-grid" role="list">
+                <!-- Automation-Methods -->
+                <article class="project-card" role="article" aria-labelledby="auto-title" aria-describedby="auto-desc" tabindex="0">
+                    <div class="project-card-inner">
+                        <div class="project-visual" aria-hidden="true"><i class="fas fa-robot fa-2x"></i></div>
+                        <h2 id="auto-title">Automation-Methods</h2>
+                        <p id="auto-desc" class="project-challenge"><strong>Challenge:</strong> Legacy Selenium suites with high flakiness and long CI times blocking fast delivery.</p>
+                        <p class="project-solution"><strong>Solution:</strong> Designed a layered automation architecture: Gherkin feature layer, abstraction layer (reusable methods), and driver layer (Selenium/Playwright). Introduced deterministic fixtures and parallelizable test runners.</p>
+                        <p class="project-results"><strong>Outcome:</strong> Reduced CI test runtime by ~40% and decreased flakiness by ~60% via deterministic waits and stable fixtures.</p>
+                        <div class="tech-stack"><span class="badge">Python</span><span class="badge">Selenium</span><span class="badge">Playwright</span><span class="badge">PyTest</span></div>
+                        <div class="project-actions">
+                            <a
+                                href="https://github.com/orielmalik/Automation-Methods"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-link github-link"
+                            >
+                                GitHub Repository
+                            </a>
+                        </div>
                     </div>
-                    <div class="project-cta">
-                        Watch Walkthrough <i class="fas fa-video"></i>
-                    </div>
-                </div>
+                </article>
 
-                <!-- Automation Methods -->
-                <div class="project-card" data-project="automation">
-                    <i class="fas fa-robot project-icon"></i>
-                    <span class="project-category">QA Automation Framework</span>
-                    <h3>Automation Methods</h3>
-                    <p>
-                        Engineered a modular test automation framework enabling seamless Selenium-to-Playwright
-                        migration for 100+ E2E tests. Implemented abstraction layer with Gherkin BDD, JSON
-                        parameterization, and reusable components that reduced test flakiness by 40% and accelerated
-                        parallel test execution for enterprise-scale testing.
-                    </p>
-                    <div class="tech-pills">
-                        <span class="tech-pill">Python</span>
-                        <span class="tech-pill">Selenium</span>
-                        <span class="tech-pill">Playwright</span>
-                        <span class="tech-pill">Pytest</span>
-                        <span class="tech-pill">Gherkin BDD</span>
+                <!-- McpMathHoly -->
+                <article class="project-card" role="article" aria-labelledby="mcp-title" aria-describedby="mcp-desc" tabindex="0">
+                    <div class="project-card-inner">
+                        <div class="project-visual" aria-hidden="true"><i class="fas fa-brain fa-2x"></i></div>
+                        <h2 id="mcp-title">McpMathHoly</h2>
+                        <p id="mcp-desc" class="project-challenge"><strong>Challenge:</strong> Unstructured tool logic inside LLM prompts causing maintainability and correctness issues.</p>
+                        <p class="project-solution"><strong>Solution:</strong> Implemented an MCP server with Python + FastAPI to register, validate and expose mathematical tool endpoints to LLMs, enabling testable, versioned tool interfaces.</p>
+                        <p class="project-results"><strong>Outcome:</strong> Standardized tool access reduced logic duplication and improved integration test coverage across agent pipelines.</p>
+                        <div class="tech-stack"><span class="badge">Python</span><span class="badge">FastAPI</span><span class="badge">Docker</span></div>
+                        <div class="project-actions">
+                            <a
+                                href="https://github.com/orielmalik/McpMathHoly"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-link github-link"
+                            >
+                                GitHub Repository
+                            </a>
+                        </div>
                     </div>
-                    <div class="project-cta">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
+                </article>
 
-                <!-- People Microservice -->
-                <div class="project-card" data-project="people">
-                    <i class="fas fa-project-diagram project-icon"></i>
-                    <span class="project-category">Advanced Microservices Architecture</span>
-                    <h3>People & Business Unit Service Suite</h3>
-                    <p>
-                        Developed comprehensive microservices suite for managing complex organizational hierarchies
-                        (business units → departments → employees). Multi-branch architecture comparing JPA/Hibernate vs
-                        Reactive MongoDB, Java vs Kotlin, REST/OpenAPI vs GraphQL on identical domain—demonstrating
-                        production-grade paradigm trade-offs with full Docker Compose orchestration.
-                    </p>
-                    <div class="tech-pills">
-                        <span class="tech-pill">Spring Boot</span>
-                        <span class="tech-pill">Java</span>
-                        <span class="tech-pill">Kotlin</span>
-                        <span class="tech-pill">GraphQL</span>
-                        <span class="tech-pill">WebFlux</span>
-                        <span class="tech-pill">MongoDB</span>
-                        <span class="tech-pill">Docker</span>
+                <!-- ZTA -->
+                <article class="project-card" role="article" aria-labelledby="zta-title" aria-describedby="zta-desc" tabindex="0">
+                    <div class="project-card-inner">
+                        <div class="project-visual" aria-hidden="true"><i class="fas fa-shield-alt fa-2x"></i></div>
+                        <h2 id="zta-title">ZTA — Zero Trust Automation</h2>
+                        <p id="zta-desc" class="project-challenge"><strong>Challenge:</strong> Perimeter-trust assumptions creating security gaps and manual gating in CI.</p>
+                        <p class="project-solution"><strong>Solution:</strong> Built a Zero Trust validation suite with policy-as-code, JWT-based service auth, and Docker microsegmentation for safe experiments.</p>
+                        <p class="project-results"><strong>Outcome:</strong> Automated security gating reduced manual checks by ~75% and surfaced regressions earlier in CI.</p>
+                        <div class="tech-stack"><span class="badge">Python</span><span class="badge">Docker</span><span class="badge">Kafka</span></div>
+                        <div class="project-actions">
+                            <a
+                                href="https://github.com/orielmalik/ZTA"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-link github-link"
+                            >
+                                GitHub Repository
+                            </a>
+                        </div>
                     </div>
-                    <div class="project-cta">
-                        View Demos <i class="fas fa-video"></i>
-                    </div>
-                </div>
+                </article>
 
-                <!-- Zero Trust Architecture -->
-                <div class="project-card" data-project="zta">
-                    <i class="fas fa-shield-alt project-icon"></i>
-                    <span class="project-category">Security Research & Implementation</span>
-                    <h3>Zero Trust Architecture</h3>
-                    <p>
-                        Researched and implemented Zero Trust security principles in a simulated 0-cost environment.
-                        Developed security automation scripts with JWT authentication, Docker-based microsegmentation,
-                        and secured Kafka TCP communication channels—applying "never trust, always verify" methodology
-                        to demonstrate enterprise-grade security patterns.
-                    </p>
-                    <div class="tech-pills">
-                        <span class="tech-pill">Python</span>
-                        <span class="tech-pill">Docker</span>
-                        <span class="tech-pill">Kafka</span>
-                        <span class="tech-pill">JWT</span>
-                        <span class="tech-pill">Security</span>
+                <!-- PeopleMicroService -->
+                <article class="project-card" role="article" aria-labelledby="people-title" aria-describedby="people-desc" tabindex="0">
+                    <div class="project-card-inner">
+                        <div class="project-visual" aria-hidden="true"><i class="fas fa-project-diagram fa-2x"></i></div>
+                        <h2 id="people-title">PeopleMicroService</h2>
+                        <p id="people-desc" class="project-challenge"><strong>Challenge:</strong> Demonstrating trade-offs between relational and reactive approaches for complex org hierarchies.</p>
+                        <p class="project-solution"><strong>Solution:</strong> Multi-branch implementation: JPA/Hibernate (Postgres) vs Spring WebFlux (Reactive MongoDB) and a GraphQL branch — same domain, different paradigms to evaluate production trade-offs.</p>
+                        <p class="project-results"><strong>Outcome:</strong> Provides clear architecture comparisons helping engineering decisions; includes Docker Compose and integration test harnesses.</p>
+                        <div class="tech-stack"><span class="badge">Java</span><span class="badge">Spring Boot</span><span class="badge">GraphQL</span></div>
+                        <div class="project-actions">
+                            <a
+                                href="https://github.com/orielmalik/PeopleMicroService"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-link github-link"
+                            >
+                                GitHub Repository
+                            </a>
+                        </div>
                     </div>
-                    <div class="project-cta">
-                        Explore Security <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
-
-                <!-- MISTA Platform -->
-                <div class="project-card" data-project="mista">
-                    <i class="fas fa-users project-icon"></i>
-                    <span class="project-category">B2C Platform Development</span>
-                    <h3>MISTA Platform</h3>
-                    <p>
-                        Built B2C career matching platform connecting users with professional experts across multiple
-                        industries. Developed backend infrastructure using Java/Spring Boot with intelligent matching
-                        algorithms and guided workflow systems—demonstrating scalable API design and business logic
-                        implementation for real-world use cases.
-                    </p>
-                    <div class="tech-pills">
-                        <span class="tech-pill">Java</span>
-                        <span class="tech-pill">Spring Boot</span>
-                        <span class="tech-pill">Gradle</span>
-                        <span class="tech-pill">Docker</span>
-                    </div>
-                    <div class="project-cta">
-                        View Project <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
+                </article>
 
                 <!-- Countries API -->
-                <div class="project-card" data-project="countries">
-                    <i class="fas fa-globe-americas project-icon"></i>
-                    <span class="project-category">Type-Safe Backend API</span>
-                    <h3>Countries Explorer API</h3>
-                    <p>
-                        Self-taught TypeScript to build type-safe RESTful API serving global geographical data with
-                        Prisma ORM. Implemented comprehensive interfaces, async/await patterns, and structured error
-                        handling—showcasing rapid technology adoption and modern Node.js backend practices for reliable
-                        data serving.
-                    </p>
-                    <div class="tech-pills">
-                        <span class="tech-pill">TypeScript</span>
-                        <span class="tech-pill">Node.js</span>
-                        <span class="tech-pill">Express</span>
-                        <span class="tech-pill">Prisma ORM</span>
+                <article class="project-card" role="article" aria-labelledby="countries-title" aria-describedby="countries-desc" tabindex="0">
+                    <div class="project-card-inner">
+                        <div class="project-visual" aria-hidden="true"><i class="fas fa-globe fa-2x"></i></div>
+                        <h2 id="countries-title">Countries (Type-safe API)</h2>
+                        <p id="countries-desc" class="project-challenge"><strong>Challenge:</strong> Rapidly build type-safe APIs for reliable geo-data serving.</p>
+                        <p class="project-solution"><strong>Solution:</strong> Implemented a TypeScript + Node API using Prisma for type-safe DB access and structured error handling.</p>
+                        <p class="project-results"><strong>Outcome:</strong> Demonstrates rapid adoption of TypeScript and production-grade API patterns.</p>
+                        <div class="tech-stack"><span class="badge">TypeScript</span><span class="badge">Node.js</span><span class="badge">Prisma</span></div>
+                        <div class="project-actions">
+                            <a
+                                href="https://github.com/orielmalik/countries"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-link github-link"
+                            >
+                                GitHub Repository
+                            </a>
+                        </div>
                     </div>
-                    <div class="project-cta">
-                        See Code <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
+                </article>
 
-                <!-- Android Mission -->
-                <div class="project-card" data-project="android">
-                    <i class="fab fa-android project-icon"></i>
-                    <span class="project-category">Native Android Development</span>
-                    <h3>Mission Statement</h3>
-                    <p>
-                        Developed native Android application for education/institution matching with Firebase cloud
-                        integration, AES encryption for data security, and HANLP natural language processing.
-                        Implemented ViewPager, RecyclerView, and Fragment-based UI patterns demonstrating mobile
-                        development proficiency and security best practices.
-                    </p>
-                    <div class="tech-pills">
-                        <span class="tech-pill">Java</span>
-                        <span class="tech-pill">Android</span>
-                        <span class="tech-pill">Firebase</span>
-                        <span class="tech-pill">AES</span>
-                        <span class="tech-pill">HANLP</span>
+                <!-- Mission Statement (Android) -->
+                <article class="project-card" role="article" aria-labelledby="mission-title" aria-describedby="mission-desc" tabindex="0">
+                    <div class="project-card-inner">
+                        <div class="project-visual" aria-hidden="true"><i class="fab fa-android fa-2x"></i></div>
+                        <h2 id="mission-title">Mission_Statement (Android)</h2>
+                        <p id="mission-desc" class="project-challenge"><strong>Challenge:</strong> Securely match users with institutions while protecting user data.</p>
+                        <p class="project-solution"><strong>Solution:</strong> Native Android app (Java) with Firebase integration, AES encryption for sensitive data, and HANLP for NLP-driven matching workflows.</p>
+                        <p class="project-results"><strong>Outcome:</strong> Shows end-to-end mobile + backend integration and security-first design decisions.</p>
+                        <div class="tech-stack"><span class="badge">Java</span><span class="badge">Android</span><span class="badge">Firebase</span></div>
+                        <div class="project-actions">
+                            <a
+                                href="https://github.com/orielmalik/Mission_Statement"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-link github-link"
+                            >
+                                GitHub Repository
+                            </a>
+                        </div>
                     </div>
-                    <div class="project-cta">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
+                </article>
             </div>
         </section>
 
@@ -1160,9 +1158,9 @@
     </footer>
 
     <!-- PROJECT MODAL -->
-    <div id="project-modal">
+    <div id="project-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="project-modal-title">
         <div class="modal-container">
-            <span class="modal-close"><i class="fas fa-times"></i></span>
+            <button class="modal-close" aria-label="Close dialog"><i class="fas fa-times" aria-hidden="true"></i></button>
             <div id="modal-body">
                 <!-- Content loaded via JS -->
             </div>

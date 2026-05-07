@@ -507,8 +507,37 @@ function initProjectModals() {
 
     function closeModal() {
         modal.classList.remove('active');
+        modal.setAttribute('aria-hidden','true');
         document.body.style.overflow = 'auto';
+        // restore focus to previously focused element
+        try { if (window._lastFocused) window._lastFocused.focus(); } catch (e) {}
     }
+
+    // Demo buttons: inject iframe lazily or show 'coming soon'
+    document.querySelectorAll('.demo-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // store last focused element
+            window._lastFocused = document.activeElement;
+            const yt = btn.getAttribute('data-youtube') || '';
+            const title = btn.getAttribute('data-title') || 'Project demo';
+            if (!yt) {
+                modalBody.innerHTML = `
+                    <h2 id="project-modal-title">${title}</h2>
+                    <p style="color:var(--text-secondary)">Demo coming soon — recommended: upload a 60–90 second architecture walkthrough to your YouTube channel.</p>
+                    <p><a href="https://www.youtube.com/@malikCode-w1s" target="_blank" rel="noopener noreferrer">Visit YouTube channel</a></p>
+                `;
+            } else {
+                const src = `https://www.youtube-nocookie.com/embed/${yt}?rel=0&autoplay=1`;
+                modalBody.innerHTML = `<h2 id="project-modal-title">${title}</h2><div class="video-container"><iframe src="${src}" title="${title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`;
+            }
+            modal.setAttribute('aria-hidden','false');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            // focus close button
+            const btnClose = document.querySelector('.modal-close'); if (btnClose) btnClose.focus();
+        });
+    });
 }
 
 // ===================================
